@@ -1,0 +1,133 @@
+---
+Práctica: B1.8b
+Bloque: 01_Entorno
+Nivel: 2
+Nivel_nombre: Intermedio
+RA: RA1, RA3, RA5
+CE: 1.b, 1.c, 3.b, 5.a
+Playlist: B1_Entorno
+Vídeo: B1.8b · Gestión de disco con DISKPART
+---
+
+## B1.8b — Gestión de disco por línea de comandos con DISKPART
+
+> [!abstract] Ficha de la práctica
+> ### 📌 `B1.8b` — Gestión de disco con DISKPART
+> - **Bloque 1** (Preparar el entorno) · **Nivel 2** (Intermedio) · **RA1, RA3, RA5** · **CE 1.b, 1.c, 3.b, 5.a**
+> - **🎬 Playlist:** `B1_Entorno`
+> - **📹 Nombre del vídeo:** `B1.8b · Gestión de disco con DISKPART`
+
+> [!info] Caso real (contexto profesional)
+> Un técnico se encuentra un equipo donde el **instalador de Windows no deja instalar** ("no se pudo crear una partición nueva") o un USB que quedó con particiones raras que el Explorador no arregla. Sin arrancar ningún Live, desde la **consola de Windows** limpia y reparticiona el disco con **DISKPART**, la herramienta de disco por línea de comandos integrada en Windows.
+
+- **🎯 Objetivo real:** limpiar y preparar discos desde la línea de comandos de Windows con DISKPART.
+- **🧩 Problema que resuelve:** discos/USB con particiones bloqueadas o incompatibles que impiden instalar o formatear desde la interfaz gráfica.
+
+---
+
+## 📚 Fundamento
+
+> [!info] Antes de empezar: DISKPART, el "GParted de Windows por comandos"
+> **DISKPART** viene de serie en Windows (no se instala nada). Trabaja por **comandos**, seleccionando primero el disco y operando después sobre él. Hace lo mismo que GParted (B1.8), pero **desde Windows y por CLI**: listar, seleccionar, limpiar, crear y formatear particiones.
+
+> [!warning] `clean` vs `clean all` — cuidado con lo que borras
+> - **`clean`:** borra la tabla de particiones (rápido). Los datos "desaparecen" pero se podrían recuperar.
+> - **`clean all`:** sobrescribe **todo el disco con ceros** (borrado seguro). Es **muy lento** en discos grandes (fue lo que viste en la Práctica 13: su tiempo es alto).
+> DISKPART **no pide confirmación**: si seleccionas el disco equivocado, lo borras. **Comprueba SIEMPRE el número de disco.**
+
+> [!example] Vocabulario de esta práctica
+> - **DISKPART:** utilidad de gestión de discos por CLI de Windows.
+> - **`clean` / `clean all`:** borrar tabla / borrado seguro con ceros.
+> - **Partición primaria:** partición donde se instala/arranca un SO.
+> - **Asignar letra:** dar una letra de unidad a la partición.
+> - **OBS · Playlist · Timestamp:** grabación · playlist `B1_Entorno` · marca por paso.
+
+---
+
+## 📹 Grabación de esta práctica
+
+> [!important] Obligaciones de grabación (LÉEME — es igual en TODAS las prácticas del bloque)
+> 1. **Paso 0:** léete el ejercicio y ten a mano OBS y tu identificación.
+> 2. **Arranca OBS y PRESÉNTATE** mostrando tu identidad (Teams o correo `@alu.edu.gva.es`).
+> 3. **Timestamps SIEMPRE:** `00:00 Presentación` y uno por paso.
+> 4. **Al terminar:** nombra el vídeo **`B1.8b · Gestión de disco con DISKPART`** y súbelo a **`B1_Entorno`** (No listado).
+> 5. **Una sola entrega.**
+
+---
+
+## 🛠️ Procedimiento
+
+> [!example] Paso 0 — Prepárate y empieza a grabar
+> Léete el ejercicio, arranca OBS y preséntate. Usa un **disco/USB de pruebas** (o un disco secundario de una VM). **Nunca** el disco del sistema en uso.
+
+> [!example] Paso 1 — Abre DISKPART como administrador
+> Abre **PowerShell/CMD como administrador** y ejecuta:
+> ```
+> diskpart
+> ```
+
+> [!example] Paso 2 — Localiza y selecciona el disco correcto
+> ```
+> list disk
+> select disk N
+> ```
+> ⚠️ Comprueba por **tamaño** que `N` es tu disco de pruebas (no el del sistema).
+
+> [!example] Paso 3 — Limpia el disco
+> ```
+> clean
+> ```
+> *(Si necesitas borrado seguro con ceros —lento— usa `clean all`.)*
+
+> [!example] Paso 4 — Crea y formatea una partición
+> ```
+> create partition primary
+> format fs=ntfs quick
+> assign letter=Z
+> ```
+
+> [!example] Paso 5 — Verifica y sal
+> ```
+> list volume
+> exit
+> ```
+> Comprueba que aparece tu nueva partición formateada y con letra.
+
+> [!example] Paso 6 — Cierra la grabación y súbela
+> Detén OBS, nombra el vídeo **`B1.8b · Gestión de disco con DISKPART`**, súbelo a **`B1_Entorno`** y añade timestamps.
+
+---
+
+## 🚩 Errores y verificación
+
+> [!warning] Errores típicos (evítalos)
+> | Error | Qué pasa | Cómo evitarlo |
+> | :--- | :--- | :--- |
+> | Seleccionar el disco del sistema | **Borras Windows** (sin aviso) | Comprueba el **tamaño** en `list disk` antes de `clean`. |
+> | Usar `clean all` en un disco grande | Tarda muchísimo | Usa `clean` salvo que necesites borrado seguro. |
+> | No abrir como administrador | DISKPART no arranca / falla | Ejecuta la consola **como administrador**. |
+
+> [!success] ✅ Verificación: ¿está bien hecho?
+> - El disco/USB queda **limpio y con una partición** NTFS con letra.
+> - Sabes la diferencia entre **`clean`** y **`clean all`**.
+> - El vídeo está en la playlist `B1_Entorno` con timestamps.
+
+> [!question] Comprueba que lo has entendido
+> 1. ¿Qué diferencia hay entre **`clean`** y **`clean all`**? ¿Por qué uno tarda tanto?
+> 2. ¿Por qué es peligroso equivocarse de **número de disco** en DISKPART?
+> 3. ¿Cuándo usarías **DISKPART** en vez de **GParted**?
+
+---
+
+## ✅ Entregables y cierre
+
+- **Entregable:** disco/USB de pruebas limpiado y particionado con DISKPART (evidenciado en el vídeo).
+- **Entregable vídeo:** `B1.8b · Gestión de disco con DISKPART` en `B1_Entorno`. **Una sola entrega.**
+- **Criterio de éxito:** disco preparado por CLI + comprensión de `clean`/`clean all` y del riesgo de seleccionar mal el disco.
+
+> [!summary] 🎓 Qué has aprendido en este ejercicio
+> - A preparar discos **desde la línea de comandos de Windows** con DISKPART.
+> - La diferencia entre **`clean`** (rápido) y **`clean all`** (borrado seguro).
+> - Cuándo conviene **DISKPART (Windows/CLI)** y cuándo **GParted (Linux/Live)**.
+>
+> **Siguiente:** B1.9 — Laboratorio de virtualización (VirtualBox / Hyper-V).
