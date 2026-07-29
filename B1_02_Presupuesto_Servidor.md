@@ -50,7 +50,7 @@ Vídeo: B1.2 · Presupuesto profesional de un servidor
 > 2. **Arranca OBS y PRESÉNTATE:** *"Hola, me llamo [Nombre], 2.º SMR, y en este vídeo hago la práctica B1.2 — Presupuesto de servidor."* Muestra tu identidad (Teams o correo `@alu.edu.gva.es`).
 > 3. **Timestamps SIEMPRE:** `00:00 Presentación` y uno por paso.
 > 4. **Al terminar:** nombra el vídeo **`B1.2 · Presupuesto profesional de un servidor`** y súbelo a la playlist **`B1_Entorno`** (No listado). Y **pega su enlace dentro de tu entrada de apuntes**, en el apartado `Enlace al vídeo explicativo`.
-> 5. **Una sola entrega.**
+> 5. **Se graba una sola vez** (no se duplica casa/centro). **La entrega va por la TAREA de Teams:** abriré una tarea que cubrirá **esta práctica y otras**; te llegará notificación con fecha límite. Ahí pegarás el enlace de tu **repositorio de apuntes** — los vídeos ya están dentro de tus entradas.
 
 ---
 
@@ -107,7 +107,7 @@ Vídeo: B1.2 · Presupuesto profesional de un servidor
 ## ✅ Entregables y cierre
 
 - **Entregable documento:** presupuesto en **Word** con plantilla, fórmulas y estilo corporativo.
-- **Entregable vídeo:** `B1.2 · Presupuesto profesional de un servidor` en la playlist `B1_Entorno` (con los 3 momentos grabados y timestamps). **Una sola entrega.**
+- **Entregable vídeo:** `B1.2 · Presupuesto profesional de un servidor` en la playlist `B1_Entorno` (con los 3 momentos grabados y timestamps). **Se graba una sola vez** (no se duplica casa/centro). **La entrega va por la TAREA de Teams:** abriré una tarea que cubrirá **esta práctica y otras**; te llegará notificación con fecha límite. Ahí pegarás el enlace de tu **repositorio de apuntes** — los vídeos ya están dentro de tus entradas.
 - **Criterio de éxito:** componentes compatibles y actuales + total calculado automáticamente + vídeo subido.
 - **Entregable apuntes:** `b1-2-presupuesto-profesional-de-un-servidor.md` en `B1_Entorno/`, con la estructura completa, las **respuestas a las preguntas de «Comprueba que lo has entendido»** y el **enlace del vídeo** dentro. Subida al repo con `git add` → `commit` → `push`.
 

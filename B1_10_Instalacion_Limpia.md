@@ -49,7 +49,7 @@ Vídeo: B1.10 · Instalación limpia de un SO
 > 2. **Arranca OBS y PRESÉNTATE** mostrando tu identidad (Teams o correo `@alu.edu.gva.es`).
 > 3. **Timestamps SIEMPRE:** `00:00 Presentación` y uno por paso.
 > 4. **Al terminar:** nombra el vídeo **`B1.10 · Instalación limpia de un SO`** y súbelo a **`B1_Entorno`** (No listado). Y **pega su enlace dentro de tu entrada de apuntes**, en el apartado `Enlace al vídeo explicativo`.
-> 5. **Una sola entrega.**
+> 5. **Se graba una sola vez** (no se duplica casa/centro). **La entrega va por la TAREA de Teams:** abriré una tarea que cubrirá **esta práctica y otras**; te llegará notificación con fecha límite. Ahí pegarás el enlace de tu **repositorio de apuntes** — los vídeos ya están dentro de tus entradas.
 
 ---
 
@@ -102,7 +102,7 @@ Vídeo: B1.10 · Instalación limpia de un SO
 ## ✅ Entregables y cierre
 
 - **Entregable:** SO instalado y funcionando en la VM (evidenciado en el vídeo, con el primer arranque).
-- **Entregable vídeo:** `B1.10 · Instalación limpia de un SO` en `B1_Entorno`. **Una sola entrega.**
+- **Entregable vídeo:** `B1.10 · Instalación limpia de un SO` en `B1_Entorno`. **Se graba una sola vez** (no se duplica casa/centro). **La entrega va por la TAREA de Teams:** abriré una tarea que cubrirá **esta práctica y otras**; te llegará notificación con fecha límite. Ahí pegarás el enlace de tu **repositorio de apuntes** — los vídeos ya están dentro de tus entradas.
 - **Criterio de éxito:** SO que arranca del disco, con red y usuario administrador configurados.
 - **Entregable apuntes:** `b1-10-instalacion-limpia-de-un-so.md` en `B1_Entorno/`, con la estructura completa, las **respuestas a las preguntas de «Comprueba que lo has entendido»** y el **enlace del vídeo** dentro. Subida al repo con `git add` → `commit` → `push`.
 

@@ -53,7 +53,7 @@ Vídeo: B1.1 · Análisis de hardware con CPU-Z
 > 3. **Graba todos los pasos** sin cortes, hablando lo que haces.
 > 4. **Timestamps SIEMPRE** en la descripción del vídeo: `00:00 Presentación` y **uno por cada paso** (`mm:ss`).
 > 5. **Al terminar:** nombra el vídeo **`B1.1 · Análisis de hardware con CPU-Z`** y súbelo a tu playlist de YouTube **`B1_Entorno`** (como **"No listado"**). Y **pega su enlace dentro de tu entrada de apuntes**, en el apartado `Enlace al vídeo explicativo`.
-> 6. **Una sola entrega** (no se duplica casa/centro).
+> 6. **Se graba una sola vez** (no se duplica casa/centro). **La entrega va por la TAREA de Teams:** abriré una tarea que cubrirá **esta práctica y otras**; te llegará notificación con fecha límite. Ahí pegarás el enlace de tu **repositorio de apuntes** — los vídeos ya están dentro de tus entradas.
 
 ---
 
@@ -116,7 +116,7 @@ Vídeo: B1.1 · Análisis de hardware con CPU-Z
 
 ## ✅ Entregables y cierre
 
-- **Entregable vídeo:** `B1.1 · Análisis de hardware con CPU-Z` subido a la playlist `B1_Entorno` (No listado), con presentación al principio y timestamps. **Una sola entrega**.
+- **Entregable vídeo:** `B1.1 · Análisis de hardware con CPU-Z` subido a la playlist `B1_Entorno` (No listado), con presentación al principio y timestamps. **Se graba una sola vez** (no se duplica casa/centro). **La entrega va por la TAREA de Teams:** abriré una tarea que cubrirá **esta práctica y otras**; te llegará notificación con fecha límite. Ahí pegarás el enlace de tu **repositorio de apuntes** — los vídeos ya están dentro de tus entradas.
 - **Entregable documento:** la **tabla de inventario** del equipo analizado.
 - **Criterio de éxito:** inventario completo y correcto (CPU, placa, memoria) + vídeo subido a su playlist.
 - **Entregable apuntes:** `b1-1-analisis-de-hardware-con-cpu-z.md` en `B1_Entorno/`, con la estructura completa, las **respuestas a las preguntas de «Comprueba que lo has entendido»** y el **enlace del vídeo** dentro. Subida al repo con `git add` → `commit` → `push`.

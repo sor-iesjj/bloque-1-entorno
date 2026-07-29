@@ -48,7 +48,7 @@ Vídeo: B1.7 · Kit multiboot con Ventoy
 > 2. **Arranca OBS y PRESÉNTATE** mostrando tu identidad (Teams o correo `@alu.edu.gva.es`).
 > 3. **Timestamps SIEMPRE:** `00:00 Presentación` y uno por paso.
 > 4. **Al terminar:** nombra el vídeo **`B1.7 · Kit multiboot con Ventoy`** y súbelo a **`B1_Entorno`** (No listado). Y **pega su enlace dentro de tu entrada de apuntes**, en el apartado `Enlace al vídeo explicativo`.
-> 5. **Una sola entrega.**
+> 5. **Se graba una sola vez** (no se duplica casa/centro). **La entrega va por la TAREA de Teams:** abriré una tarea que cubrirá **esta práctica y otras**; te llegará notificación con fecha límite. Ahí pegarás el enlace de tu **repositorio de apuntes** — los vídeos ya están dentro de tus entradas.
 
 ---
 
@@ -98,7 +98,7 @@ Vídeo: B1.7 · Kit multiboot con Ventoy
 ## ✅ Entregables y cierre
 
 - **Entregable:** USB multiboot con Ventoy y varias ISOs (evidenciado en el vídeo).
-- **Entregable vídeo:** `B1.7 · Kit multiboot con Ventoy` en `B1_Entorno`. **Una sola entrega.**
+- **Entregable vídeo:** `B1.7 · Kit multiboot con Ventoy` en `B1_Entorno`. **Se graba una sola vez** (no se duplica casa/centro). **La entrega va por la TAREA de Teams:** abriré una tarea que cubrirá **esta práctica y otras**; te llegará notificación con fecha límite. Ahí pegarás el enlace de tu **repositorio de apuntes** — los vídeos ya están dentro de tus entradas.
 - **Criterio de éxito:** kit funcional + demostrada la actualización sin reformatear.
 - **Entregable apuntes:** `b1-7-kit-multiboot-con-ventoy.md` en `B1_Entorno/`, con la estructura completa, las **respuestas a las preguntas de «Comprueba que lo has entendido»** y el **enlace del vídeo** dentro. Subida al repo con `git add` → `commit` → `push`.
 
