@@ -46,10 +46,10 @@ Vídeo: B1.2 · Presupuesto profesional de un servidor
 
 > [!important] Obligaciones de grabación (LÉEME — es igual en TODAS las prácticas del bloque)
 > Esta práctica se **graba entera con OBS**, de principio a fin. Aquí necesitas **tres momentos grabados** (búsqueda de componentes, creación de la plantilla, cálculo final).
-> 1. **Prepárate primero** (Paso 0): léete el ejercicio y ten a mano OBS y tu identificación.
+> 1. **Prepárate primero** (Paso 0): léete el ejercicio y ten a mano OBS y tu identificación. **Crea la entrada de apuntes de esta práctica** en Obsidian: fichero `b1-2-presupuesto-profesional-de-un-servidor.md` dentro de `00_Apuntes/Trimestre_N/B1_Entorno/`, con la estructura de la Fase 0.1 y **vacía**. Rellenarla es cosa tuya, después.
 > 2. **Arranca OBS y PRESÉNTATE:** *"Hola, me llamo [Nombre], 2.º SMR, y en este vídeo hago la práctica B1.2 — Presupuesto de servidor."* Muestra tu identidad (Teams o correo `@alu.edu.gva.es`).
 > 3. **Timestamps SIEMPRE:** `00:00 Presentación` y uno por paso.
-> 4. **Al terminar:** nombra el vídeo **`B1.2 · Presupuesto profesional de un servidor`** y súbelo a la playlist **`B1_Entorno`** (No listado).
+> 4. **Al terminar:** nombra el vídeo **`B1.2 · Presupuesto profesional de un servidor`** y súbelo a la playlist **`B1_Entorno`** (No listado). Y **pega su enlace dentro de tu entrada de apuntes**, en el apartado `Enlace al vídeo explicativo`.
 > 5. **Una sola entrega.**
 
 ---
@@ -109,6 +109,11 @@ Vídeo: B1.2 · Presupuesto profesional de un servidor
 - **Entregable documento:** presupuesto en **Word** con plantilla, fórmulas y estilo corporativo.
 - **Entregable vídeo:** `B1.2 · Presupuesto profesional de un servidor` en la playlist `B1_Entorno` (con los 3 momentos grabados y timestamps). **Una sola entrega.**
 - **Criterio de éxito:** componentes compatibles y actuales + total calculado automáticamente + vídeo subido.
+- **Entregable apuntes:** `b1-2-presupuesto-profesional-de-un-servidor.md` en `B1_Entorno/`, con la estructura completa, las **respuestas a las preguntas de «Comprueba que lo has entendido»** y el **enlace del vídeo** dentro. Subida al repo con `git add` → `commit` → `push`.
+
+> [!danger] ⚠️ Las respuestas van en la ENTRADA, no sueltas
+> Las preguntas de esta práctica no son decorativas: son lo que demuestra que has entendido lo que hiciste, y no solo que supiste seguir los pasos. Se contestan **con tus palabras** en el apartado `Respuesta a las preguntas` de tu entrada.
+> Una práctica con el vídeo perfecto y las preguntas en blanco está **incompleta**.
 
 > [!summary] 🎓 Qué has aprendido en este ejercicio
 > - A **elegir y justificar** componentes reales de un servidor profesional.

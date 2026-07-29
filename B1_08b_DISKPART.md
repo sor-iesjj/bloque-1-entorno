@@ -47,10 +47,10 @@ Vídeo: B1.8b · Gestión de disco con DISKPART
 ## 📹 Grabación de esta práctica
 
 > [!important] Obligaciones de grabación (LÉEME — es igual en TODAS las prácticas del bloque)
-> 1. **Paso 0:** léete el ejercicio y ten a mano OBS y tu identificación.
+> 1. **Paso 0:** léete el ejercicio y ten a mano OBS y tu identificación. **Crea la entrada de apuntes de esta práctica** en Obsidian: fichero `b1-8b-gestion-de-disco-con-diskpart.md` dentro de `00_Apuntes/Trimestre_N/B1_Entorno/`, con la estructura de la Fase 0.1 y **vacía**. Rellenarla es cosa tuya, después.
 > 2. **Arranca OBS y PRESÉNTATE** mostrando tu identidad (Teams o correo `@alu.edu.gva.es`).
 > 3. **Timestamps SIEMPRE:** `00:00 Presentación` y uno por paso.
-> 4. **Al terminar:** nombra el vídeo **`B1.8b · Gestión de disco con DISKPART`** y súbelo a **`B1_Entorno`** (No listado).
+> 4. **Al terminar:** nombra el vídeo **`B1.8b · Gestión de disco con DISKPART`** y súbelo a **`B1_Entorno`** (No listado). Y **pega su enlace dentro de tu entrada de apuntes**, en el apartado `Enlace al vídeo explicativo`.
 > 5. **Una sola entrega.**
 
 ---
@@ -124,6 +124,11 @@ Vídeo: B1.8b · Gestión de disco con DISKPART
 - **Entregable:** disco/USB de pruebas limpiado y particionado con DISKPART (evidenciado en el vídeo).
 - **Entregable vídeo:** `B1.8b · Gestión de disco con DISKPART` en `B1_Entorno`. **Una sola entrega.**
 - **Criterio de éxito:** disco preparado por CLI + comprensión de `clean`/`clean all` y del riesgo de seleccionar mal el disco.
+- **Entregable apuntes:** `b1-8b-gestion-de-disco-con-diskpart.md` en `B1_Entorno/`, con la estructura completa, las **respuestas a las preguntas de «Comprueba que lo has entendido»** y el **enlace del vídeo** dentro. Subida al repo con `git add` → `commit` → `push`.
+
+> [!danger] ⚠️ Las respuestas van en la ENTRADA, no sueltas
+> Las preguntas de esta práctica no son decorativas: son lo que demuestra que has entendido lo que hiciste, y no solo que supiste seguir los pasos. Se contestan **con tus palabras** en el apartado `Respuesta a las preguntas` de tu entrada.
+> Una práctica con el vídeo perfecto y las preguntas en blanco está **incompleta**.
 
 > [!summary] 🎓 Qué has aprendido en este ejercicio
 > - A preparar discos **desde la línea de comandos de Windows** con DISKPART.

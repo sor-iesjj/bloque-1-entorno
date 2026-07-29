@@ -48,11 +48,11 @@ Vídeo: B1.1 · Análisis de hardware con CPU-Z
 
 > [!important] Obligaciones de grabación (LÉEME — es igual en TODAS las prácticas del bloque)
 > Esta práctica se **graba entera con OBS**, de principio a fin. No es un repaso al final: quiero ver **cómo lo haces tú**.
-> 1. **Prepárate primero** (Paso 0): léete el ejercicio entero y ten a mano OBS y tu identificación.
+> 1. **Prepárate primero** (Paso 0): léete el ejercicio entero y ten a mano OBS y tu identificación. **Crea la entrada de apuntes de esta práctica** en Obsidian: fichero `b1-1-analisis-de-hardware-con-cpu-z.md` dentro de `00_Apuntes/Trimestre_N/B1_Entorno/`, con la estructura de la Fase 0.1 y **vacía**. Rellenarla es cosa tuya, después.
 > 2. **Arranca OBS y, nada más empezar, PRESÉNTATE:** *"Hola, me llamo [Nombre], soy alumno de 2.º SMR, y en este vídeo voy a hacer la práctica B1.1 — Análisis de hardware con CPU-Z."* Y **muestra en pantalla algo que demuestre que eres tú** (tu **Teams** o tu correo `@alu.edu.gva.es`). Di **qué vas a hacer**.
 > 3. **Graba todos los pasos** sin cortes, hablando lo que haces.
 > 4. **Timestamps SIEMPRE** en la descripción del vídeo: `00:00 Presentación` y **uno por cada paso** (`mm:ss`).
-> 5. **Al terminar:** nombra el vídeo **`B1.1 · Análisis de hardware con CPU-Z`** y súbelo a tu playlist de YouTube **`B1_Entorno`** (como **"No listado"**).
+> 5. **Al terminar:** nombra el vídeo **`B1.1 · Análisis de hardware con CPU-Z`** y súbelo a tu playlist de YouTube **`B1_Entorno`** (como **"No listado"**). Y **pega su enlace dentro de tu entrada de apuntes**, en el apartado `Enlace al vídeo explicativo`.
 > 6. **Una sola entrega** (no se duplica casa/centro).
 
 ---
@@ -119,6 +119,11 @@ Vídeo: B1.1 · Análisis de hardware con CPU-Z
 - **Entregable vídeo:** `B1.1 · Análisis de hardware con CPU-Z` subido a la playlist `B1_Entorno` (No listado), con presentación al principio y timestamps. **Una sola entrega**.
 - **Entregable documento:** la **tabla de inventario** del equipo analizado.
 - **Criterio de éxito:** inventario completo y correcto (CPU, placa, memoria) + vídeo subido a su playlist.
+- **Entregable apuntes:** `b1-1-analisis-de-hardware-con-cpu-z.md` en `B1_Entorno/`, con la estructura completa, las **respuestas a las preguntas de «Comprueba que lo has entendido»** y el **enlace del vídeo** dentro. Subida al repo con `git add` → `commit` → `push`.
+
+> [!danger] ⚠️ Las respuestas van en la ENTRADA, no sueltas
+> Las preguntas de esta práctica no son decorativas: son lo que demuestra que has entendido lo que hiciste, y no solo que supiste seguir los pasos. Se contestan **con tus palabras** en el apartado `Respuesta a las preguntas` de tu entrada.
+> Una práctica con el vídeo perfecto y las preguntas en blanco está **incompleta**.
 
 > [!summary] 🎓 Qué has aprendido en este ejercicio
 > - A **inventariar el hardware real** de un equipo con **CPU-Z**.

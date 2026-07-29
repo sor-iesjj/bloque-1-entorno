@@ -45,10 +45,10 @@ Vídeo: B1.13 · Proyecto final de integración
 
 > [!important] Obligaciones de grabación (LÉEME — es igual en TODAS las prácticas del bloque)
 > Al ser el proyecto final, el vídeo es también una **defensa**: además de mostrar el flujo, **explicas y justificas** tus decisiones.
-> 1. **Paso 0:** léete el ejercicio y ten a mano OBS y tu identificación.
+> 1. **Paso 0:** léete el ejercicio y ten a mano OBS y tu identificación. **Crea la entrada de apuntes de esta práctica** en Obsidian: fichero `b1-13-proyecto-final-de-integracion.md` dentro de `00_Apuntes/Trimestre_N/B1_Entorno/`, con la estructura de la Fase 0.1 y **vacía**. Rellenarla es cosa tuya, después.
 > 2. **Arranca OBS y PRESÉNTATE** mostrando tu identidad (Teams o correo `@alu.edu.gva.es`).
 > 3. **Timestamps SIEMPRE:** `00:00 Presentación` y uno por apartado/fase.
-> 4. **Al terminar:** nombra el vídeo **`B1.13 · Proyecto final de integración`** y súbelo a **`B1_Entorno`** (No listado).
+> 4. **Al terminar:** nombra el vídeo **`B1.13 · Proyecto final de integración`** y súbelo a **`B1_Entorno`** (No listado). Y **pega su enlace dentro de tu entrada de apuntes**, en el apartado `Enlace al vídeo explicativo`.
 > 5. **Una sola entrega.**
 
 ---
@@ -105,6 +105,11 @@ Vídeo: B1.13 · Proyecto final de integración
 - **Entregable:** kit Ventoy de mantenimiento + equipos instalados (evidenciado en el vídeo).
 - **Entregable vídeo (defensa):** `B1.13 · Proyecto final de integración` en `B1_Entorno`. **Una sola entrega.**
 - **Criterio de éxito:** flujo completo ejecutado + comparativa con datos + decisiones justificadas.
+- **Entregable apuntes:** `b1-13-proyecto-final-de-integracion.md` en `B1_Entorno/`, con la estructura completa, las **respuestas a las preguntas de «Comprueba que lo has entendido»** y el **enlace del vídeo** dentro. Subida al repo con `git add` → `commit` → `push`.
+
+> [!danger] ⚠️ Las respuestas van en la ENTRADA, no sueltas
+> Las preguntas de esta práctica no son decorativas: son lo que demuestra que has entendido lo que hiciste, y no solo que supiste seguir los pasos. Se contestan **con tus palabras** en el apartado `Respuesta a las preguntas` de tu entrada.
+> Una práctica con el vídeo perfecto y las preguntas en blanco está **incompleta**.
 
 > [!summary] 🎓 Qué has demostrado con este proyecto
 > - Que **integras** todos los métodos del bloque (verificar, particionar, instalar por USB y por red, kit Ventoy).
