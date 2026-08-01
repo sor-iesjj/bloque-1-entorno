@@ -116,4 +116,4 @@ Vídeo: B1.9 · Laboratorio de virtualización (VirtualBox / Hyper-V)
 > - Los **tipos de red** de VirtualBox y para qué sirve cada uno.
 > - A usar **snapshots** para practicar sin miedo. Este laboratorio es la base de **Boochan**.
 >
-> **Siguiente:** B1.10 — Instalación limpia de un SO.
+> **Siguiente:** B1.9b — Verificar tu red con APIs públicas: comprobarás **desde fuera** que el NAT que acabas de configurar hace lo que crees.
