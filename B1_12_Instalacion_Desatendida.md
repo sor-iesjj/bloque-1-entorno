@@ -30,7 +30,7 @@ Opcional: true
 
 > [!info] Antes de empezar: el archivo de respuestas
 > Una instalación desatendida usa un **archivo de respuestas** que el instalador lee para no preguntar nada:
-> - **Ubuntu Server 24.04:** **autoinstall** (basado en **cloud-init**), con un fichero `user-data` (YAML).
+> - **Ubuntu Server 26.04:** **autoinstall** (basado en **cloud-init**), con un fichero `user-data` (YAML).
 > - **Windows:** **unattend.xml**, generado (p. ej. con herramientas de respuesta) y colocado en el medio de instalación.
 
 > [!tip] Idea clave

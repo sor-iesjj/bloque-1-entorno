@@ -29,7 +29,7 @@ Vídeo: B1.3 · Elegir el SO y comprobar requisitos
 
 > [!info] Antes de empezar: Windows Server vs Ubuntu Server
 > - **Windows Server 2025:** de pago (licencia por núcleos + CALs). Muy usado en empresas con Active Directory nativo. Dos modos: **Server Core** (solo terminal, ligero, más seguro) y **con Experiencia de Escritorio** (interfaz gráfica, más consumo).
-> - **Ubuntu Server 24.04 LTS:** gratuito, sin interfaz gráfica por defecto (requisitos mínimos), soporte LTS de años. Ideal para servicios Linux, contenedores y como controlador de dominio con Samba.
+> - **Ubuntu Server 26.04 LTS:** gratuito, sin interfaz gráfica por defecto (requisitos mínimos), soporte LTS de años. Ideal para servicios Linux, contenedores y como controlador de dominio con Samba.
 
 > [!tip] Idea clave
 > **El SO se elige por el trabajo, no por la moda.** Un servidor de archivos con AD nativo pide Windows Server; un servidor de servicios Linux o de bajo coste pide Ubuntu Server. Y **Server Core** casi siempre es mejor que la GUI en producción: menos recursos y menos superficie de ataque.
@@ -62,7 +62,7 @@ Vídeo: B1.3 · Elegir el SO y comprobar requisitos
 > [!example] Paso 1 — Consulta los requisitos oficiales
 > Busca en las webs oficiales los **requisitos mínimos** de:
 > - **Windows Server 2025** (microsoft.com).
-> - **Ubuntu Server 24.04 LTS** (ubuntu.com).
+> - **Ubuntu Server 26.04 LTS** (ubuntu.com).
 > Anota CPU, RAM y disco de cada uno.
 
 > [!example] Paso 2 — Compara con tu inventario (B1.1)
@@ -78,7 +78,7 @@ Vídeo: B1.3 · Elegir el SO y comprobar requisitos
 > | SO candidato | Requisitos que pide | ¿El equipo cumple? | Decisión y motivo |
 > | :--- | :--- | :--- | :--- |
 > | Windows Server 2025 | … | ✅/❌ | … |
-> | Ubuntu Server 24.04 | … | ✅/❌ | … |
+> | Ubuntu Server 26.04 | … | ✅/❌ | … |
 
 > [!example] Paso 5 — Cierra la grabación y súbela
 > Detén OBS, nombra el vídeo **`B1.3 · Elegir el SO y comprobar requisitos`**, súbelo a **`B1_Entorno`** y añade timestamps.

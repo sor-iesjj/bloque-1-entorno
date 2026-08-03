@@ -59,16 +59,16 @@ Vídeo: B1.4 · Descargar y verificar la ISO (SHA256)
 > Léete el ejercicio, arranca OBS y preséntate.
 
 > [!example] Paso 1 — Descarga la ISO oficial
-> Descarga **Ubuntu Server 24.04 LTS** desde `ubuntu.com` (o la ISO que uses). En la misma página del fabricante, **localiza el hash SHA256 oficial** (suele estar en un fichero `SHA256SUMS` o junto al enlace de descarga). Anótalo o tenlo a la vista.
+> Descarga **Ubuntu Server 26.04 LTS** desde `ubuntu.com` (o la ISO que uses). En la misma página del fabricante, **localiza el hash SHA256 oficial** (suele estar en un fichero `SHA256SUMS` o junto al enlace de descarga). Anótalo o tenlo a la vista.
 
 > [!example] Paso 2 — Calcula el hash de tu descarga
 > - **🪟 PowerShell:**
 > ```
-> Get-FileHash .\ubuntu-24.04-live-server-amd64.iso -Algorithm SHA256
+> Get-FileHash .\ubuntu-26.04-live-server-amd64.iso -Algorithm SHA256
 > ```
 > - **🐧 Linux / Git Bash:**
 > ```
-> sha256sum ubuntu-24.04-live-server-amd64.iso
+> sha256sum ubuntu-26.04-live-server-amd64.iso
 > ```
 
 > [!example] Paso 3 — Compara los dos hash
