@@ -7,6 +7,25 @@
 - **Playlist:** `B1_Entorno` · **Vídeo:** `B1.n · título` (No listado) · **una sola entrega**.
 - Estructura fija: ficha → fundamento → 📹 grabación → procedimiento (Paso 0 + pasos + cierre) → errores/verificación → preguntas → entregables → resumen.
 
+
+> [!abstract] 📋 Qué RA y CE cubre este bloque
+> El bloque trabaja el **`RA.01`** (instalación de sistemas operativos en red) casi en su totalidad, y toca el **`RA.05`** en las prácticas de automatización y verificación.
+>
+> | CE | Criterio | Dónde |
+> | :--- | :--- | :--- |
+> | `CE.01.a` | Estudio de compatibilidad del sistema informático | B1.1 · B1.2 · B1.3 · B1.9 |
+> | `CE.01.b` | Modos de instalación | B1.4 · B1.5 · B1.6 · B1.7 · B1.10 · B1.11 · B1.13 |
+> | `CE.01.c` | Particionado del disco del servidor | B1.5 · B1.8 · B1.8b · B1.10 · B1.13 |
+> | `CE.01.d` | Sistemas de archivos | B1.8 · B1.8b · B1.10 |
+> | `CE.01.e` | Componentes a instalar | B1.3 · B1.10 |
+> | `CE.01.f` | **Automatización de instalaciones** | B1.11 · B1.12 · B1.13 |
+> | `CE.01.g` | Preferencias del entorno personal | B1.10 |
+> | `CE.01.i` | Conectividad servidor–cliente | B1.9b · B1.11 |
+> | `CE.05.e` | Automatización de tareas del sistema | B1.12 · B1.13 |
+> | `CE.05.f` | Interpretar la configuración del sistema | B1.9b · B1.13 |
+>
+> **`CE.01.f` solo se cubre aquí.** Ningún otro bloque del módulo trabaja la automatización de instalaciones: si este bloque no se imparte, ese criterio se queda sin evaluar.
+
 ## Índice de prácticas
 
 ### A · Hardware y requisitos

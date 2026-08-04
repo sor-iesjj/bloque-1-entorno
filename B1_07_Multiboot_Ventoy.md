@@ -3,8 +3,8 @@ Práctica: B1.7
 Bloque: 01_Entorno
 Nivel: 2
 Nivel_nombre: Intermedio
-RA: RA1, RA3, RA5
-CE: 1.c, 1.d, 3.b, 5.a
+RA: RA.01
+CE: CE.01.b
 Playlist: B1_Entorno
 Vídeo: B1.7 · Kit multiboot con Ventoy
 ---
@@ -13,7 +13,7 @@ Vídeo: B1.7 · Kit multiboot con Ventoy
 
 > [!abstract] Ficha de la práctica
 > ### 📌 `B1.7` — Kit multiboot con Ventoy
-> - **Bloque 1** (Preparar el entorno) · **Nivel 2** (Intermedio) · **RA1, RA3, RA5** · **CE 1.c, 1.d, 3.b, 5.a**
+> - **Bloque 1** (Preparar el entorno) · **Nivel 2** (Intermedio) · **RA.01** · **CE.01.b**
 > - **🎬 Playlist:** `B1_Entorno`
 > - **📹 Nombre del vídeo:** `B1.7 · Kit multiboot con Ventoy`
 

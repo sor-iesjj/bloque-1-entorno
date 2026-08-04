@@ -3,8 +3,8 @@ Práctica: B1.11
 Bloque: 01_Entorno
 Nivel: 3
 Nivel_nombre: Avanzado
-RA: RA1, RA2, RA5
-CE: 1.a, 1.d, 2.a, 2.c, 5.a
+RA: RA.01
+CE: CE.01.b, CE.01.f, CE.01.i
 Playlist: B1_Entorno
 Vídeo: B1.11 · Instalación por red con iVentoy
 ---
@@ -13,7 +13,7 @@ Vídeo: B1.11 · Instalación por red con iVentoy
 
 > [!abstract] Ficha de la práctica
 > ### 📌 `B1.11` — Instalación por red con iVentoy
-> - **Bloque 1** (Preparar el entorno) · **Nivel 3** (Avanzado) · **RA1, RA2, RA5** · **CE 1.a, 1.d, 2.a, 2.c, 5.a**
+> - **Bloque 1** (Preparar el entorno) · **Nivel 3** (Avanzado) · **RA.01** · **CE.01.b · CE.01.f · CE.01.i**
 > - **🎬 Playlist:** `B1_Entorno`
 > - **📹 Nombre del vídeo:** `B1.11 · Instalación por red con iVentoy`
 

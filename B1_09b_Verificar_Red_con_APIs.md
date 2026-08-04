@@ -3,8 +3,8 @@ Práctica: B1.9b
 Bloque: 01_Entorno
 Nivel: 2
 Nivel_nombre: Intermedio
-RA: RA1, RA5
-CE: 1.b, 1.i, 5.a
+RA: RA.01 · RA.05
+CE: CE.01.i, CE.05.f
 Playlist: B1_Entorno
 Vídeo: B1.9b · Verificar tu red con APIs públicas
 ---
@@ -13,7 +13,7 @@ Vídeo: B1.9b · Verificar tu red con APIs públicas
 
 > [!abstract] Ficha de la práctica
 > ### 📌 `B1.9b` — Verificar tu red con APIs públicas
-> - **Bloque 1** (Entorno) · **Nivel 2** (Intermedio) · **RA1, RA5** · **CE 1.b, 1.i, 5.a**
+> - **Bloque 1** (Entorno) · **Nivel 2** (Intermedio) · **RA.01 · RA.05** · **CE.01.i · CE.05.f**
 > - **🎬 Playlist:** `B1_Entorno`
 > - **📹 Nombre del vídeo:** `B1.9b · Verificar tu red con APIs públicas`
 > - **⏱️ Tiempo estimado:** ~45 min · **Requisitos:** la B1.9 hecha (laboratorio de virtualización con NAT y Host-Only)

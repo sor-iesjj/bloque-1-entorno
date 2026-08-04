@@ -3,8 +3,8 @@ Práctica: B1.6
 Bloque: 01_Entorno
 Nivel: 2
 Nivel_nombre: Intermedio
-RA: RA1, RA5
-CE: 1.a, 1.b, 1.d, 5.a
+RA: RA.01
+CE: CE.01.b
 Playlist: B1_Entorno
 Vídeo: B1.6 · Comparativa Rufus vs Balena Etcher
 ---
@@ -13,7 +13,7 @@ Vídeo: B1.6 · Comparativa Rufus vs Balena Etcher
 
 > [!abstract] Ficha de la práctica
 > ### 📌 `B1.6` — Rufus vs Balena Etcher
-> - **Bloque 1** (Preparar el entorno) · **Nivel 2** (Intermedio) · **RA1, RA5** · **CE 1.a, 1.b, 1.d, 5.a**
+> - **Bloque 1** (Preparar el entorno) · **Nivel 2** (Intermedio) · **RA.01** · **CE.01.b**
 > - **🎬 Playlist:** `B1_Entorno`
 > - **📹 Nombre del vídeo:** `B1.6 · Comparativa Rufus vs Balena Etcher`
 

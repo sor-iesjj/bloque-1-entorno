@@ -3,8 +3,8 @@ Práctica: B1.2
 Bloque: 01_Entorno
 Nivel: 2
 Nivel_nombre: Intermedio
-RA: RA1
-CE: 1.a, 1.b
+RA: RA.01
+CE: CE.01.a
 Playlist: B1_Entorno
 Vídeo: B1.2 · Presupuesto profesional de un servidor
 ---
@@ -13,7 +13,7 @@ Vídeo: B1.2 · Presupuesto profesional de un servidor
 
 > [!abstract] Ficha de la práctica
 > ### 📌 `B1.2` — Presupuesto profesional de un servidor
-> - **Bloque 1** (Preparar el entorno) · **Nivel 2** (Intermedio) · **RA1** · **CE 1.a, 1.b**
+> - **Bloque 1** (Preparar el entorno) · **Nivel 2** (Intermedio) · **RA.01** · **CE.01.a**
 > - **🎬 Playlist:** `B1_Entorno`
 > - **📹 Nombre del vídeo:** `B1.2 · Presupuesto profesional de un servidor`
 

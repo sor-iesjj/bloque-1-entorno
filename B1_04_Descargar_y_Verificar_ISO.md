@@ -3,8 +3,8 @@ Práctica: B1.4
 Bloque: 01_Entorno
 Nivel: 1
 Nivel_nombre: Básico
-RA: RA1
-CE: 1.a, 1.d
+RA: RA.01
+CE: CE.01.b
 Playlist: B1_Entorno
 Vídeo: B1.4 · Descargar y verificar la ISO (SHA256)
 ---
@@ -13,7 +13,7 @@ Vídeo: B1.4 · Descargar y verificar la ISO (SHA256)
 
 > [!abstract] Ficha de la práctica
 > ### 📌 `B1.4` — Descargar y verificar la ISO (SHA256)
-> - **Bloque 1** (Preparar el entorno) · **Nivel 1** (Básico) · **RA1** · **CE 1.a, 1.d**
+> - **Bloque 1** (Preparar el entorno) · **Nivel 1** (Básico) · **RA.01** · **CE.01.b**
 > - **🎬 Playlist:** `B1_Entorno`
 > - **📹 Nombre del vídeo:** `B1.4 · Descargar y verificar la ISO (SHA256)`
 

@@ -3,8 +3,8 @@ Práctica: B1.10
 Bloque: 01_Entorno
 Nivel: 2
 Nivel_nombre: Intermedio
-RA: RA1
-CE: 1.a, 1.b, 1.c, 1.d
+RA: RA.01
+CE: CE.01.b, CE.01.c, CE.01.d, CE.01.e, CE.01.g
 Playlist: B1_Entorno
 Vídeo: B1.10 · Instalación limpia de un SO
 ---
@@ -13,7 +13,7 @@ Vídeo: B1.10 · Instalación limpia de un SO
 
 > [!abstract] Ficha de la práctica
 > ### 📌 `B1.10` — Instalación limpia de un SO
-> - **Bloque 1** (Preparar el entorno) · **Nivel 2** (Intermedio) · **RA1** · **CE 1.a, 1.b, 1.c, 1.d**
+> - **Bloque 1** (Preparar el entorno) · **Nivel 2** (Intermedio) · **RA.01** · **CE.01.b · CE.01.c · CE.01.d · CE.01.e · CE.01.g**
 > - **🎬 Playlist:** `B1_Entorno`
 > - **📹 Nombre del vídeo:** `B1.10 · Instalación limpia de un SO`
 

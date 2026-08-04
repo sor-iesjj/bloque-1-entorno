@@ -3,8 +3,8 @@ Práctica: B1.3
 Bloque: 01_Entorno
 Nivel: 1
 Nivel_nombre: Básico
-RA: RA1
-CE: 1.a, 1.b
+RA: RA.01
+CE: CE.01.a, CE.01.e
 Playlist: B1_Entorno
 Vídeo: B1.3 · Elegir el SO y comprobar requisitos
 ---
@@ -13,7 +13,7 @@ Vídeo: B1.3 · Elegir el SO y comprobar requisitos
 
 > [!abstract] Ficha de la práctica
 > ### 📌 `B1.3` — Elegir el SO y comprobar requisitos
-> - **Bloque 1** (Preparar el entorno) · **Nivel 1** (Básico) · **RA1** · **CE 1.a, 1.b**
+> - **Bloque 1** (Preparar el entorno) · **Nivel 1** (Básico) · **RA.01** · **CE.01.a · CE.01.e**
 > - **🎬 Playlist:** `B1_Entorno`
 > - **📹 Nombre del vídeo:** `B1.3 · Elegir el SO y comprobar requisitos`
 

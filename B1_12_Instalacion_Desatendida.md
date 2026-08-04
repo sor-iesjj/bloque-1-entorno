@@ -3,8 +3,8 @@ Práctica: B1.12
 Bloque: 01_Entorno
 Nivel: 3
 Nivel_nombre: Avanzado
-RA: RA1, RA2
-CE: 1.d, 2.a, 2.c
+RA: RA.01 · RA.05
+CE: CE.01.f, CE.05.e
 Playlist: B1_Entorno
 Vídeo: B1.12 · Instalación desatendida
 Opcional: true
@@ -14,7 +14,7 @@ Opcional: true
 
 > [!abstract] Ficha de la práctica
 > ### 📌 `B1.12` — Instalación desatendida *(opcional / ampliación)*
-> - **Bloque 1** (Preparar el entorno) · **Nivel 3** (Avanzado) · **RA1, RA2** · **CE 1.d, 2.a, 2.c**
+> - **Bloque 1** (Preparar el entorno) · **Nivel 3** (Avanzado) · **RA.01 · RA.05** · **CE.01.f · CE.05.e**
 > - **🎬 Playlist:** `B1_Entorno`
 > - **📹 Nombre del vídeo:** `B1.12 · Instalación desatendida`
 

@@ -3,8 +3,8 @@ Práctica: B1.9
 Bloque: 01_Entorno
 Nivel: 2
 Nivel_nombre: Intermedio
-RA: RA1, RA3
-CE: 1.c, 3.b
+RA: RA.01
+CE: CE.01.a
 Playlist: B1_Entorno
 Vídeo: B1.9 · Laboratorio de virtualización (VirtualBox / Hyper-V)
 ---
@@ -13,7 +13,7 @@ Vídeo: B1.9 · Laboratorio de virtualización (VirtualBox / Hyper-V)
 
 > [!abstract] Ficha de la práctica
 > ### 📌 `B1.9` — Laboratorio de virtualización (VirtualBox / Hyper-V)
-> - **Bloque 1** (Preparar el entorno) · **Nivel 2** (Intermedio) · **RA1, RA3** · **CE 1.c, 3.b**
+> - **Bloque 1** (Preparar el entorno) · **Nivel 2** (Intermedio) · **RA.01** · **CE.01.a**
 > - **🎬 Playlist:** `B1_Entorno`
 > - **📹 Nombre del vídeo:** `B1.9 · Laboratorio de virtualización (VirtualBox / Hyper-V)`
 

@@ -3,8 +3,8 @@ Práctica: B1.8
 Bloque: 01_Entorno
 Nivel: 2
 Nivel_nombre: Intermedio
-RA: RA1, RA3, RA5
-CE: 1.b, 1.c, 3.b, 5.a
+RA: RA.01
+CE: CE.01.c, CE.01.d
 Playlist: B1_Entorno
 Vídeo: B1.8 · Particiones MBR/GPT con GParted
 ---
@@ -13,7 +13,7 @@ Vídeo: B1.8 · Particiones MBR/GPT con GParted
 
 > [!abstract] Ficha de la práctica
 > ### 📌 `B1.8` — Particiones MBR/GPT con GParted
-> - **Bloque 1** (Preparar el entorno) · **Nivel 2** (Intermedio) · **RA1, RA3, RA5** · **CE 1.b, 1.c, 3.b, 5.a**
+> - **Bloque 1** (Preparar el entorno) · **Nivel 2** (Intermedio) · **RA.01** · **CE.01.c · CE.01.d**
 > - **🎬 Playlist:** `B1_Entorno`
 > - **📹 Nombre del vídeo:** `B1.8 · Particiones MBR/GPT con GParted`
 

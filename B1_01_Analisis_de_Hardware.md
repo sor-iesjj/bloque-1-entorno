@@ -4,8 +4,8 @@ Bloque: 01_Entorno
 Nivel: 1
 Nivel_nombre: Básico
 Título: Análisis del hardware de un equipo con CPU-Z
-RA: RA1
-CE: 1.a, 1.b
+RA: RA.01
+CE: CE.01.a
 Playlist: B1_Entorno
 Vídeo: B1.1 · Análisis de hardware con CPU-Z
 ---
@@ -14,7 +14,7 @@ Vídeo: B1.1 · Análisis de hardware con CPU-Z
 
 > [!abstract] Ficha de la práctica
 > ### 📌 `B1.1` — Análisis de hardware con CPU-Z
-> - **Bloque 1** (Preparar el entorno) · **Nivel 1** (Básico) · **RA1** · **CE 1.a, 1.b**
+> - **Bloque 1** (Preparar el entorno) · **Nivel 1** (Básico) · **RA.01** · **CE.01.a**
 > - **🎬 Playlist:** `B1_Entorno`
 > - **📹 Nombre del vídeo:** `B1.1 · Análisis de hardware con CPU-Z`
 

@@ -3,8 +3,8 @@ Práctica: B1.13
 Bloque: 01_Entorno
 Nivel: 3
 Nivel_nombre: Avanzado — Integrador
-RA: RA1, RA2, RA3, RA5
-CE: 1.d, 2.c, 3.b, 5.a, 5.b
+RA: RA.01 · RA.05
+CE: CE.01.b, CE.01.c, CE.01.f, CE.05.e, CE.05.f
 Playlist: B1_Entorno
 Vídeo: B1.13 · Proyecto final de integración
 ---
@@ -13,7 +13,7 @@ Vídeo: B1.13 · Proyecto final de integración
 
 > [!abstract] Ficha de la práctica
 > ### 📌 `B1.13` — Proyecto final de integración
-> - **Bloque 1** (Preparar el entorno) · **Nivel 3** (Integrador) · **RA1, RA2, RA3, RA5** · **CE 1.d, 2.c, 3.b, 5.a, 5.b**
+> - **Bloque 1** (Preparar el entorno) · **Nivel 3** (Integrador) · **RA.01 · RA.05** · **CE.01.b · CE.01.c · CE.01.f · CE.05.e · CE.05.f**
 > - **🎬 Playlist:** `B1_Entorno`
 > - **📹 Nombre del vídeo:** `B1.13 · Proyecto final de integración`
 
