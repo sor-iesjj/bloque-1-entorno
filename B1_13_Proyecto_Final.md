@@ -45,7 +45,7 @@ Vídeo: B1.13 · Proyecto final de integración
 
 > [!important] Obligaciones de grabación (LÉEME — es igual en TODAS las prácticas del bloque)
 > Al ser el proyecto final, el vídeo es también una **defensa**: además de mostrar el flujo, **explicas y justificas** tus decisiones.
-> 1. **Paso 0:** léete el ejercicio y ten a mano OBS y tu identificación. **Crea la entrada de apuntes de esta práctica** en Obsidian: fichero `b1-13-proyecto-final-de-integracion.md` dentro de `00_Apuntes/Trimestre_N/B1_Entorno/`, con la estructura de la Fase 0.1 y **vacía**. Rellenarla es cosa tuya, después.
+> 1. **Paso 0:** léete el ejercicio y ten a mano OBS y tu identificación. **Crea la entrada de apuntes de esta práctica** en Obsidian: fichero `b1-13-proyecto-final-de-integracion.md` dentro de `00_Apuntes/Trimestre_N/B1_Entorno/`, con la estructura del **Bloque 0 · Fase 0.1.b** y **vacía**. Rellenarla es cosa tuya, después.
 > 2. **Arranca OBS y PRESÉNTATE** mostrando tu identidad (Teams o correo `@alu.edu.gva.es`).
 > 3. **Timestamps SIEMPRE:** `00:00 Presentación` y uno por apartado/fase.
 > 4. **Al terminar:** nombra el vídeo **`B1.13 · Proyecto final de integración`** y súbelo a **`B1_Entorno`** (No listado). Y **pega su enlace dentro de tu entrada de apuntes**, en el apartado `Enlace al vídeo explicativo`.

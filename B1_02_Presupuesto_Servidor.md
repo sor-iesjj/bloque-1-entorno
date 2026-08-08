@@ -46,7 +46,7 @@ Vídeo: B1.2 · Presupuesto profesional de un servidor
 
 > [!important] Obligaciones de grabación (LÉEME — es igual en TODAS las prácticas del bloque)
 > Esta práctica se **graba entera con OBS**, de principio a fin. Aquí necesitas **tres momentos grabados** (búsqueda de componentes, creación de la plantilla, cálculo final).
-> 1. **Prepárate primero** (Paso 0): léete el ejercicio y ten a mano OBS y tu identificación. **Crea la entrada de apuntes de esta práctica** en Obsidian: fichero `b1-2-presupuesto-profesional-de-un-servidor.md` dentro de `00_Apuntes/Trimestre_N/B1_Entorno/`, con la estructura de la Fase 0.1 y **vacía**. Rellenarla es cosa tuya, después.
+> 1. **Prepárate primero** (Paso 0): léete el ejercicio y ten a mano OBS y tu identificación. **Crea la entrada de apuntes de esta práctica** en Obsidian: fichero `b1-2-presupuesto-profesional-de-un-servidor.md` dentro de `00_Apuntes/Trimestre_N/B1_Entorno/`, con la estructura del **Bloque 0 · Fase 0.1.b** y **vacía**. Rellenarla es cosa tuya, después.
 > 2. **Arranca OBS y PRESÉNTATE:** *"Hola, me llamo [Nombre], 2.º SMR, y en este vídeo hago la práctica B1.2 — Presupuesto de servidor."* Muestra tu identidad (Teams o correo `@alu.edu.gva.es`).
 > 3. **Timestamps SIEMPRE:** `00:00 Presentación` y uno por paso.
 > 4. **Al terminar:** nombra el vídeo **`B1.2 · Presupuesto profesional de un servidor`** y súbelo a la playlist **`B1_Entorno`** (No listado). Y **pega su enlace dentro de tu entrada de apuntes**, en el apartado `Enlace al vídeo explicativo`.

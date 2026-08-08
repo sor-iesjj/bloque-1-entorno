@@ -48,7 +48,7 @@ Vídeo: B1.1 · Análisis de hardware con CPU-Z
 
 > [!important] Obligaciones de grabación (LÉEME — es igual en TODAS las prácticas del bloque)
 > Esta práctica se **graba entera con OBS**, de principio a fin. No es un repaso al final: quiero ver **cómo lo haces tú**.
-> 1. **Prepárate primero** (Paso 0): léete el ejercicio entero y ten a mano OBS y tu identificación. **Crea la entrada de apuntes de esta práctica** en Obsidian: fichero `b1-1-analisis-de-hardware-con-cpu-z.md` dentro de `00_Apuntes/Trimestre_N/B1_Entorno/`, con la estructura de la Fase 0.1 y **vacía**. Rellenarla es cosa tuya, después.
+> 1. **Prepárate primero** (Paso 0): léete el ejercicio entero y ten a mano OBS y tu identificación. **Crea la entrada de apuntes de esta práctica** en Obsidian: fichero `b1-1-analisis-de-hardware-con-cpu-z.md` dentro de `00_Apuntes/Trimestre_N/B1_Entorno/`, con la estructura del **Bloque 0 · Fase 0.1.b** y **vacía**. Rellenarla es cosa tuya, después.
 > 2. **Arranca OBS y, nada más empezar, PRESÉNTATE:** *"Hola, me llamo [Nombre], soy alumno de 2.º SMR, y en este vídeo voy a hacer la práctica B1.1 — Análisis de hardware con CPU-Z."* Y **muestra en pantalla algo que demuestre que eres tú** (tu **Teams** o tu correo `@alu.edu.gva.es`). Di **qué vas a hacer**.
 > 3. **Graba todos los pasos** sin cortes, hablando lo que haces.
 > 4. **Timestamps SIEMPRE** en la descripción del vídeo: `00:00 Presentación` y **uno por cada paso** (`mm:ss`).
