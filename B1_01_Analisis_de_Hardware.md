@@ -52,7 +52,7 @@ Vídeo: B1.1 · Análisis de hardware con CPU-Z
 > 2. **Arranca OBS y, nada más empezar, PRESÉNTATE:** *"Hola, me llamo [Nombre], soy alumno de 2.º SMR, y en este vídeo voy a hacer la práctica B1.1 — Análisis de hardware con CPU-Z."* Y **muestra en pantalla algo que demuestre que eres tú** (tu **Teams** o tu correo `@alu.edu.gva.es`). Di **qué vas a hacer**.
 > 3. **Graba todos los pasos** sin cortes, hablando lo que haces.
 > 4. **Timestamps SIEMPRE** en la descripción del vídeo: `00:00 Presentación` y **uno por cada paso** (`mm:ss`).
-> 5. **Al terminar:** nombra el vídeo **`B1.1 · Análisis de hardware con CPU-Z`** y súbelo a tu playlist de YouTube **`B1_Entorno`** (como **"No listado"**). Y **pega su enlace dentro de tu entrada de apuntes**, en el apartado `Enlace al vídeo explicativo`.
+> 5. **Al terminar:** nombra el vídeo **`B1.1 · Análisis de hardware con CPU-Z`** y súbelo a tu playlist de YouTube **`B1_Entorno`** (como **"No listado"**). Y **pega su enlace dentro de tu entrada de apuntes**, en el apartado `🔗 Enlaces`.
 > 6. **Se graba una sola vez** (no se duplica casa/centro). **La entrega va por la TAREA de Teams:** abriré una tarea que cubrirá **esta práctica y otras**; te llegará notificación con fecha límite. Ahí pegarás el enlace de tu **repositorio de apuntes** — los vídeos ya están dentro de tus entradas.
 
 ---
