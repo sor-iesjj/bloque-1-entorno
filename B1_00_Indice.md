@@ -47,9 +47,9 @@
 | # | Práctica | Nivel |
 |---|----------|-------|
 | B1.8 | [[B1_08_Particiones_GParted\|Particiones MBR/GPT con GParted]] *(Linux/Live)* | Intermedio |
-| B1.8b | [[B1_08b_DISKPART\|Gestión de disco con DISKPART]] *(Windows/CLI)* | Intermedio |
+| B1.8b | [[B1_08.b_DISKPART\|Gestión de disco con DISKPART]] *(Windows/CLI)* | Intermedio |
 | B1.9 | [[B1_09_Laboratorio_Virtualizacion\|Laboratorio de virtualización (VirtualBox/Hyper-V)]] | Intermedio |
-| B1.9b | [[B1_09b_Verificar_Red_con_APIs\|Verificar tu red con APIs públicas]] | Intermedio |
+| B1.9b | [[B1_09.b_Verificar_Red_con_APIs\|Verificar tu red con APIs públicas]] | Intermedio |
 | B1.10 | [[B1_10_Instalacion_Limpia\|Instalación limpia de un SO]] | Intermedio |
 
 ### D · Despliegue en red
