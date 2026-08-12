@@ -70,4 +70,4 @@ CPU-Z · Rufus · Balena Etcher · **Ventoy** · GParted Live · **DISKPART** ·
 > YUMI · Serva · MultiBootUSB · Belarc · AIDA64 · Hiren's/Mini XP · inetd. Sustituidos por Ventoy, iVentoy y CPU-Z.
 
 ## Fuentes
-Basado en tu material real del Teams SOR (canales `02.XX`, `t2SOR_Prácticas.pdf`, `01.05`/`01.06`) + aportaciones propias (verificar ISO, requisitos, laboratorio, instalación limpia, desatendida, Secure Boot).
+Material basado en el curso SOR del centro y en aportaciones propias del profesor (verificar ISO, requisitos, laboratorio, instalación limpia, desatendida, Secure Boot).
