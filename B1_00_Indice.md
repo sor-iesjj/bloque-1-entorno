@@ -68,10 +68,10 @@ Dos VM en la misma red y que se vean: crear las máquinas, conectarlas a una red
 
 | # | Práctica | Nivel |
 |---|----------|-------|
-| B1.14 | [[B1_14_Red_VirtualBox_Windows_11_y_Ubuntu_Server\|Red en VirtualBox: Windows 11 y Ubuntu Server]] | Intermedio |
-| B1.14b | [[B1_14.b_Red_VirtualBox_Ubuntu_Desktop_y_Ubuntu_Server\|Red en VirtualBox: Ubuntu Desktop y Ubuntu Server]] | Intermedio |
-| B1.15 | [[B1_15_Red_HyperV_Windows_11_y_Windows_Server\|Red en Hyper-V: Windows 11 y Windows Server]] | Intermedio |
-| B1.15b | [[B1_15.b_Red_HyperV_Ubuntu_Desktop_y_Windows_Server\|Red en Hyper-V: Ubuntu Desktop y Windows Server]] | Intermedio |
+| B1.14 | [[B1_14_Red_VirtualBox_Windows_11_y_Ubuntu_Server\|Red de laboratorio en VirtualBox (Windows 11 y Ubuntu Server)]] | Intermedio |
+| B1.14b | [[B1_14.b_Red_VirtualBox_Ubuntu_Desktop_y_Ubuntu_Server\|Red de laboratorio en VirtualBox (Ubuntu Desktop y Ubuntu Server)]] | Intermedio |
+| B1.15 | [[B1_15_Red_HyperV_Windows_11_y_Windows_Server\|Red de laboratorio en Hyper-V (Windows 11 y Windows Server)]] | Intermedio |
+| B1.15b | [[B1_15.b_Red_HyperV_Ubuntu_Desktop_y_Windows_Server\|Red de laboratorio en Hyper-V (Ubuntu Desktop y Windows Server)]] | Intermedio |
 
 ## Herramientas del bloque (todas actuales)
 CPU-Z · Rufus · Balena Etcher · **Ventoy** · GParted Live · **DISKPART** · VirtualBox/Hyper-V · **iVentoy** · autoinstall/cloud-init · unattend.xml.
