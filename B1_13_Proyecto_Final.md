@@ -116,4 +116,4 @@ Vídeo: B1.13 · Proyecto final de integración
 > - Que sabes **comparar y decidir** el método adecuado según el caso.
 > - Que puedes **documentar y defender** un despliegue como un profesional.
 >
-> **¡Fin del Bloque 1!** Con el entorno preparado y el laboratorio montado, ya puedes empezar el proyecto **Boochan** (Bloques 2–3).
+> **Siguiente:** B1.14 — Laboratorios de red: dos máquinas virtuales en la misma red y que se vean. Es el prólogo del proyecto **Boochan** (Bloques 2–3).
