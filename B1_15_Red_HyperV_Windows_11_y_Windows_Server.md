@@ -28,7 +28,7 @@ Vídeo: B1.15 · Red de laboratorio en Hyper-V (Windows 11 y Windows Server)
 
 > [!warning] Requisitos del equipo
 > - **Windows 11 Pro** (o Enterprise/Education) con **Hyper-V activado**. Windows 11 Home **no tiene Hyper-V** y no se le puede añadir.
-> - Permiso para crear conmutadores y máquinas virtuales en Hyper-V. **Si el Administrador de Hyper-V te da error de permisos, avisa al profesor**: no intentes saltártelo.
+> - **Permiso para usar Hyper-V:** o eres administrador del equipo, o tu usuario está en el grupo local **Administradores de Hyper-V**, que es justo para eso: crear y manejar VM y conmutadores sin ser administrador de todo el equipo. **Si el Administrador de Hyper-V te da error de permisos, avisa al profesor**: no intentes saltártelo.
 > - Las dos VM encendidas a la vez piden **8 GB de RAM** solo para ellas.
 
 ---
@@ -45,7 +45,7 @@ Vídeo: B1.15 · Red de laboratorio en Hyper-V (Windows 11 y Windows Server)
 > | Red entre VM y el anfitrión | Solo-anfitrión | Conmutador **Interno** |
 > | La VM en la red real del aula | Puente | Conmutador **Externo** |
 >
-> Vas a usar las dos primeras filas. El conmutador **privado** es el «cable» entre las dos VM: **tu ordenador no está conectado a él**, así que desde el anfitrión no harás ping. No es un fallo, es el diseño.
+> Vas a usar las dos primeras filas. El conmutador **privado** es el «cable» entre las VM: **tu ordenador no está conectado a él**, así que desde el anfitrión no harás ping. No es un fallo, es el diseño. Y, como en la red interna de VirtualBox, en él **no hay nadie que reparta IP**.
 >
 > El plan de direcciones, el mismo que usa el Bloque 3:
 >
@@ -55,23 +55,24 @@ Vídeo: B1.15 · Red de laboratorio en Hyper-V (Windows 11 y Windows Server)
 > | Windows 11 Pro | Cliente | `10.10.10.20/24` |
 
 > [!warning] El fallo nº1: ahora hay DOS firewalls
-> En B1.14 solo había un Windows, y el ping fallaba en un sentido. Aquí **los dos son Windows**, y los dos bloquean por defecto el ping que les llega: **fallará en los dos sentidos**. Tendrás que abrirlo en **cada máquina**. Si solo lo abres en una, solo funciona hacia esa.
+> En B1.14 solo había un Windows, y el ping fallaba en un sentido. Aquí **los dos son Windows**, y el Firewall de Windows **bloquea todo lo que le llega sin haberlo pedido, salvo que una regla lo permita**. Lo normal es que el ping **falle en los dos sentidos**. Tendrás que abrirlo en **cada máquina**. Si solo lo abres en una, solo funciona hacia esa.
 
 > [!tip] Dos redes `LAB_RED` que no se conocen
-> Si hiciste B1.14, ahora tienes una `LAB_RED` en VirtualBox y otra en Hyper-V. **No tienen nada que ver**: cada hipervisor tiene las suyas, y una VM de VirtualBox no ve a una de Hyper-V aunque las redes se llamen igual. Y como ninguna de las dos tiene una tarjeta en tu ordenador, **tampoco chocan** con las demás redes del anfitrión.
+> Si hiciste B1.14, ahora tienes una `LAB_RED` en VirtualBox y otra en Hyper-V. **No tienen nada que ver**: cada hipervisor tiene las suyas, y una VM de VirtualBox no ve a una de Hyper-V aunque las redes se llamen igual. Y como ninguna de las dos pone una tarjeta en tu ordenador, **tampoco chocan** con las redes del anfitrión, ni con la `10.10.10.1` que usarán los Bloques 2 y 3.
 
 > [!example] Vocabulario de esta práctica
 > - **Conmutador virtual (Hyper-V):** el switch donde se enchufan las tarjetas de las VM.
 > - **Conmutador privado:** solo conecta VM entre sí. El anfitrión no participa.
-> - **Default Switch:** el conmutador que Hyper-V crea solo para dar Internet por NAT, con IP automática.
-> - **Generación 2:** el tipo de VM moderna de Hyper-V (arranque UEFI, arranque seguro, TPM). La que pide Windows 11.
+> - **Default Switch:** el conmutador que Hyper-V trae creado para dar Internet a las VM por NAT, con IP automática.
+> - **Generación 2:** el tipo de VM moderna de Hyper-V (firmware UEFI, arranque seguro, TPM virtual). Es la única en la que se puede instalar Windows 11.
 > - **APIPA (`169.254.x.x`):** la dirección que Windows se pone a sí mismo cuando nadie le da IP.
 
 > [!example] Los comandos nuevos
 > | Dónde | Comando | Para qué |
 > | :--- | :--- | :--- |
-> | Anfitrión (PowerShell admin) | `New-VMSwitch -Name "LAB_RED" -SwitchType Private` | Crear el conmutador privado sin pasar por las ventanas |
-> | VM Windows | `ipconfig` · `Get-NetAdapter` | Ver las tarjetas y su IP |
+> | Anfitrión | `New-VMSwitch -Name "LAB_RED" -SwitchType Private` | Crear el conmutador privado sin pasar por las ventanas |
+> | Anfitrión | `Get-VMNetworkAdapter -VMName <VM>` | Ver a qué conmutador va cada tarjeta de una VM, y su MAC |
+> | VM Windows | `Get-NetAdapter` · `ipconfig` | Ver las tarjetas, su MAC y su IP |
 > | VM Windows | `New-NetIPAddress` | Poner una IP fija |
 > | VM Windows | `New-NetFirewallRule` | Permitir el ping entrante |
 
@@ -86,92 +87,128 @@ Vídeo: B1.15 · Red de laboratorio en Hyper-V (Windows 11 y Windows Server)
 > 4. **Al terminar:** nombra el vídeo **`B1.15 · Red de laboratorio en Hyper-V (Windows 11 y Windows Server)`** y súbelo a **`B1_Entorno`** (No listado). Y **pega su enlace dentro de tu entrada de apuntes**, en el apartado `🔗 Enlaces`.
 > 5. **Se graba una sola vez** (no se duplica casa/centro). **La entrega va por la TAREA de Teams:** abriré una tarea que cubrirá **esta práctica y otras**; te llegará notificación con fecha límite. Ahí pegarás el enlace de tu **repositorio de apuntes** — los vídeos ya están dentro de tus entradas.
 
-> [!tip] Las instalaciones también se graban
-> La práctica se graba **entera**, instalaciones incluidas. Para que quien corrige no tenga que ver media hora de barras de progreso, pon un **timestamp al empezar y otro al acabar cada instalación**. Lo que de verdad se evalúa son los pasos de red: que se vean bien.
+> [!tip] Timestamps mínimos de esta práctica
+> La práctica se graba **entera**, instalaciones incluidas. El vídeo lleva **como mínimo** estas marcas, cada una con el minuto real en que empieza en tu vídeo:
+> ```
+> 00:00 Presentación
+> Paso 1 · Conmutador privado LAB_RED
+> Paso 2 · VM Windows Server y sus dos tarjetas
+> Paso 3 · Instalación de Windows Server (inicio)
+> Paso 3 · Instalación de Windows Server (fin)
+> Paso 4 · IP fija en el servidor
+> Paso 5 · VM Windows 11: TPM, procesadores y tarjetas
+> Paso 5 · Instalación de Windows 11 (inicio)
+> Paso 5 · Instalación de Windows 11 (fin)
+> Paso 6 · IP fija en el cliente
+> Paso 7 · Ping: falla en los dos sentidos
+> Paso 8 · Regla en el servidor
+> Paso 9 · Regla en el cliente y ping de vuelta
+> Paso 10 · Puntos de control y cierre
+> ```
 
 ---
 
 ## 🛠️ Procedimiento
 
 > [!example] Paso 0 — Prepárate y empieza a grabar
-> Ten a mano las ISO de **Windows Server 2025** (la versión de evaluación de 180 días, descarga oficial de Microsoft) y de **Windows 11** (verificadas, B1.4). Abre el **Administrador de Hyper-V**. Arranca OBS y preséntate.
+> Ten a mano las ISO de **Windows Server 2025** (la versión de evaluación de 180 días, descarga oficial de Microsoft) y de **Windows 11** (verificadas, B1.4). Abre el **Administrador de Hyper-V**. Crea la entrada de apuntes vacía. Arranca OBS y preséntate.
 
 > [!example] Paso 1 — Crea el conmutador privado
-> En el Administrador de Hyper-V: **Acciones → Administrador de conmutadores virtuales → Nuevo conmutador de red virtual → Privado → Crear conmutador virtual**. Nombre: `LAB_RED` → **Aceptar**.
+> En el Administrador de Hyper-V, panel **Acciones** → **Administrador de conmutadores virtuales** → elige el tipo **Privado** → **Crear conmutador virtual**. Nombre: `LAB_RED` → **Aceptar**.
 >
-> *Lo mismo en PowerShell como administrador, en el anfitrión:*
+> *Lo mismo en PowerShell, en el anfitrión* (con tu cuenta de administrador, o con tu usuario si está en **Administradores de Hyper-V**):
 > ```powershell
 > New-VMSwitch -Name "LAB_RED" -SwitchType Private
 > ```
-> **Por qué privado y no interno:** con **interno**, Hyper-V crearía también una tarjeta en tu ordenador, y tendrías que darle una IP sin que choque con nada más. Con **privado** solo están las dos VM, como dos equipos unidos por un cable.
+> **Por qué privado y no interno:** con **interno**, Hyper-V crearía también una tarjeta en tu ordenador, y tendrías que darle una IP sin que choque con nada más. Con **privado** solo están las VM, como dos equipos unidos por un cable.
 
 > [!example] Paso 2 — Crea la VM del servidor: Windows Server 2025
-> **Acciones → Nuevo → Máquina virtual**:
+> Panel **Acciones** → **Nuevo** → **Máquina virtual**:
 > - **Nombre:** `B1-WinServer`.
-> - **Generación 2.**
+> - **Generación 2.** Ojo: **no se puede cambiar después**. Si te equivocas, toca borrar la VM y hacerla de nuevo.
 > - **Memoria:** `4096` MB.
 > - **Red:** `Default Switch`. Esta es la tarjeta de Internet.
 > - **Disco:** nuevo, de 64 GB.
 > - **Instalación:** desde la ISO de Windows Server 2025.
 >
-> **Antes de arrancarla**, en **Configuración**:
-> - **Procesador:** `2` procesadores virtuales. Hyper-V pone 1 por defecto, y el sistema va a ir justo.
+> **Antes de arrancarla**, en su **Configuración**:
+> - **Procesador:** pon `2` procesadores virtuales. El asistente no te deja elegir cuántos, así que **compruébalo siempre aquí**: lo que venga por defecto se queda corto.
 > - **Agregar hardware → Adaptador de red → Agregar → Conmutador virtual: `LAB_RED`** → **Aceptar**. Esta es la segunda tarjeta, la del laboratorio.
 
 > [!example] Paso 3 — Instala Windows Server
-> Arranca la VM y **pulsa una tecla en cuanto veas «Press any key to boot from CD or DVD…»**. Si no llegas a tiempo, la VM intenta arrancar por red y se queda colgada: apágala y vuelve a encenderla.
+> Conéctate a la VM y arráncala. **Pulsa una tecla en cuanto veas el aviso en inglés que pide pulsar una tecla para arrancar desde el CD o DVD.** Ese aviso dura unos segundos. Si no llegas a tiempo, la VM pasa a buscar otra cosa con la que arrancar (el disco, que está vacío, y la red) y acaba en una pantalla que dice que no ha encontrado sistema operativo: apágala, enciéndela y esta vez pulsa una tecla a tiempo.
 >
-> Elige **Windows Server 2025 Standard Evaluation (Experiencia de escritorio)**: la versión con escritorio, la misma que usa el Bloque 3. Pon una contraseña al `Administrador` y **apúntala**.
+> Elige la edición **Windows Server 2025 Standard Evaluation con experiencia de escritorio**: la que tiene escritorio, la misma que usa el Bloque 3. Pon una contraseña al `Administrador` y **apúntala**.
 
 > [!example] Paso 4 — Dale IP fija al servidor
 > En el servidor, abre **PowerShell como administrador**:
 > ```powershell
+> Get-NetAdapter
 > ipconfig
 > ```
 > Verás dos tarjetas:
-> - La del **Default Switch** tiene una IP automática que suele empezar por `172.`. Es la de Internet.
+> - La del **Default Switch** tiene una IP privada automática y una puerta de enlace. Es la de Internet.
 > - La de **`LAB_RED`** tiene una **`169.254.x.x`**: nadie le ha dado IP. **Esa es la tuya.**
 >
-> Mira cómo se llama (normalmente `Ethernet 2`) y ponle la IP:
+> **Confírmalo con la MAC.** En el **anfitrión**, con la VM encendida:
+> ```powershell
+> Get-VMNetworkAdapter -VMName "B1-WinServer" | Select-Object Name, SwitchName, MacAddress
+> ```
+> La que va a `LAB_RED` tiene que tener la misma MAC que la tarjeta `169.254` dentro del servidor. En el anfitrión sale seguida, sin separadores, y dentro de Windows con guiones cada dos caracteres: compárala carácter a carácter.
+>
+> Mira cómo se llama esa tarjeta dentro del servidor (normalmente `Ethernet 2`) y ponle la IP con **su** nombre:
 > ```powershell
 > New-NetIPAddress -InterfaceAlias "Ethernet 2" -IPAddress 10.10.10.10 -PrefixLength 24
 > ```
-> Sin puerta de enlace: Internet ya sale por el Default Switch.
+> Al ponerle una IP a mano, Windows le quita el DHCP solo. Sin puerta de enlace: Internet ya sale por el Default Switch.
+>
+> Si el servidor pregunta si quieres que sea visible para otros equipos de la red, contesta **No**.
 
 > [!example] Paso 5 — Crea la VM del cliente: Windows 11 Pro
 > **Nuevo → Máquina virtual**:
 > - **Nombre:** `B1-Win11-HV`.
-> - **Generación 2.**
-> - **Memoria:** `4096` MB, **sin** marcar la memoria dinámica, para que el instalador vea siempre los 4 GB.
+> - **Generación 2.** Windows 11 **solo** se instala en Generación 2.
+> - **Memoria:** `4096` MB, **sin** marcar la memoria dinámica, igual que en el Bloque 3: así la VM tiene siempre la misma memoria y su comportamiento es predecible.
 > - **Red:** `Default Switch`.
-> - **Disco:** nuevo, de 64 GB.
+> - **Disco:** nuevo, de 64 GB, el mínimo que pide Windows 11.
 > - **Instalación:** desde la ISO de Windows 11.
 >
-> **Antes de arrancarla**, en **Configuración**:
-> - **Seguridad → Habilitar el Módulo de plataforma segura (TPM).** Sin TPM, el instalador de Windows 11 dice que el equipo «no cumple los requisitos».
-> - **Procesador:** `2`. **Windows 11 exige 2 núcleos como mínimo**; con 1 no se instala.
+> **Antes de arrancarla**, en su **Configuración**:
+> - **Seguridad →** deja el **arranque seguro** activado con la plantilla **Microsoft Windows** y **activa el Módulo de plataforma segura (TPM)**. Windows 11 exige TPM 2.0 y arranque seguro: sin ellos, el instalador dice que el equipo «no cumple los requisitos».
+> - **Procesador:** `2`. **Windows 11 exige 2 núcleos como mínimo**.
 > - **Agregar hardware → Adaptador de red → `LAB_RED`.**
 >
 > Instala **Windows 11 Pro**. Recuerda pulsar una tecla al arrancar desde el DVD.
 
+> [!warning] La configuración inicial de Windows 11 Pro te va a pedir Internet y una cuenta
+> Al terminar de instalar, Windows 11 Pro pide conexión a Internet y, para uso personal, una **cuenta Microsoft**. Internet ya lo tienes: es la tarjeta del Default Switch.
+>
+> **No metas tu cuenta personal en una VM de prácticas.** En Windows 11 Pro suele haber un camino para crear una **cuenta local**: elegir que el equipo es **para el trabajo o el centro educativo**, entrar en las **opciones de inicio de sesión** y escoger **unirse a un dominio en su lugar**. Eso no une nada a ningún dominio: solo te deja crear un usuario local con contraseña.
+>
+> **Si en tu versión no aparece ese camino, para y avisa al profesor.** No te quedes atascado buscando trucos por internet: Microsoft los va quitando de una versión a otra.
+
 > [!example] Paso 6 — Dale IP fija al cliente
-> Igual que en el servidor: localiza con `ipconfig` la tarjeta que tiene `169.254.x.x` y ejecuta, en PowerShell como administrador:
+> Igual que en el servidor: localiza con `ipconfig` la tarjeta que tiene `169.254.x.x`, confírmala con la MAC (`Get-VMNetworkAdapter -VMName "B1-Win11-HV"` en el anfitrión) y ejecuta, en PowerShell como administrador y con **su** nombre:
 > ```powershell
 > New-NetIPAddress -InterfaceAlias "Ethernet 2" -IPAddress 10.10.10.20 -PrefixLength 24
 > ```
-> Si Windows pregunta si quieres que el equipo sea visible en la red, contesta **No**.
+> Si Windows pregunta si quieres que el equipo sea visible en la red, contesta **No**. La red se queda como **pública**; la regla que crearás vale para cualquier perfil.
 
 > [!example] Paso 7 — El ping: falla en los dos sentidos
 > **Desde el cliente:** `ping 10.10.10.10` → ❌ **Tiempo de espera agotado.**
 > **Desde el servidor:** `ping 10.10.10.20` → ❌ **Tiempo de espera agotado.**
 >
-> Grábalo. La red está bien montada. Lo que pasa es que **cada Windows tiene su firewall** y **cada uno** bloquea el ping que le llega.
+> Eso es lo normal. Grábalo. La red está bien montada. Lo que pasa es que **cada Windows tiene su firewall** y **cada uno** tira el ping que le llega sin haberlo pedido.
+>
+> *Si en tu equipo alguno de los dos pings ya funciona*, no te lo inventes: dilo en el vídeo y apúntalo. Significa que en esa máquina alguna regla de fábrica ya deja pasar el ping en el perfil de red que tiene. Sigue igualmente con los pasos 8 y 9.
 
 > [!example] Paso 8 — Abre el ping en el servidor… y solo en el servidor
 > En el **servidor**, PowerShell como administrador:
 > ```powershell
 > New-NetFirewallRule -DisplayName "LAB - Ping entrante (ICMPv4)" -Direction Inbound -Protocol ICMPv4 -IcmpType 8 -Action Allow
 > ```
+> Es la misma regla de B1.14: entrada, solo ICMPv4 tipo 8 (la petición de eco), permitir. Sin perfil, vale para todos.
+>
 > Repite los dos pings:
 > - Cliente → servidor: ✅ **funciona.**
 > - Servidor → cliente: ❌ **sigue fallando.**
@@ -188,9 +225,9 @@ Vídeo: B1.15 · Red de laboratorio en Hyper-V (Windows 11 y Windows Server)
 > Abres **solo el ping** y **no apagas el firewall**, por lo mismo que en B1.14.
 
 > [!example] Paso 10 — Guarda el estado y cierra la grabación
-> Apaga las dos VM y crea un **punto de control** de cada una: clic derecho → **Punto de control**. En Hyper-V, las instantáneas se llaman así. Renómbralo `B1.15 · Red OK`. **El servidor lo vas a reutilizar en B1.15b.**
+> Apaga las dos VM y crea un **punto de control** de cada una: clic derecho sobre la VM → **Punto de control**. En Hyper-V, las instantáneas se llaman así. Renómbralo `B1.15 · Red OK`. **El servidor lo vas a reutilizar en B1.15b.**
 >
-> Detén OBS, nombra el vídeo **`B1.15 · Red de laboratorio en Hyper-V (Windows 11 y Windows Server)`**, súbelo a **`B1_Entorno`** y añade los timestamps.
+> Detén OBS, nombra el vídeo **`B1.15 · Red de laboratorio en Hyper-V (Windows 11 y Windows Server)`**, súbelo a **`B1_Entorno`** (No listado) y añade los timestamps. Pega su enlace en tu entrada de apuntes.
 
 ---
 
@@ -199,14 +236,17 @@ Vídeo: B1.15 · Red de laboratorio en Hyper-V (Windows 11 y Windows Server)
 > [!warning] Errores típicos (evítalos)
 > | Error | Qué pasa | Cómo evitarlo |
 > | :--- | :--- | :--- |
-> | No pulsar una tecla al arrancar desde el DVD | La VM intenta arrancar por red y se queda en una pantalla negra con mensajes de PXE | Apágala, enciéndela y pulsa una tecla en cuanto lo pida |
+> | No pulsar una tecla a tiempo al arrancar desde el DVD | La VM pasa al disco vacío y a la red, y acaba diciendo que no hay sistema operativo | Apágala, enciéndela y pulsa una tecla en cuanto lo pida |
+> | VM de Windows 11 en Generación 1 | No hay forma de instalar Windows 11 ahí, y la generación no se puede cambiar | Borra la VM y créala de nuevo en **Generación 2** |
 > | VM de Windows 11 sin TPM o con 1 procesador | El instalador dice que el equipo no cumple los requisitos | TPM activado en Seguridad y 2 procesadores, **antes** de arrancar |
-> | Conectar la segunda tarjeta al `Default Switch` en vez de a `LAB_RED` | Las dos tarjetas reciben IP `172.x` y no hay red de laboratorio | Comprueba en Configuración a qué conmutador va cada tarjeta |
+> | Conectar la segunda tarjeta al `Default Switch` en vez de a `LAB_RED` | Las dos tarjetas reciben IP automática y no hay red de laboratorio | Comprueba con `Get-VMNetworkAdapter` a qué conmutador va cada tarjeta |
 > | Conmutador **Interno** en lugar de **Privado** | Aparece una tarjeta nueva en tu ordenador que nadie ha configurado | Usa **Privado**: el anfitrión no pinta nada en esta red |
-> | Poner la IP en la tarjeta del Default Switch | Te quedas sin Internet y el ping no va | La del laboratorio es la que tenía `169.254.x.x` |
+> | Poner la IP en la tarjeta del Default Switch | Te quedas sin Internet y el ping no va | La del laboratorio es la que tenía `169.254.x.x`; confírmala por la MAC |
+> | Copiar `"Ethernet 2"` sin mirar | `New-NetIPAddress` falla porque no encuentra la tarjeta, o pone la IP en la que no es | Usa el nombre que te enseñe `Get-NetAdapter` en **tu** VM |
+> | Repetir `New-NetIPAddress` sobre la misma tarjeta | Error de que esa dirección **ya existe** | No pasa nada: la IP ya estaba puesta. Compruébalo con `ipconfig` |
 > | Crear la regla de firewall solo en una máquina | El ping va hacia esa y no hacia la otra | Una regla en **cada** Windows |
 > | Apagar el firewall «para que funcione» | Funciona, pero has abierto el equipo a todo | Regla solo para ICMPv4 tipo 8 |
-> | Error de permisos al crear el conmutador o la VM | El Administrador de Hyper-V no deja continuar | Avisa al profesor; no lo intentes por otra vía |
+> | Error de permisos al crear el conmutador o la VM | El Administrador de Hyper-V no deja continuar | Avisa al profesor: hace falta ser administrador o estar en **Administradores de Hyper-V**. No lo intentes por otra vía |
 
 > [!success] ✅ Verificación: ¿está bien hecho?
 > - `ipconfig` en el servidor: `10.10.10.10` en la tarjeta de `LAB_RED`, **sin puerta de enlace** en ella.
@@ -237,7 +277,7 @@ Vídeo: B1.15 · Red de laboratorio en Hyper-V (Windows 11 y Windows Server)
 
 > [!summary] 🎓 Qué has aprendido en este ejercicio
 > - Que en Hyper-V la red se monta con **conmutadores virtuales**, y cuál equivale a cada modo de VirtualBox.
-> - A preparar una VM de **Generación 2** para Windows 11: TPM y 2 procesadores.
+> - A preparar una VM de **Generación 2** para Windows 11: TPM, arranque seguro y 2 procesadores.
 > - Que **cada Windows tiene su firewall**, y que una regla de entrada solo abre la máquina donde la creas.
 >
 > **Siguiente:** B1.15b — El mismo Windows Server, ahora con un cliente **Ubuntu Desktop**.
