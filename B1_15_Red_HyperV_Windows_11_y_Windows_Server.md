@@ -28,6 +28,7 @@ Vídeo: B1.15 · Red de laboratorio en Hyper-V (Windows 11 y Windows Server)
 
 > [!warning] Requisitos del equipo
 > - **Windows 11 Pro** (o Enterprise/Education) con **Hyper-V activado**. Windows 11 Home **no tiene Hyper-V** y no se le puede añadir.
+> - **Compruébalo antes de empezar:** escribe «Hyper-V» en el menú Inicio. Si no aparece el **Administrador de Hyper-V**, no está activado. Activarlo necesita **permisos de administrador y reiniciar el equipo** (se explica en el **Bloque 3 · Fase 1.6**, Paso 1). En el aula no tienes esos permisos: **avisa al profesor antes de empezar**, no a mitad de práctica.
 > - **Permiso para usar Hyper-V:** o eres administrador del equipo, o tu usuario está en el grupo local **Administradores de Hyper-V**, que es justo para eso: crear y manejar VM y conmutadores sin ser administrador de todo el equipo. **Si el Administrador de Hyper-V te da error de permisos, avisa al profesor**: no intentes saltártelo.
 > - Las dos VM encendidas a la vez piden **8 GB de RAM** solo para ellas.
 
@@ -178,7 +179,7 @@ Vídeo: B1.15 · Red de laboratorio en Hyper-V (Windows 11 y Windows Server)
 > - **Procesador:** `2`. **Windows 11 exige 2 núcleos como mínimo**.
 > - **Agregar hardware → Adaptador de red → `LAB_RED`.**
 >
-> Instala **Windows 11 Pro**. Recuerda pulsar una tecla al arrancar desde el DVD.
+> Instala **Windows 11 Pro**. Recuerda pulsar una tecla al arrancar desde el DVD. Si el instalador te pide una clave de producto, elige la opción de que **no tienes clave**: después te deja escoger la edición. **Elige Pro.** Con Home, la configuración inicial te exige cuenta Microsoft y el resto del curso no te sirve.
 
 > [!warning] La configuración inicial de Windows 11 Pro te va a pedir Internet y una cuenta
 > Al terminar de instalar, Windows 11 Pro pide conexión a Internet y, para uso personal, una **cuenta Microsoft**. Internet ya lo tienes: es la tarjeta del Default Switch.

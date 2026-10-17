@@ -119,7 +119,7 @@ Vídeo: B1.14 · Red de laboratorio en VirtualBox (Windows 11 y Ubuntu Server)
 >
 > **Desactiva la instalación desatendida.** El asistente de VirtualBox la activa por defecto cuando le das una ISO que la admite. Según tu versión, la casilla dice que **te saltes** la instalación desatendida (márcala) o que **instales con** instalación desatendida (desmárcala). El resultado tiene que ser el mismo: la instalación la haces tú.
 >
-> **Antes de arrancarla**, ve a **Configuración → Red**:
+> **Antes de arrancarla**, ve a **Configuración → Red**. *Si no ves el Adaptador 2 o la parte de opciones avanzadas, VirtualBox está en el nivel de experiencia **Básico**, que oculta ajustes: cámbialo a **Experto** en la propia ventana de configuración.*
 > - **Adaptador 1:** déjalo como está → **NAT**.
 > - **Adaptador 2:** marca **Habilitar adaptador de red** → **Conectado a: Red interna** → **Nombre:** escribe `LAB_RED`.
 >
@@ -200,7 +200,7 @@ Vídeo: B1.14 · Red de laboratorio en VirtualBox (Windows 11 y Ubuntu Server)
 > - **Adaptador 1:** **NAT**.
 > - **Adaptador 2:** **Red interna** → `LAB_RED`, el mismo nombre, letra a letra. Comprueba **Cable conectado** y apunta su **MAC**.
 >
-> Instala **Windows 11 Pro**: crear e instalar una VM ya lo sabes hacer. Aquí lo que importa es la red.
+> Instala **Windows 11 Pro**: crear e instalar una VM ya lo sabes hacer. Aquí lo que importa es la red. Si el instalador te pide una clave de producto, elige la opción de que **no tienes clave**: después te deja escoger la edición. **Elige Pro.** Con Home, la configuración inicial te exige cuenta Microsoft y el resto del curso no te sirve.
 
 > [!warning] La configuración inicial de Windows 11 Pro te va a pedir Internet y una cuenta
 > Al terminar de instalar, Windows 11 Pro pide conexión a Internet y, para uso personal, una **cuenta Microsoft**. Internet ya lo tienes: es el adaptador NAT.
