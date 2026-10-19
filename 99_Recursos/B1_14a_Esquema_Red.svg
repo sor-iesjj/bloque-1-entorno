@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1420" viewBox="0 0 1200 1420" role="img" aria-labelledby="title desc">
+  <title id="title">B1.14a: Ubuntu Server en VirtualBox y SSH desde Windows físico</title>
+  <desc id="desc">Dentro del ordenador Windows físico están el cliente SSH y VirtualBox. VirtualBox ejecuta una sola VM Ubuntu Server, con dos adaptadores: el primero en NAT con DHCP, el segundo en red interna LAB_RED con 10.10.10.10/24. SSH va desde el cliente Windows a la escucha local 127.0.0.1:2214 de VirtualBox, por NAT al puerto 22 de OpenSSH en Ubuntu. No utiliza la tarjeta física ni LAB_RED. La salida a Internet usa NAT y la conexión física del anfitrión. LAB_RED no incluye al anfitrión y en A aún no tiene cliente virtual.</desc>
+  <rect width="1200" height="1420" fill="#fafaf6" />
+  <text x="40" y="48" class="small soft" letter-spacing="2" font-family="sans-serif" font-size="20" fill="#526254">SOR · BLOQUE 1 · PRÁCTICA B1.14a</text>
+  <text x="40" y="96" class="title" font-family="sans-serif" font-size="34" fill="#26382d" font-weight="700">Un servidor, dos caminos de red</text>
+  <text x="40" y="132" class="small soft" font-family="sans-serif" font-size="20" fill="#526254">Estado al terminar A · El cliente Windows virtual se añadirá en B</text>
+  <rect x="30" y="160" width="1140" height="970" rx="18" fill="#f0f3ec" stroke="#52664c" stroke-width="3" />
+  <text x="60" y="204" class="h" font-family="sans-serif" font-size="27" fill="#26382d" font-weight="700">ORDENADOR FÍSICO · Windows 11 Pro</text>
+  <text x="60" y="238" class="small soft" font-family="sans-serif" font-size="20" fill="#526254">Anfitrión: ejecuta VirtualBox y el cliente SSH; no es el servidor Ubuntu.</text>
+  <rect x="390" y="275" width="745" height="770" rx="14" fill="#ffffff" stroke="#8e9d84" stroke-width="2.5" />
+  <text x="415" y="312" class="h" font-family="sans-serif" font-size="27" fill="#26382d" font-weight="700">VirtualBox</text>
+  <rect x="740" y="335" width="365" height="595" rx="12" fill="#f8f9f5" stroke="#52664c" stroke-width="2.5" />
+  <text x="765" y="373" class="h" font-family="sans-serif" font-size="27" fill="#26382d" font-weight="700">VM · Ubuntu Server</text>
+  <text x="765" y="404" class="mono" font-family="monospace" font-size="22" fill="#26382d">B1-UbuntuServer</text>
+  <rect x="65" y="365" width="280" height="205" rx="12" fill="#eaf4f8" stroke="#126586" stroke-width="2" />
+  <text x="85" y="405" class="h" font-family="sans-serif" font-size="27" fill="#26382d" font-weight="700">Cliente SSH</text>
+  <text x="85" y="441" font-family="sans-serif" font-size="20" fill="#26382d">PowerShell en Windows</text>
+  <text x="85" y="477" class="small" font-family="sans-serif" font-size="20" fill="#26382d">Inicia la conexión local.</text>
+  <text x="85" y="514" class="small sshtext" font-family="sans-serif" font-size="20" fill="#126586" font-weight="700">1 · ADMINISTRACIÓN</text>
+  <text x="85" y="546" class="small" font-family="sans-serif" font-size="20" fill="#26382d">Sin usar la tarjeta física.</text>
+  <rect x="420" y="365" width="275" height="230" rx="12" fill="#fff8e8" stroke="#b68b3b" stroke-width="2" />
+  <text x="440" y="405" class="h" font-family="sans-serif" font-size="27" fill="#26382d" font-weight="700">Motor NAT</text>
+  <text x="440" y="440" class="small" font-family="sans-serif" font-size="20" fill="#26382d">Regla: ssh-b1-14a</text>
+  <text x="440" y="477" class="small sshtext" font-family="sans-serif" font-size="20" fill="#126586" font-weight="700">Escucha local TCP:</text>
+  <text x="440" y="510" class="mono sshtext" font-family="monospace" font-size="22" fill="#126586" font-weight="700">127.0.0.1:2214</text>
+  <text x="440" y="546" class="small" font-family="sans-serif" font-size="20" fill="#26382d">Reenvía al puerto 22</text>
+  <text x="440" y="574" class="small" font-family="sans-serif" font-size="20" fill="#26382d">de esta VM.</text>
+  <rect x="765" y="435" width="315" height="130" rx="10" fill="#eaf4f8" stroke="#126586" stroke-width="2" />
+  <text x="785" y="470" class="h" font-family="sans-serif" font-size="27" fill="#26382d" font-weight="700">Adaptador 1 · NAT</text>
+  <text x="785" y="507" class="small" font-family="sans-serif" font-size="20" fill="#26382d">IP automática por DHCP</text>
+  <text x="785" y="539" class="mono" font-family="monospace" font-size="22" fill="#26382d">10.0.2.15 *</text>
+  <rect x="765" y="625" width="315" height="115" rx="10" fill="#ffffff" stroke="#126586" stroke-width="2" />
+  <text x="785" y="664" class="h" font-family="sans-serif" font-size="27" fill="#26382d" font-weight="700">OpenSSH Server</text>
+  <text x="785" y="704" class="mono sshtext" font-family="monospace" font-size="22" fill="#126586" font-weight="700">Puerto TCP 22</text>
+  <rect x="765" y="785" width="315" height="120" rx="10" fill="#f3edf5" stroke="#6f4c76" stroke-width="2" />
+  <text x="785" y="820" class="h" font-family="sans-serif" font-size="27" fill="#26382d" font-weight="700">Adaptador 2</text>
+  <text x="785" y="855" class="mono labtext" font-family="monospace" font-size="22" fill="#65406c" font-weight="700">10.10.10.10/24</text>
+  <text x="785" y="884" class="small" font-family="sans-serif" font-size="20" fill="#26382d">IP fija · Sin puerta de enlace</text>
+  <path d="M345 490H420" stroke="#126586" stroke-width="5" fill="none" />
+  <path d="M695 470H765" stroke="#126586" stroke-width="5" fill="none" />
+  <path d="M920 565V625" stroke="#126586" stroke-width="5" fill="none" />
+  <text x="947" y="606" class="small sshtext" font-family="sans-serif" font-size="20" fill="#126586" font-weight="700">SSH</text>
+  <path d="M765 550H695" stroke="#95640c" stroke-width="4" fill="none" />
+  <path d="M560 595V675H205V810" stroke="#95640c" stroke-width="4" fill="none" />
+  <text x="421" y="710" class="small nettext" font-family="sans-serif" font-size="20" fill="#805206" font-weight="700">2 · SALIDA A INTERNET</text>
+  <text x="420" y="750" class="small nettext" font-family="sans-serif" font-size="20" fill="#805206" font-weight="700">Usa la conexión física</text>
+  <text x="420" y="780" class="small nettext" font-family="sans-serif" font-size="20" fill="#805206" font-weight="700">del anfitrión Windows.</text>
+  <rect x="65" y="810" width="280" height="170" rx="12" fill="#fff8e8" stroke="#b68b3b" stroke-width="2" />
+  <text x="85" y="850" class="h" font-family="sans-serif" font-size="27" fill="#26382d" font-weight="700">Conexión física</text>
+  <text x="85" y="886" font-family="sans-serif" font-size="23" fill="#26382d">Ethernet o wifi</text>
+  <text x="85" y="922" class="small" font-family="sans-serif" font-size="20" fill="#26382d">IP de Windows:</text>
+  <text x="85" y="952" class="small" font-family="sans-serif" font-size="20" fill="#26382d">no se modifica.</text>
+  <rect x="420" y="810" width="275" height="200" rx="12" fill="#f3edf5" stroke="#6f4c76" stroke-width="2" />
+  <text x="440" y="850" class="h labtext" font-family="sans-serif" font-size="27" fill="#65406c" font-weight="700">3 · LAB_RED</text>
+  <text x="440" y="886" class="small" font-family="sans-serif" font-size="20" fill="#26382d">Red interna</text>
+  <text x="440" y="920" class="small" font-family="sans-serif" font-size="20" fill="#26382d">Sin acceso desde</text>
+  <text x="440" y="947" class="small" font-family="sans-serif" font-size="20" fill="#26382d">el Windows físico.</text>
+  <text x="440" y="976" class="small labtext" font-family="sans-serif" font-size="20" fill="#65406c" font-weight="700">Aún sin cliente virtual.</text>
+  <text x="440" y="1003" class="tiny" font-family="sans-serif" font-size="18" fill="#26382d">Preparada para B y C.</text>
+  <path d="M765 855H695" stroke="#6f4c76" stroke-width="4" fill="none" />
+  <text x="390" y="1080" class="small soft" font-family="sans-serif" font-size="20" fill="#526254">127.0.0.1: loopback del anfitrión.</text>
+  <text x="390" y="1110" class="small soft" font-family="sans-serif" font-size="20" fill="#526254">No es una tercera tarjeta de la VM.</text>
+  <path d="M205 980V1175" stroke="#95640c" stroke-width="4" fill="none" />
+  <rect x="65" y="1175" width="280" height="105" rx="12" fill="#fff8e8" stroke="#b68b3b" stroke-width="2" />
+  <text x="85" y="1216" class="h" font-family="sans-serif" font-size="27" fill="#26382d" font-weight="700">Red del centro</text>
+  <text x="85" y="1253" font-family="sans-serif" font-size="23" fill="#26382d">e Internet</text>
+  <rect x="390" y="1175" width="745" height="105" rx="12" fill="#26382d" />
+  <text x="415" y="1212" class="small" font-family="sans-serif" font-size="20" fill="#d4dfcd">COMANDO EN EL WINDOWS FÍSICO</text>
+  <text x="415" y="1253" class="mono" font-family="monospace" font-size="22" fill="#ffffff">ssh -p 2214 TU_USUARIO@127.0.0.1</text>
+  <text x="40" y="1331" class="small soft" font-family="sans-serif" font-size="20" fill="#526254">* Dirección habitual del NAT predeterminado. Comprueba la IP real; los nombres de interfaces pueden variar.</text>
+  <text x="40" y="1365" class="small soft" font-family="sans-serif" font-size="20" fill="#526254">Flechas 1 y 2: inicio de conexión; las respuestas vuelven. Línea 3: conexión interna preparada.</text>
+  <text x="40" y="1400" class="tiny soft" font-family="sans-serif" font-size="18" fill="#526254">Esquema lógico al finalizar B1.14a · No es red puente ni red solo-anfitrión · No configura un router físico.</text>
+  <polygon points="420,490 406,482 406,498" fill="#126586" />
+  <polygon points="765,470 751,462 751,478" fill="#126586" />
+  <polygon points="920,625 912,611 928,611" fill="#126586" />
+  <polygon points="695,550 709,542 709,558" fill="#95640c" />
+  <polygon points="205,810 197,796 213,796" fill="#95640c" />
+  <polygon points="205,1175 197,1161 213,1161" fill="#95640c" />
+</svg>
