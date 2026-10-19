@@ -20,7 +20,7 @@ Vídeo: B1.4 · Descargar y verificar la ISO (SHA256)
 > [!info] Caso real (contexto profesional)
 > Antes de crear un USB o instalar nada, el técnico descarga la imagen ISO del sistema operativo. Pero una ISO puede **corromperse al descargar** o, peor, haber sido **manipulada** en un sitio no oficial. Instalar una imagen dañada o alterada puede arruinar el equipo o meter malware. Por eso, **siempre se verifica** antes de usarla.
 
-- **🎯 Objetivo real:** descargar la ISO oficial y **comprobar su integridad y autenticidad** con su hash SHA256.
+- **🎯 Objetivo real:** descargar la ISO oficial y **comprobar su integridad** con su hash SHA256.
 - **🧩 Problema que resuelve:** evitar instalar una imagen corrupta o manipulada — un fallo de seguridad grave.
 
 ---
@@ -28,16 +28,44 @@ Vídeo: B1.4 · Descargar y verificar la ISO (SHA256)
 ## 📚 Fundamento
 
 > [!info] Antes de empezar: qué es un hash y para qué sirve
-> Un **hash** (SHA256) es una "huella digital" de un archivo: una cadena de 64 caracteres calculada a partir de su contenido. Si cambia **un solo bit** del archivo, el hash cambia por completo. El fabricante publica el hash oficial de su ISO; tú calculas el de tu descarga y **los comparas**: si coinciden, la ISO es íntegra y auténtica.
+> Piensa en la **huella dactilar** de una persona: no te dice cómo es, pero si dos huellas coinciden, es la misma persona. Un **hash SHA256** es la huella de un archivo.
+>
+> - Se calcula leyendo el archivo **entero**, bit a bit, y sale siempre una cadena de **64 caracteres** (letras `a-f` y números `0-9`). Son 256 bits escritos en hexadecimal: de ahí el nombre.
+> - Si cambia **un solo bit** del archivo, el hash sale **completamente distinto**, no parecido.
+> - Va en **un solo sentido**: del archivo sale el hash, pero del hash no se puede reconstruir el archivo.
+>
+> El fabricante publica el hash oficial de su ISO. Tú calculas el de tu descarga y **los comparas**: si coinciden, tu archivo es, byte a byte, el que publicó el fabricante.
 
-> [!tip] Idea clave
-> **Descargar de la web oficial NO es suficiente.** La descarga puede cortarse o corromperse por el camino. Verificar el SHA256 es el paso que confirma que lo que tienes es **exactamente** lo que publicó el fabricante.
+> [!warning] El fallo nº1: creer que el hash lo demuestra todo
+> Que coincida demuestra **integridad**: tu copia es idéntica a la del sitio de donde sacaste el hash. Demuestra **autenticidad** (que la hizo de verdad Ubuntu o Microsoft) **solo si el hash lo has sacado de la web oficial**. Si bajas la ISO y su hash de la misma web falsa, coincidirán igual: el que la manipuló también calculó el hash.
+>
+> **Descargar de la web oficial NO es suficiente, y comprobar el hash tampoco lo es por sí solo.** Hacen falta las dos cosas: web oficial **y** hash comparado.
+
+> [!important] Dónde está el hash oficial de cada ISO del bloque
+> Esta tabla es **la que vas a usar en todos los laboratorios** (B1.14, B1.14b, B1.15 y B1.15b). Allí no se vuelve a explicar: se hace.
+>
+> | ISO | Archivo | Dónde está el hash oficial |
+> | :--- | :--- | :--- |
+> | Ubuntu Server 26.04 LTS | `ubuntu-26.04.1-live-server-amd64.iso` | Fichero `SHA256SUMS` en `releases.ubuntu.com/26.04.1/`: busca la línea con el nombre de tu archivo |
+> | Ubuntu Desktop 26.04 LTS | `ubuntu-26.04.1-desktop-amd64.iso` | El mismo `SHA256SUMS` de arriba, en su línea |
+> | Windows 11 | `Windows11_Client_x64_es-es_…iso` | En la propia página de descarga de Microsoft (`microsoft.com/es-es/software-download/windows11`): publica un hash **por idioma**. Usa el de **Español** |
+> | Windows Server 2025 | `…SERVER_EVAL_x64FRE_es-es.iso` | **Microsoft no lo publica** en el Evaluation Center. Ver el aviso de abajo |
+>
+> El número exacto de versión (`26.04.1`) y el nombre de Windows cambian con el tiempo. **Compara siempre con el hash del archivo que has bajado tú**, no con el de esta tabla ni con el de un compañero.
+
+> [!danger] Windows Server 2025: la ISO que no se puede verificar
+> Como no hay hash oficial, **no tienes con qué comparar**. Lo único que puedes hacer:
+> 1. Descargarla **solo** del Evaluation Center de Microsoft (`microsoft.com/evalcenter`). Nunca de otra web.
+> 2. Calcular su hash igualmente y **apuntarlo**. No demuestra que sea la de Microsoft, pero sí te sirve para comprobar que la copia que pases a un USB u otro equipo es la misma que descargaste.
+>
+> Si en un foro te dicen «este es el hash oficial de Server 2025», desconfía: no viene de Microsoft.
 
 > [!example] Vocabulario de esta práctica
 > - **ISO:** archivo que contiene la imagen exacta del disco de instalación del SO.
-> - **Hash / SHA256:** huella digital del archivo para comprobar integridad.
+> - **Hash / SHA256:** huella digital del archivo, de 64 caracteres.
+> - **Integridad / autenticidad:** que el archivo está intacto / que viene de quien dice.
 > - **`Get-FileHash` (Windows):** comando de PowerShell que calcula el hash.
-> - **`sha256sum` (Linux):** comando equivalente en Linux.
+> - **`sha256sum` (Linux y Git Bash):** comando equivalente.
 > - **OBS · Playlist · Timestamp:** grabación · playlist `B1_Entorno` · marca por paso.
 
 ---
@@ -58,24 +86,42 @@ Vídeo: B1.4 · Descargar y verificar la ISO (SHA256)
 > [!example] Paso 0 — Prepárate y empieza a grabar
 > Léete el ejercicio, arranca OBS y preséntate.
 
-> [!example] Paso 1 — Descarga la ISO oficial
-> Descarga **Ubuntu Server 26.04 LTS** desde `ubuntu.com` (o la ISO que uses). En la misma página del fabricante, **localiza el hash SHA256 oficial** (suele estar en un fichero `SHA256SUMS` o junto al enlace de descarga). Anótalo o tenlo a la vista.
+> [!example] Paso 1 — Descarga la ISO oficial y localiza su hash
+> Descarga **Ubuntu Server 26.04 LTS** desde `ubuntu.com`. Después abre `releases.ubuntu.com/26.04.1/SHA256SUMS` y busca **la línea que lleva el nombre de tu archivo**: los 64 caracteres de delante son el hash oficial. Cópialo.
 
 > [!example] Paso 2 — Calcula el hash de tu descarga
-> - **🪟 PowerShell:**
+> Abre **PowerShell** y entra en la carpeta donde se ha descargado la ISO (normalmente `Descargas`):
+> ```powershell
+> cd $HOME\Downloads
+> Get-FileHash .\ubuntu-26.04.1-live-server-amd64.iso -Algorithm SHA256
 > ```
-> Get-FileHash .\ubuntu-26.04-live-server-amd64.iso -Algorithm SHA256
+> Tarda unos segundos: está leyendo el archivo entero. El hash sale en la columna `Hash`, **en mayúsculas**. El de Ubuntu está en minúsculas. Es el mismo número: las mayúsculas no cuentan.
+>
+> En **Git Bash** el equivalente es:
+> ```bash
+> cd ~/Downloads
+> sha256sum ubuntu-26.04.1-live-server-amd64.iso
 > ```
-> - **🐧 Linux / Git Bash:**
-> ```
-> sha256sum ubuntu-26.04-live-server-amd64.iso
-> ```
+> *(`~` es tu carpeta personal, `C:\Users\TU-USUARIO`.)*
 
-> [!example] Paso 3 — Compara los dos hash
-> Compara el hash que has calculado con el **oficial** del fabricante. Deben ser **idénticos** (los 64 caracteres). Si coinciden → ISO íntegra y auténtica. Si no → **no la uses**: vuelve a descargarla.
+> [!example] Paso 3 — Compara los dos hash (sin hacerlo a ojo)
+> Comparar 64 caracteres mirándolos es la forma más segura de equivocarse. Que lo haga el ordenador. En **PowerShell**, pega el hash oficial entre las comillas:
+> ```powershell
+> (Get-FileHash .\ubuntu-26.04.1-live-server-amd64.iso).Hash -eq "PEGA-AQUI-EL-HASH-OFICIAL"
+> ```
+> - **`True`** → coinciden: la ISO está íntegra. Puedes usarla.
+> - **`False`** → no coinciden: **no la uses**. Bórrala y vuelve a descargarla.
+>
+> `-eq` no distingue mayúsculas de minúsculas, así que da igual cómo venga escrito el oficial.
+>
+> En **Git Bash**, con **dos espacios** entre el hash y el nombre:
+> ```bash
+> echo "PEGA-AQUI-EL-HASH-OFICIAL  ubuntu-26.04.1-live-server-amd64.iso" | sha256sum -c
+> ```
+> Si coinciden, responde `OK`; si no, `FAILED`.
 
 > [!example] Paso 4 — Documenta el resultado
-> Deja constancia: nombre de la ISO, hash oficial, hash calculado y **veredicto** (✅ coincide / ❌ no coincide).
+> Deja constancia en tu entrada: nombre de la ISO, hash oficial, hash calculado y **veredicto** (`True` / `False`).
 
 > [!example] Paso 5 — Cierra la grabación y súbela
 > Detén OBS, nombra el vídeo **`B1.4 · Descargar y verificar la ISO (SHA256)`**, súbelo a **`B1_Entorno`** y añade timestamps.
@@ -87,19 +133,23 @@ Vídeo: B1.4 · Descargar y verificar la ISO (SHA256)
 > [!warning] Errores típicos (evítalos)
 > | Error | Qué pasa | Cómo evitarlo |
 > | :--- | :--- | :--- |
-> | Descargar la ISO de un sitio no oficial | Puede estar manipulada | Descarga **solo** de la web del fabricante. |
-> | Saltarse la verificación | Instalas una imagen corrupta | Calcula y compara **siempre** el SHA256. |
-> | Comparar los hash "a ojo" | Se cuela un carácter distinto | Cópialos y compáralos con cuidado (o `Compare`/`diff`). |
+> | Descargar la ISO de un sitio no oficial | Puede estar manipulada, y su hash coincidirá igual | Descarga **solo** de la web del fabricante, y el hash también |
+> | Saltarse la verificación | Instalas una imagen corrupta | Calcula y compara **siempre** el SHA256 |
+> | Comparar los hash "a ojo" | Se cuela un carácter distinto y no lo ves | Usa `-eq` en PowerShell o `sha256sum -c` en Git Bash |
+> | Pensar que no coinciden porque uno está en mayúsculas | Descartas una ISO que estaba bien | Las mayúsculas no cuentan: `-eq` ya lo tiene en cuenta |
+> | Copiar el hash de la línea de otro archivo en `SHA256SUMS` (Desktop en vez de Server, o `26.04` en vez de `26.04.1`) | Sale `False` con una ISO buena | Busca la línea con **exactamente** el nombre de tu archivo |
+> | `Get-FileHash` dice que no encuentra el archivo | No estás en la carpeta de la descarga, o el nombre no es igual | `cd` a la carpeta y escribe el nombre real (pulsa `Tab` para completarlo) |
 
 > [!success] ✅ Verificación: ¿está bien hecho?
 > - Has descargado la ISO de la **web oficial**.
-> - El **SHA256 calculado coincide** con el oficial.
+> - La comparación ha dado **`True`** (o `OK` en Git Bash).
 > - El vídeo está en la playlist `B1_Entorno` con timestamps.
 
 > [!question] Comprueba que lo has entendido
 > 1. ¿Qué es un **hash SHA256** y qué demuestra que coincida?
-> 2. ¿Por qué no basta con descargar de la web oficial?
-> 3. ¿Qué harías si el hash **no coincide**?
+> 2. ¿Por qué no basta con descargar de la web oficial? ¿Y por qué no basta con que coincida el hash?
+> 3. ¿Qué harías si te sale **`False`**?
+> 4. ¿Por qué la ISO de **Windows Server 2025** no se puede verificar como las otras tres? ¿Qué haces con ella?
 
 ---
 
@@ -115,8 +165,9 @@ Vídeo: B1.4 · Descargar y verificar la ISO (SHA256)
 > Una práctica con el vídeo perfecto y las preguntas en blanco está **incompleta**.
 
 > [!summary] 🎓 Qué has aprendido en este ejercicio
-> - Qué es un **hash SHA256** y por qué verifica integridad y autenticidad.
-> - A calcularlo con **`Get-FileHash`** y **`sha256sum`**.
-> - El hábito profesional de **no usar nunca** una ISO sin verificar.
+> - Qué es un **hash SHA256** y la diferencia entre **integridad** y **autenticidad**.
+> - A calcularlo con **`Get-FileHash`** y **`sha256sum`**, y a compararlo con **`-eq`** en vez de a ojo.
+> - Dónde está el hash oficial de **cada ISO del bloque**, y qué hacer con la que no lo tiene.
+> - El hábito profesional de **no usar nunca** una ISO sin verificar. Lo repetirás en cada laboratorio.
 >
 > **Siguiente:** B1.5 — USB booteable con Rufus (y Secure Boot).

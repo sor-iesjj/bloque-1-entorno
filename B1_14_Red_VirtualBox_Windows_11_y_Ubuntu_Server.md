@@ -8,7 +8,7 @@ CE: CE.01.i
 Playlist: B1_Entorno
 Vídeo: B1.14 · Red de laboratorio en VirtualBox (Windows 11 y Ubuntu Server)
 ---
-
+	
 ## B1.14 — Red de laboratorio en VirtualBox: Windows 11 y Ubuntu Server
 
 > [!abstract] Ficha de la práctica
@@ -91,6 +91,7 @@ Vídeo: B1.14 · Red de laboratorio en VirtualBox (Windows 11 y Ubuntu Server)
 > La práctica se graba **entera**, instalaciones incluidas. Para que quien corrige encuentre cada cosa sin ver media hora de barras de progreso, el vídeo lleva **como mínimo** estas marcas (una por paso, más el principio y el final de cada instalación):
 > ```
 > 00:00 Presentación
+> Paso 0 · Comprobación del hash de las dos ISO
 > Paso 1 · VM Ubuntu Server y sus dos adaptadores
 > Paso 2 · Instalación de Ubuntu Server (inicio)
 > Paso 2 · Instalación de Ubuntu Server (fin)
@@ -112,7 +113,15 @@ Vídeo: B1.14 · Red de laboratorio en VirtualBox (Windows 11 y Ubuntu Server)
 ## 🛠️ Procedimiento
 
 > [!example] Paso 0 — Prepárate y empieza a grabar
-> Léete el ejercicio entero, ten a mano las ISO de **Ubuntu Server 26.04 LTS** y **Windows 11** (verificadas, B1.4) y comprueba que la virtualización está activa (B1.9). Crea la entrada de apuntes vacía. Arranca OBS y preséntate.
+> Léete el ejercicio entero, ten a mano las ISO de **Ubuntu Server 26.04 LTS** y **Windows 11** y comprueba que la virtualización está activa (B1.9). Crea la entrada de apuntes vacía. Arranca OBS y preséntate.
+
+> [!danger] 🛑 Antes de crear ninguna VM: comprueba la huella de las dos ISO
+> Haz la comprobación del hash **tal y como la aprendiste en B1.4**: el mismo comando y la misma comparación con `-eq`. Ahí tienes también **dónde está el hash oficial** de cada ISO. Aquí no se vuelve a explicar: se hace, y **se graba**.
+> - `ubuntu-26.04.1-live-server-amd64.iso` → hash oficial en el `SHA256SUMS` de Ubuntu.
+> - La ISO de **Windows 11** → hash oficial en la página de descarga de Microsoft, el de **Español**.
+>
+> Apunta en tu entrada, de cada una: **hash oficial, hash calculado y si te ha salido `True`**.
+> **Si alguna da `False`, no sigas:** bórrala, vuelve a descargarla y repite la comprobación.
 
 > [!example] Paso 1 — Crea la VM del servidor: Ubuntu Server
 > Crea la VM `B1-UbuntuServer` como ya sabes (B1.9 y B1.10): tipo **Linux · Ubuntu (64-bit)**, **2 CPU, 2048 MB de RAM, disco de 25 GB**, con la ISO de Ubuntu Server 26.04.
@@ -286,6 +295,7 @@ Vídeo: B1.14 · Red de laboratorio en VirtualBox (Windows 11 y Ubuntu Server)
 > [!warning] Errores típicos (evítalos)
 > | Error | Qué pasa | Cómo evitarlo |
 > | :--- | :--- | :--- |
+> | Crear las VM sin comprobar el hash de las ISO | Si la ISO está dañada, la instalación falla a medias o, peor, parece ir bien y falla más tarde | Paso 0: `-eq` con el hash oficial, como en B1.4, **antes** de crear nada |
 > | Nombre de red interna distinto en cada VM (`LAB_RED` / `lab_red` / `LAB RED`) | Cada VM está en su propia red: no hay ping en ningún sentido | Copia el nombre letra a letra en las dos VM |
 > | Adaptador 2 sin habilitar, o sin la casilla **Cable conectado** en *Avanzadas* | La tarjeta sale `DOWN` o `NO-CARRIER` en `ip -br a` | Revisa los dos detalles en Configuración → Red |
 > | Tabuladores o sangría mal hecha en el YAML | `netplan try` da error y no aplica nada | Solo espacios, dos por nivel, alineados como en el ejemplo |
@@ -300,6 +310,7 @@ Vídeo: B1.14 · Red de laboratorio en VirtualBox (Windows 11 y Ubuntu Server)
 > | VirtualBox muy lento y una **tortuga verde** abajo a la derecha de la ventana de la VM | Hyper-V está activado en el equipo y VirtualBox funciona por encima de él | No es un fallo de la práctica: funciona igual, solo más lento. Coméntalo con el profesor si molesta |
 
 > [!success] ✅ Verificación: ¿está bien hecho?
+> - En tu entrada están los hashes de las **dos ISO**, oficial y calculado, y las dos comparaciones dan **`True`**.
 > - En el servidor, `ip -br a` muestra `enp0s8` **UP** con `10.10.10.10/24`, **también después de reiniciar**.
 > - En Windows, `ipconfig` muestra `10.10.10.20` en la tarjeta del laboratorio, **sin puerta de enlace** en ella.
 > - `ping 10.10.10.10` desde Windows: **0 % perdidos**.
@@ -314,6 +325,7 @@ Vídeo: B1.14 · Red de laboratorio en VirtualBox (Windows 11 y Ubuntu Server)
 > 3. Si en el servidor hubieras puesto la IP en `enp0s3` en lugar de en `enp0s8`, ¿qué dos cosas habrían dejado de funcionar?
 > 4. Tu fichero `60-laboratorio.yaml` dice `dhcp4: false` y el del instalador dice `dhcp4: true` para la misma tarjeta. ¿Cuál gana y por qué?
 > 5. Pon un ejemplo **tuyo, del mundo real**, de algo que se parezca a una red interna de VirtualBox.
+> 6. En el Paso 0 te ha salido `True` con las dos ISO. ¿Qué te garantiza eso de cada una, y qué **no** te garantiza?
 
 ---
 
