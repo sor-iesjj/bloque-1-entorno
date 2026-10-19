@@ -18,7 +18,7 @@ Vídeo: B1.15 · Red de laboratorio en Hyper-V (Windows 11 y Windows Server)
 > - **📹 Nombre del vídeo:** `B1.15 · Red de laboratorio en Hyper-V (Windows 11 y Windows Server)`
 
 > [!info] Caso real (contexto profesional)
-> En una empresa que trabaja con Microsoft, el servidor es un **Windows Server** y el hipervisor suele ser **Hyper-V**, que ya viene dentro de Windows. El técnico hace lo mismo que en B1.14: monta el servidor y un puesto cliente, y comprueba que **se ven** antes de configurar nada más. La idea es la misma; cambian las herramientas.
+> En una empresa que trabaja con Microsoft, el servidor es un **Windows Server** y el hipervisor suele ser **Hyper-V**, que ya viene dentro de Windows. El técnico hace lo mismo que en B1.14b: monta el servidor y un puesto cliente, y comprueba que **se ven** antes de configurar nada más. La idea es la misma; cambian las herramientas.
 
 - **🎯 Objetivo real:** crear en **Hyper-V** una VM **Windows Server 2025** (servidor) y una VM **Windows 11 Pro** (cliente), conectadas a una red privada, con ping en los dos sentidos.
 - **🧩 Problema que resuelve:** el **Bloque 3** parte de aquí. Y vas a ver que entre dos Windows el ping falla **en los dos sentidos** hasta que tocas el firewall de **cada uno**.
@@ -39,7 +39,7 @@ Vídeo: B1.15 · Red de laboratorio en Hyper-V (Windows 11 y Windows Server)
 > [!info] La idea: el mismo cable, con otro nombre
 > Hyper-V no tiene «adaptadores en modo NAT o red interna», como VirtualBox. Tiene **conmutadores virtuales** (*switches*): creas el switch una vez y luego **enchufas** a él las tarjetas de las VM. Es exactamente lo que harías en una oficina: un switch en el armario y cables a cada equipo.
 >
-> | Lo que quieres | VirtualBox (B1.14) | Hyper-V (esta práctica) |
+> | Lo que quieres | VirtualBox (B1.14b) | Hyper-V (esta práctica) |
 > | :--- | :--- | :--- |
 > | Salir a Internet | Adaptador en **NAT** | Tarjeta en el **Default Switch** (ya viene creado) |
 > | Red solo entre VM | **Red interna** `LAB_RED` | Conmutador **Privado** `LAB_RED` |
@@ -56,10 +56,10 @@ Vídeo: B1.15 · Red de laboratorio en Hyper-V (Windows 11 y Windows Server)
 > | Windows 11 Pro | Cliente | `10.10.10.20/24` |
 
 > [!warning] El fallo nº1: ahora hay DOS firewalls
-> En B1.14 solo había un Windows, y el ping fallaba en un sentido. Aquí **los dos son Windows**, y el Firewall de Windows **bloquea todo lo que le llega sin haberlo pedido, salvo que una regla lo permita**. Lo normal es que el ping **falle en los dos sentidos**. Tendrás que abrirlo en **cada máquina**. Si solo lo abres en una, solo funciona hacia esa.
+> En B1.14b solo había un Windows, y el ping fallaba en un sentido. Aquí **los dos son Windows**, y el Firewall de Windows **bloquea todo lo que le llega sin haberlo pedido, salvo que una regla lo permita**. Lo normal es que el ping **falle en los dos sentidos**. Tendrás que abrirlo en **cada máquina**. Si solo lo abres en una, solo funciona hacia esa.
 
 > [!tip] Dos redes `LAB_RED` que no se conocen
-> Si hiciste B1.14, ahora tienes una `LAB_RED` en VirtualBox y otra en Hyper-V. **No tienen nada que ver**: cada hipervisor tiene las suyas, y una VM de VirtualBox no ve a una de Hyper-V aunque las redes se llamen igual. Y como ninguna de las dos pone una tarjeta en tu ordenador, **tampoco chocan** con las redes del anfitrión, ni con la `10.10.10.1` que usarán los Bloques 2 y 3.
+> Si hiciste B1.14b, ahora tienes una `LAB_RED` en VirtualBox y otra en Hyper-V. **No tienen nada que ver**: cada hipervisor tiene las suyas, y una VM de VirtualBox no ve a una de Hyper-V aunque las redes se llamen igual. Y como ninguna de las dos pone una tarjeta en tu ordenador, **tampoco chocan** con las redes del anfitrión, ni con la `10.10.10.1` que usarán los Bloques 2 y 3.
 
 > [!example] Vocabulario de esta práctica
 > - **Conmutador virtual (Hyper-V):** el switch donde se enchufan las tarjetas de las VM.
@@ -208,7 +208,7 @@ Vídeo: B1.15 · Red de laboratorio en Hyper-V (Windows 11 y Windows Server)
 > ```powershell
 > New-NetFirewallRule -DisplayName "LAB - Ping entrante (ICMPv4)" -Direction Inbound -Protocol ICMPv4 -IcmpType 8 -Action Allow
 > ```
-> Es la misma regla de B1.14: entrada, solo ICMPv4 tipo 8 (la petición de eco), permitir. Sin perfil, vale para todos.
+> Es la misma regla de B1.14b: entrada, solo ICMPv4 tipo 8 (la petición de eco), permitir. Sin perfil, vale para todos.
 >
 > Repite los dos pings:
 > - Cliente → servidor: ✅ **funciona.**
@@ -223,7 +223,7 @@ Vídeo: B1.15 · Red de laboratorio en Hyper-V (Windows 11 y Windows Server)
 > ```
 > Repite los dos pings: ✅ **los dos con 0 % de pérdida.**
 >
-> Abres **solo el ping** y **no apagas el firewall**, por lo mismo que en B1.14.
+> Abres **solo el ping** y **no apagas el firewall**, por lo mismo que en B1.14b.
 
 > [!example] Paso 10 — Guarda el estado y cierra la grabación
 > Apaga las dos VM y crea un **punto de control** de cada una: clic derecho sobre la VM → **Punto de control**. En Hyper-V, las instantáneas se llaman así. Renómbralo `B1.15 · Red OK`. **El servidor lo vas a reutilizar en B1.15b.**
@@ -258,10 +258,10 @@ Vídeo: B1.15 · Red de laboratorio en Hyper-V (Windows 11 y Windows Server)
 > - Las dos VM tienen el punto de control `B1.15 · Red OK`.
 
 > [!question] Comprueba que lo has entendido
-> 1. Con tus palabras: ¿por qué aquí el ping fallaba en los dos sentidos y en B1.14 solo en uno?
+> 1. Con tus palabras: ¿por qué aquí el ping fallaba en los dos sentidos y en B1.14b solo en uno?
 > 2. Después del Paso 8, el ping cliente → servidor funcionaba y el servidor → cliente no. ¿Qué te dice eso sobre **dónde** actúa una regla de entrada?
 > 3. ¿Qué diferencia hay entre un conmutador **privado** y uno **interno**? ¿Por qué has usado el privado?
-> 4. Haz una tabla de dos columnas, VirtualBox y Hyper-V, con lo que has usado en B1.14 y aquí para lo mismo.
+> 4. Haz una tabla de dos columnas, VirtualBox y Hyper-V, con lo que has usado en B1.14b y aquí para lo mismo.
 
 ---
 

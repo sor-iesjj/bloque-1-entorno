@@ -20,7 +20,7 @@
 > | `CE.01.e` | Componentes a instalar | B1.3 · B1.10 |
 > | `CE.01.f` | **Automatización de instalaciones** | B1.11 · B1.12 · B1.13 |
 > | `CE.01.g` | Preferencias del entorno personal | B1.10 |
-> | `CE.01.i` | Conectividad servidor–cliente | B1.9b · B1.11 · B1.14 · B1.14b · B1.15 · B1.15b |
+> | `CE.01.i` | Conectividad servidor–cliente | B1.9b · B1.11 · B1.14a · B1.14b · B1.14c · B1.15 · B1.15b |
 > | `CE.05.e` | Automatización de tareas del sistema | B1.12 · B1.13 |
 > | `CE.05.f` | Interpretar la configuración del sistema | B1.9b · B1.13 |
 >
@@ -64,12 +64,13 @@
 | B1.13 | [[B1_13_Proyecto_Final\|Proyecto final de integración]] | Integrador |
 
 ### F · Laboratorios de red (prólogo de los Bloques 2 y 3)
-Dos VM en la misma red y que se vean: crear las máquinas, conectarlas a una red privada del hipervisor, poner IP fija y comprobar el ping en los dos sentidos. **Sin dominio ni servicios**: eso llega en los Bloques 2 y 3. Plan de red común: servidor `10.10.10.10/24`, cliente `10.10.10.20/24`, red `LAB_RED`.
+**B1.14a prepara una sola VM Ubuntu Server y el acceso SSH desde Windows físico. B1.14b y B1.14c reutilizan ese servidor y añaden un cliente virtual.** En las prácticas de dos VM: crear las máquinas, conectarlas a una red privada del hipervisor, poner IP fija y comprobar el ping en los dos sentidos. **Sin dominio ni servicios de red adicionales al SSH de B1.14a**: eso llega en los Bloques 2 y 3. Plan de red común: servidor `10.10.10.10/24`, cliente `10.10.10.20/24`, red `LAB_RED`.
 
 | # | Práctica | Nivel |
 |---|----------|-------|
-| B1.14 | [[B1_14_Red_VirtualBox_Windows_11_y_Ubuntu_Server\|Red de laboratorio en VirtualBox (Windows 11 y Ubuntu Server)]] | Intermedio |
-| B1.14b | [[B1_14.b_Red_VirtualBox_Ubuntu_Desktop_y_Ubuntu_Server\|Red de laboratorio en VirtualBox (Ubuntu Desktop y Ubuntu Server)]] | Intermedio |
+| B1.14a | [[B1_14.a_Ubuntu_Server_y_SSH_desde_Windows_Fisico\|Ubuntu Server y SSH desde Windows físico (prólogo)]] | Intermedio |
+| B1.14b | [[B1_14.b_Red_VirtualBox_Windows_11_y_Ubuntu_Server\|Red de laboratorio en VirtualBox (Windows 11 y Ubuntu Server)]] | Intermedio |
+| B1.14c | [[B1_14.c_Red_VirtualBox_Ubuntu_Desktop_y_Ubuntu_Server\|Red de laboratorio en VirtualBox (Ubuntu Desktop y Ubuntu Server)]] | Intermedio |
 | B1.15 | [[B1_15_Red_HyperV_Windows_11_y_Windows_Server\|Red de laboratorio en Hyper-V (Windows 11 y Windows Server)]] | Intermedio |
 | B1.15b | [[B1_15.b_Red_HyperV_Ubuntu_Desktop_y_Windows_Server\|Red de laboratorio en Hyper-V (Ubuntu Desktop y Windows Server)]] | Intermedio |
 

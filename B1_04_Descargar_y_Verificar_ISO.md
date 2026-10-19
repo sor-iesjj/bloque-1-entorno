@@ -42,7 +42,7 @@ Vídeo: B1.4 · Descargar y verificar la ISO (SHA256)
 > **Descargar de la web oficial NO es suficiente, y comprobar el hash tampoco lo es por sí solo.** Hacen falta las dos cosas: web oficial **y** hash comparado.
 
 > [!important] Dónde está el hash oficial de cada ISO del bloque
-> Esta tabla es **la que vas a usar en todos los laboratorios** (B1.14, B1.14b, B1.15 y B1.15b). Allí no se vuelve a explicar: se hace.
+> Esta tabla es **la que vas a usar en todos los laboratorios** (B1.14a, B1.14b, B1.14c, B1.15 y B1.15b). Allí no se vuelve a explicar: se hace.
 >
 > | ISO | Archivo | Dónde está el hash oficial |
 > | :--- | :--- | :--- |
