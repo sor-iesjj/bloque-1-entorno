@@ -66,10 +66,15 @@
 ### F · Laboratorios de red (prólogo de los Bloques 2 y 3)
 **B1.14a prepara una sola VM Ubuntu Server y el acceso SSH desde Windows físico. B1.14b y B1.14c reutilizan ese servidor y añaden un cliente virtual.** En las prácticas de dos VM: crear las máquinas, conectarlas a una red privada del hipervisor, poner IP fija y comprobar el ping en los dos sentidos. **Sin dominio ni servicios de red adicionales al SSH de B1.14a**: eso llega en los Bloques 2 y 3. Plan de red común: servidor `10.10.10.10/24`, cliente `10.10.10.20/24`, red `LAB_RED`.
 
+> [!important] B1.14a y B1.14b se hacen dos veces: Cole y Casa
+> Cada una tiene una **edición Cole** (equipo del aula) y una **edición Casa** (tu ordenador): son **cuatro ejercicios distintos**, cada uno desde cero en su ordenador, con **su vídeo** (`B1.14a Cole · …`, `B1.14a Casa · …`, `B1.14b Cole · …`, `B1.14b Casa · …`) y **su entrada** de apuntes (terminada en `-cole.md` o `-casa.md`). Los cuatro vídeos van a la **misma playlist**, `B1_Entorno`. B1.14b de cada edición continúa el servidor de B1.14a de **esa misma edición**.
+
 | # | Práctica | Nivel |
 |---|----------|-------|
-| B1.14a | [[B1_14.a_Ubuntu_Server_y_SSH_desde_Windows_Fisico\|Ubuntu Server y SSH desde Windows físico (prólogo)]] | Intermedio |
-| B1.14b | [[B1_14.b_Red_VirtualBox_Windows_11_y_Ubuntu_Server\|Red de laboratorio en VirtualBox (Windows 11 y Ubuntu Server)]] | Intermedio |
+| B1.14a Cole | [[B1_14.a_Ubuntu_Server_y_SSH_desde_Windows_Fisico_Cole\|Ubuntu Server y SSH desde Windows físico (prólogo) · Cole]] | Intermedio |
+| B1.14a Casa | [[B1_14.a_Ubuntu_Server_y_SSH_desde_Windows_Fisico_Casa\|Ubuntu Server y SSH desde Windows físico (prólogo) · Casa]] | Intermedio |
+| B1.14b Cole | [[B1_14.b_Red_VirtualBox_Windows_11_y_Ubuntu_Server_Cole\|Red de laboratorio en VirtualBox (Windows 11 y Ubuntu Server) · Cole]] | Intermedio |
+| B1.14b Casa | [[B1_14.b_Red_VirtualBox_Windows_11_y_Ubuntu_Server_Casa\|Red de laboratorio en VirtualBox (Windows 11 y Ubuntu Server) · Casa]] | Intermedio |
 | B1.14c | [[B1_14.c_Red_VirtualBox_Ubuntu_Desktop_y_Ubuntu_Server\|Red de laboratorio en VirtualBox (Ubuntu Desktop y Ubuntu Server)]] | Intermedio |
 | B1.15 | [[B1_15_Red_HyperV_Windows_11_y_Windows_Server\|Red de laboratorio en Hyper-V (Windows 11 y Windows Server)]] | Intermedio |
 | B1.15b | [[B1_15.b_Red_HyperV_Ubuntu_Desktop_y_Windows_Server\|Red de laboratorio en Hyper-V (Ubuntu Desktop y Windows Server)]] | Intermedio |

@@ -35,8 +35,8 @@ Cada práctica se **graba entera con OBS** (presentándote, con timestamps) y se
 - `B1.13` — Proyecto final de integración
 
 **F · Laboratorios de red (prólogo de los Bloques 2 y 3)**
-- `B1.14a` — Ubuntu Server y SSH desde Windows físico (prólogo; una sola VM)
-- `B1.14b` — Red de laboratorio en VirtualBox (Windows 11 y Ubuntu Server)
+- `B1.14a Cole` · `B1.14a Casa` — Ubuntu Server y SSH desde Windows físico (prólogo; una sola VM)
+- `B1.14b Cole` · `B1.14b Casa` — Red de laboratorio en VirtualBox (Windows 11 y Ubuntu Server)
 - `B1.14c` — Red de laboratorio en VirtualBox (Ubuntu Desktop y Ubuntu Server)
 - `B1.15` — Red de laboratorio en Hyper-V (Windows 11 y Windows Server)
 - `B1.15b` — Red de laboratorio en Hyper-V (Ubuntu Desktop y Windows Server)

@@ -116,4 +116,4 @@ Vídeo: B1.13 · Proyecto final de integración
 > - Que sabes **comparar y decidir** el método adecuado según el caso.
 > - Que puedes **documentar y defender** un despliegue como un profesional.
 >
-> **Siguiente:** [B1.14a — Ubuntu Server y SSH desde Windows físico](B1_14.a_Ubuntu_Server_y_SSH_desde_Windows_Fisico.md): prepara el servidor que se reutilizará en B1.14b y B1.14c.
+> **Siguiente:** [B1.14a Cole — Ubuntu Server y SSH desde Windows físico](B1_14.a_Ubuntu_Server_y_SSH_desde_Windows_Fisico_Cole.md) y su edición [B1.14a Casa](B1_14.a_Ubuntu_Server_y_SSH_desde_Windows_Fisico_Casa.md): preparan el servidor que se reutilizará en B1.14b y B1.14c.
