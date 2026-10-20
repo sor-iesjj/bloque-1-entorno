@@ -233,10 +233,10 @@ Vídeo: B1.15 Casa · Red de laboratorio en Hyper-V (Windows 11 y Windows Server
 > ```
 > Repite los dos pings: ✅ **los dos con 0 % de pérdida.**
 >
-> Abres **solo el ping** y **no apagas el firewall**, por lo mismo que en B1.14b.
+> Abres **solo el ping** y **no apagas el firewall**, por lo mismo que en B1.14b Casa.
 
 > [!example] Paso 10 — Guarda el estado y cierra la grabación
-> Apaga las dos VM y crea un **punto de control** de cada una: clic derecho sobre la VM → **Punto de control**. En Hyper-V, las instantáneas se llaman así. Renómbralo `B1.15 Casa · Red OK`. **El servidor lo vas a reutilizar en B1.15b.**
+> Apaga las dos VM y crea un **punto de control** de cada una: clic derecho sobre la VM → **Punto de control**. En Hyper-V, las instantáneas se llaman así. Renómbralo `B1.15 Casa · Red OK`. **El servidor lo vas a reutilizar en B1.15b Casa.**
 >
 > Detén OBS, nombra el vídeo **`B1.15 Casa · Red de laboratorio en Hyper-V (Windows 11 y Windows Server)`**, súbelo a **`B1_Entorno`** (No listado) y añade los timestamps. Pega su enlace en tu entrada de apuntes.
 
