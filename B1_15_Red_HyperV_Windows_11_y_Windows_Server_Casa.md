@@ -24,6 +24,7 @@ Vídeo: B1.15 Casa · Red de laboratorio en Hyper-V (Windows 11 y Windows Server
 > - **Su propio vídeo:** `B1.15 Casa · …`, distinto del de la edición Cole.
 > - **Su propia entrada** en tu bitácora de apuntes, con tu nombre, todos los pasos y las respuestas: la de esta edición termina en `-casa.md`.
 > - **La misma playlist para las dos ediciones:** `B1_Entorno`.
+> - 🛑 **Esta edición necesita Windows 11 Pro, Enterprise o Education en tu ordenador de casa.** Con Windows 11 Home no hay Hyper-V. Compruébalo en **Configuración → Sistema → Información** («Edición»). Si es Home, **no puedes hacer la edición Casa: avisa al profesor antes de empezar**. No compres ni instales otra versión de Windows por tu cuenta.
 >
 > La otra edición: [B1.15 Cole](B1_15_Red_HyperV_Windows_11_y_Windows_Server_Cole.md).
 
@@ -38,7 +39,7 @@ Vídeo: B1.15 Casa · Red de laboratorio en Hyper-V (Windows 11 y Windows Server
 
 > [!warning] Requisitos del equipo
 > - **Windows 11 Pro** (o Enterprise/Education) con **Hyper-V activado**. Windows 11 Home **no tiene Hyper-V** y no se le puede añadir.
-> - **Compruébalo antes de empezar:** escribe «Hyper-V» en el menú Inicio. Si no aparece el **Administrador de Hyper-V**, no está activado. Activarlo necesita **permisos de administrador y reiniciar el equipo** (se explica en el **Bloque 3 · Fase 1.6**, Paso 1). En el aula no tienes esos permisos: **avisa al profesor antes de empezar**, no a mitad de práctica.
+> - **Compruébalo antes de empezar:** escribe «Hyper-V» en el menú Inicio. Si no aparece el **Administrador de Hyper-V**, no está activado. Activarlo necesita **permisos de administrador y reiniciar el equipo** (se explica en el **Bloque 3 · Fase 1.6**, Paso 1). En casa, si eres administrador del ordenador, lo activas tú siguiendo ese paso; si no lo eres, pídeselo a quien lo sea **antes de empezar**, no a mitad de práctica.
 > - **Permiso para usar Hyper-V:** o eres administrador del equipo, o tu usuario está en el grupo local **Administradores de Hyper-V**, que es justo para eso: crear y manejar VM y conmutadores sin ser administrador de todo el equipo. **Si el Administrador de Hyper-V te da error de permisos, avisa al profesor**: no intentes saltártelo.
 > - Las dos VM encendidas a la vez piden **8 GB de RAM** solo para ellas.
 
