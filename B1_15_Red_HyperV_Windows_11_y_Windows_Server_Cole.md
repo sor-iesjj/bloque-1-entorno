@@ -1,24 +1,34 @@
 ---
-Práctica: B1.15
+Práctica: B1.15 Cole
 Bloque: 01_Entorno
 Nivel: 2
 Nivel_nombre: Intermedio
 RA: RA.01
 CE: CE.01.i
 Playlist: B1_Entorno
-Vídeo: B1.15 · Red de laboratorio en Hyper-V (Windows 11 y Windows Server)
+Vídeo: B1.15 Cole · Red de laboratorio en Hyper-V (Windows 11 y Windows Server)
 ---
 
-## B1.15 — Red de laboratorio en Hyper-V: Windows 11 y Windows Server
+## B1.15 Cole — Red de laboratorio en Hyper-V: Windows 11 y Windows Server
 
 > [!abstract] Ficha de la práctica
-> ### 📌 `B1.15` — Red de laboratorio en Hyper-V (Windows 11 y Windows Server)
+> ### 📌 `B1.15 Cole` — Red de laboratorio en Hyper-V (Windows 11 y Windows Server)
 > - **Bloque 1** (Preparar el entorno) · **Nivel 2** (Intermedio) · **RA.01** · **CE.01.i**
 > - **🎬 Playlist:** `B1_Entorno`
-> - **📹 Nombre del vídeo:** `B1.15 · Red de laboratorio en Hyper-V (Windows 11 y Windows Server)`
+> - **📹 Nombre del vídeo:** `B1.15 Cole · Red de laboratorio en Hyper-V (Windows 11 y Windows Server)`
+
+> [!important] 📍 Edición Cole: este ejercicio se hace en el equipo del aula
+> Este laboratorio se hace **dos veces**, y son **dos ejercicios distintos**: **B1.15 Cole**, en el equipo del aula, y **B1.15 Casa**, en tu ordenador de casa. Ahora estás en la edición **Cole**.
+>
+> - **Desde cero en cada ordenador.** La edición Cole no parte de nada hecho en la edición Casa: no copies, exportes ni importes máquinas virtuales de un ordenador a otro.
+> - **Su propio vídeo:** `B1.15 Cole · …`, distinto del de la edición Casa.
+> - **Su propia entrada** en tu bitácora de apuntes, con tu nombre, todos los pasos y las respuestas: la de esta edición termina en `-cole.md`.
+> - **La misma playlist para las dos ediciones:** `B1_Entorno`.
+>
+> La otra edición: [B1.15 Casa](B1_15_Red_HyperV_Windows_11_y_Windows_Server_Casa.md).
 
 > [!info] Caso real (contexto profesional)
-> En una empresa que trabaja con Microsoft, el servidor es un **Windows Server** y el hipervisor suele ser **Hyper-V**, que ya viene dentro de Windows. El técnico hace lo mismo que en B1.14b: monta el servidor y un puesto cliente, y comprueba que **se ven** antes de configurar nada más. La idea es la misma; cambian las herramientas.
+> En una empresa que trabaja con Microsoft, el servidor es un **Windows Server** y el hipervisor suele ser **Hyper-V**, que ya viene dentro de Windows. El técnico hace lo mismo que en B1.14b Cole: monta el servidor y un puesto cliente, y comprueba que **se ven** antes de configurar nada más. La idea es la misma; cambian las herramientas.
 
 - **🎯 Objetivo real:** crear en **Hyper-V** una VM **Windows Server 2025** (servidor) y una VM **Windows 11 Pro** (cliente), conectadas a una red privada, con ping en los dos sentidos.
 - **🧩 Problema que resuelve:** el **Bloque 3** parte de aquí. Y vas a ver que entre dos Windows el ping falla **en los dos sentidos** hasta que tocas el firewall de **cada uno**.
@@ -39,7 +49,7 @@ Vídeo: B1.15 · Red de laboratorio en Hyper-V (Windows 11 y Windows Server)
 > [!info] La idea: el mismo cable, con otro nombre
 > Hyper-V no tiene «adaptadores en modo NAT o red interna», como VirtualBox. Tiene **conmutadores virtuales** (*switches*): creas el switch una vez y luego **enchufas** a él las tarjetas de las VM. Es exactamente lo que harías en una oficina: un switch en el armario y cables a cada equipo.
 >
-> | Lo que quieres | VirtualBox (B1.14b) | Hyper-V (esta práctica) |
+> | Lo que quieres | VirtualBox (B1.14b Cole) | Hyper-V (esta práctica) |
 > | :--- | :--- | :--- |
 > | Salir a Internet | Adaptador en **NAT** | Tarjeta en el **Default Switch** (ya viene creado) |
 > | Red solo entre VM | **Red interna** `LAB_RED` | Conmutador **Privado** `LAB_RED` |
@@ -56,10 +66,10 @@ Vídeo: B1.15 · Red de laboratorio en Hyper-V (Windows 11 y Windows Server)
 > | Windows 11 Pro | Cliente | `10.10.10.20/24` |
 
 > [!warning] El fallo nº1: ahora hay DOS firewalls
-> En B1.14b solo había un Windows, y el ping fallaba en un sentido. Aquí **los dos son Windows**, y el Firewall de Windows **bloquea todo lo que le llega sin haberlo pedido, salvo que una regla lo permita**. Lo normal es que el ping **falle en los dos sentidos**. Tendrás que abrirlo en **cada máquina**. Si solo lo abres en una, solo funciona hacia esa.
+> En B1.14b Cole solo había un Windows, y el ping fallaba en un sentido. Aquí **los dos son Windows**, y el Firewall de Windows **bloquea todo lo que le llega sin haberlo pedido, salvo que una regla lo permita**. Lo normal es que el ping **falle en los dos sentidos**. Tendrás que abrirlo en **cada máquina**. Si solo lo abres en una, solo funciona hacia esa.
 
 > [!tip] Dos redes `LAB_RED` que no se conocen
-> Si hiciste B1.14b, ahora tienes una `LAB_RED` en VirtualBox y otra en Hyper-V. **No tienen nada que ver**: cada hipervisor tiene las suyas, y una VM de VirtualBox no ve a una de Hyper-V aunque las redes se llamen igual. Y como ninguna de las dos pone una tarjeta en tu ordenador, **tampoco chocan** con las redes del anfitrión, ni con la `10.10.10.1` que usarán los Bloques 2 y 3.
+> Si hiciste B1.14b Cole, ahora tienes una `LAB_RED` en VirtualBox y otra en Hyper-V. **No tienen nada que ver**: cada hipervisor tiene las suyas, y una VM de VirtualBox no ve a una de Hyper-V aunque las redes se llamen igual. Y como ninguna de las dos pone una tarjeta en tu ordenador, **tampoco chocan** con las redes del anfitrión, ni con la `10.10.10.1` que usarán los Bloques 2 y 3.
 
 > [!example] Vocabulario de esta práctica
 > - **Conmutador virtual (Hyper-V):** el switch donde se enchufan las tarjetas de las VM.
@@ -82,11 +92,11 @@ Vídeo: B1.15 · Red de laboratorio en Hyper-V (Windows 11 y Windows Server)
 ## 📹 Grabación de esta práctica
 
 > [!important] Obligaciones de grabación (LÉEME — es igual en TODAS las prácticas del bloque)
-> 1. **Paso 0:** léete el ejercicio y ten a mano OBS y tu identificación. **Crea la entrada de apuntes de esta práctica** en Obsidian: fichero `b1-15-red-hyper-v-windows-11-y-windows-server.md` dentro de `00_Apuntes/Trimestre_N/B1_Entorno/`, con la estructura del **Bloque 0 · Fase 0.1.b** y **vacía**. Rellenarla es cosa tuya, después.
+> 1. **Paso 0:** léete el ejercicio y ten a mano OBS y tu identificación. **Crea la entrada de apuntes de esta práctica** en Obsidian: fichero `b1-15-red-hyper-v-windows-11-y-windows-server-cole.md` dentro de `00_Apuntes/Trimestre_N/B1_Entorno/`, con la estructura del **Bloque 0 · Fase 0.1.b** y **vacía**. Rellenarla es cosa tuya, después.
 > 2. **Arranca OBS y PRESÉNTATE** mostrando tu identidad (Teams o correo `@alu.edu.gva.es`).
 > 3. **Timestamps SIEMPRE:** `00:00 Presentación` y uno por paso.
-> 4. **Al terminar:** nombra el vídeo **`B1.15 · Red de laboratorio en Hyper-V (Windows 11 y Windows Server)`** y súbelo a **`B1_Entorno`** (No listado). Y **pega su enlace dentro de tu entrada de apuntes**, en el apartado `🔗 Enlaces`.
-> 5. **Se graba una sola vez** (no se duplica casa/centro). **La entrega va por la TAREA de Teams:** abriré una tarea que cubrirá **esta práctica y otras**; te llegará notificación con fecha límite. Ahí pegarás el enlace de tu **repositorio de apuntes** — los vídeos ya están dentro de tus entradas.
+> 4. **Al terminar:** nombra el vídeo **`B1.15 Cole · Red de laboratorio en Hyper-V (Windows 11 y Windows Server)`** y súbelo a **`B1_Entorno`** (No listado). Y **pega su enlace dentro de tu entrada de apuntes**, en el apartado `🔗 Enlaces`.
+> 5. **Esta grabación es la de la edición Cole.** La edición Casa es otro ejercicio, con otro vídeo y otra entrada, en la misma playlist. **La entrega va por la TAREA de Teams:** abriré una tarea que cubrirá **esta práctica y otras**; te llegará notificación con fecha límite. Ahí pegarás el enlace de tu **repositorio de apuntes** — los vídeos ya están dentro de tus entradas.
 
 > [!tip] Timestamps mínimos de esta práctica
 > La práctica se graba **entera**, instalaciones incluidas. El vídeo lleva **como mínimo** estas marcas, cada una con el minuto real en que empieza en tu vídeo:
@@ -208,7 +218,7 @@ Vídeo: B1.15 · Red de laboratorio en Hyper-V (Windows 11 y Windows Server)
 > ```powershell
 > New-NetFirewallRule -DisplayName "LAB - Ping entrante (ICMPv4)" -Direction Inbound -Protocol ICMPv4 -IcmpType 8 -Action Allow
 > ```
-> Es la misma regla de B1.14b: entrada, solo ICMPv4 tipo 8 (la petición de eco), permitir. Sin perfil, vale para todos.
+> Es la misma regla de B1.14b Cole: entrada, solo ICMPv4 tipo 8 (la petición de eco), permitir. Sin perfil, vale para todos.
 >
 > Repite los dos pings:
 > - Cliente → servidor: ✅ **funciona.**
@@ -226,9 +236,9 @@ Vídeo: B1.15 · Red de laboratorio en Hyper-V (Windows 11 y Windows Server)
 > Abres **solo el ping** y **no apagas el firewall**, por lo mismo que en B1.14b.
 
 > [!example] Paso 10 — Guarda el estado y cierra la grabación
-> Apaga las dos VM y crea un **punto de control** de cada una: clic derecho sobre la VM → **Punto de control**. En Hyper-V, las instantáneas se llaman así. Renómbralo `B1.15 · Red OK`. **El servidor lo vas a reutilizar en B1.15b.**
+> Apaga las dos VM y crea un **punto de control** de cada una: clic derecho sobre la VM → **Punto de control**. En Hyper-V, las instantáneas se llaman así. Renómbralo `B1.15 Cole · Red OK`. **El servidor lo vas a reutilizar en B1.15b.**
 >
-> Detén OBS, nombra el vídeo **`B1.15 · Red de laboratorio en Hyper-V (Windows 11 y Windows Server)`**, súbelo a **`B1_Entorno`** (No listado) y añade los timestamps. Pega su enlace en tu entrada de apuntes.
+> Detén OBS, nombra el vídeo **`B1.15 Cole · Red de laboratorio en Hyper-V (Windows 11 y Windows Server)`**, súbelo a **`B1_Entorno`** (No listado) y añade los timestamps. Pega su enlace en tu entrada de apuntes.
 
 ---
 
@@ -255,22 +265,22 @@ Vídeo: B1.15 · Red de laboratorio en Hyper-V (Windows 11 y Windows Server)
 > - `ping 10.10.10.10` desde el cliente y `ping 10.10.10.20` desde el servidor: **0 % perdidos** los dos.
 > - **Internet sigue funcionando en las dos:** abre una web en cada una.
 > - El **firewall sigue activado** en las dos.
-> - Las dos VM tienen el punto de control `B1.15 · Red OK`.
+> - Las dos VM tienen el punto de control `B1.15 Cole · Red OK`.
 
 > [!question] Comprueba que lo has entendido
-> 1. Con tus palabras: ¿por qué aquí el ping fallaba en los dos sentidos y en B1.14b solo en uno?
+> 1. Con tus palabras: ¿por qué aquí el ping fallaba en los dos sentidos y en B1.14b Cole solo en uno?
 > 2. Después del Paso 8, el ping cliente → servidor funcionaba y el servidor → cliente no. ¿Qué te dice eso sobre **dónde** actúa una regla de entrada?
 > 3. ¿Qué diferencia hay entre un conmutador **privado** y uno **interno**? ¿Por qué has usado el privado?
-> 4. Haz una tabla de dos columnas, VirtualBox y Hyper-V, con lo que has usado en B1.14b y aquí para lo mismo.
+> 4. Haz una tabla de dos columnas, VirtualBox y Hyper-V, con lo que has usado en B1.14b Cole y aquí para lo mismo.
 
 ---
 
 ## ✅ Entregables y cierre
 
-- **Entregable:** conmutador privado `LAB_RED`, VM `B1-WinServer` y VM `B1-Win11-HV` con ping en los dos sentidos y el punto de control `B1.15 · Red OK` (evidenciado en el vídeo).
-- **Entregable vídeo:** `B1.15 · Red de laboratorio en Hyper-V (Windows 11 y Windows Server)` en `B1_Entorno`. **Se graba una sola vez** (no se duplica casa/centro). **La entrega va por la TAREA de Teams:** abriré una tarea que cubrirá **esta práctica y otras**; te llegará notificación con fecha límite. Ahí pegarás el enlace de tu **repositorio de apuntes** — los vídeos ya están dentro de tus entradas.
+- **Entregable:** conmutador privado `LAB_RED`, VM `B1-WinServer` y VM `B1-Win11-HV` con ping en los dos sentidos y el punto de control `B1.15 Cole · Red OK` (evidenciado en el vídeo).
+- **Entregable vídeo:** `B1.15 Cole · Red de laboratorio en Hyper-V (Windows 11 y Windows Server)` en `B1_Entorno`. **Esta grabación es la de la edición Cole.** La edición Casa es otro ejercicio, con otro vídeo y otra entrada, en la misma playlist. **La entrega va por la TAREA de Teams:** abriré una tarea que cubrirá **esta práctica y otras**; te llegará notificación con fecha límite. Ahí pegarás el enlace de tu **repositorio de apuntes** — los vídeos ya están dentro de tus entradas.
 - **Criterio de éxito:** ping en los dos sentidos con **0 % de pérdida**, Internet en las dos VM y **los dos firewalls encendidos**.
-- **Entregable apuntes:** `b1-15-red-hyper-v-windows-11-y-windows-server.md` en `B1_Entorno/`, con la estructura completa, las **respuestas a las preguntas de «Comprueba que lo has entendido»** y el **enlace del vídeo** dentro. Subida al repo con `git add` → `commit` → `push`.
+- **Entregable apuntes:** `b1-15-red-hyper-v-windows-11-y-windows-server-cole.md` en `B1_Entorno/`, con la estructura completa, las **respuestas a las preguntas de «Comprueba que lo has entendido»** y el **enlace del vídeo** dentro. Subida al repo con `git add` → `commit` → `push`.
 
 > [!danger] ⚠️ Las respuestas van en la ENTRADA, no sueltas
 > Las preguntas de esta práctica no son decorativas: son lo que demuestra que has entendido lo que hiciste, y no solo que supiste seguir los pasos. Se contestan **con tus palabras** en el apartado `Respuesta a las preguntas` de tu entrada.
@@ -281,4 +291,4 @@ Vídeo: B1.15 · Red de laboratorio en Hyper-V (Windows 11 y Windows Server)
 > - A preparar una VM de **Generación 2** para Windows 11: TPM, arranque seguro y 2 procesadores.
 > - Que **cada Windows tiene su firewall**, y que una regla de entrada solo abre la máquina donde la creas.
 >
-> **Siguiente:** B1.15b — El mismo Windows Server, ahora con un cliente **Ubuntu Desktop**.
+> **Siguiente:** [B1.15b Cole — El mismo Windows Server, ahora con un cliente Ubuntu Desktop](B1_15.b_Red_HyperV_Ubuntu_Desktop_y_Windows_Server_Cole.md).
