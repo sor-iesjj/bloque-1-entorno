@@ -38,7 +38,7 @@ Cada práctica se **graba entera con OBS** (presentándote, con timestamps) y se
 - `B1.14a Cole` · `B1.14a Casa` — Ubuntu Server y SSH desde Windows físico (prólogo; una sola VM)
 - `B1.14b Cole` · `B1.14b Casa` — Red de laboratorio en VirtualBox (Windows 11 y Ubuntu Server)
 - `B1.14c Cole` · `B1.14c Casa` — Red de laboratorio en VirtualBox (Ubuntu Desktop y Ubuntu Server)
-- `B1.15 Cole` · `B1.15 Casa` — Red de laboratorio en Hyper-V (Windows 11 y Windows Server)
+- `B1.15a Cole` · `B1.15a Casa` — Red de laboratorio en Hyper-V (Windows 11 y Windows Server)
 - `B1.15b Cole` · `B1.15b Casa` — Red de laboratorio en Hyper-V (Ubuntu Desktop y Windows Server)
 
 Consulta el índice completo con enlaces en [`B1_00_Indice.md`](B1_00_Indice.md).
