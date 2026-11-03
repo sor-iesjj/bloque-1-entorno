@@ -4,7 +4,7 @@
 
 ## Metodología (igual que en el resto)
 - Cada práctica se **graba entera con OBS**, presentándote y con **timestamps**.
-- **Playlist:** `B1_Entorno` · **Vídeo:** `B1.n · título` (No listado) · **una sola entrega**.
+- **Playlist:** `B1_Entorno` · **Vídeo:** `B1.n · título` (No listado) · **una entrega por práctica**; en los laboratorios con ediciones Cole y Casa (B1.14, B1.15 y B1.16), **un vídeo por edición** (ver secciones F y G).
 - Estructura fija: ficha → fundamento → 📹 grabación → procedimiento (Paso 0 + pasos + cierre) → errores/verificación → preguntas → entregables → resumen.
 
 
