@@ -17,8 +17,8 @@ Tipo: Chuletario
 > | **Profesor** | Pedro Navarro Miralles |
 > | **Licencia** | © 2026 Pedro Navarro Miralles · [CC BY-NC-SA 4.0](LICENSE): atribución obligatoria, uso no comercial, compartir igual |
 
-> [!tip] Esto es el ⌨️ Plan B
-> En las prácticas, el **Plan A** es con ventanas y es el que se espera en el vídeo. Aquí están **los mismos pasos con comandos**, para quien quiera practicar el terminal o por si una ventana no aparece. Los que llevan **⌨️ Solo con comando** no tienen ventana equivalente: esos sí hay que hacerlos aquí.
+> [!tip] Esto es el 💻 Plan B
+> En las prácticas, el **Plan A** es con ventanas y es el que se espera en el vídeo. Aquí están **los mismos pasos con comandos**, para quien quiera practicar el terminal o por si una ventana no aparece. Los que llevan **💻 Solo con comando** no tienen ventana equivalente: esos sí hay que hacerlos aquí.
 
 **Máquinas:** Servidor = `W11-SRV` (VM `B1-W11-SRV`, IP fija `192.168.100.10`) · Cliente = `W11-CLI` (VM `B1-W11-CLI`, IP por DHCP) · Red NAT `B1_LAB` (`192.168.100.0/24`).
 **«Admin»** = PowerShell como administrador. **«Normal»** = PowerShell sin administrador, con la sesión del usuario que toque.
@@ -31,14 +31,14 @@ Tipo: Chuletario
 | 2 | Cliente · Admin | `Rename-Computer -NewName "W11-CLI" -Restart` | Cambia el nombre del equipo y reinicia. |
 | 3 | Los dos | `hostname` | Muestra el nombre del equipo. |
 | 4 | Los dos | `ipconfig /all` | IP, máscara, puerta de enlace, DNS, servidor DHCP y MAC de cada tarjeta. |
-| 5 | Los dos | `Get-NetRoute -DestinationPrefix 0.0.0.0/0` | ⌨️ **Solo con comando.** Ruta por defecto: el `NextHop` es la puerta de enlace. |
-| 6 | Los dos | `nslookup www.google.es` | ⌨️ **Solo con comando.** Pregunta al DNS la IP de un nombre y dice qué DNS contesta. |
-| 7 | Los dos | `ping 192.168.100.X` | ⌨️ **Solo con comando.** Prueba la conexión con el otro equipo (cambia `X`). |
+| 5 | Los dos | `Get-NetRoute -DestinationPrefix 0.0.0.0/0` | 💻 **Solo con comando.** Ruta por defecto: el `NextHop` es la puerta de enlace. |
+| 6 | Los dos | `nslookup www.google.es` | 💻 **Solo con comando.** Pregunta al DNS la IP de un nombre y dice qué DNS contesta. |
+| 7 | Los dos | `ping 192.168.100.X` | 💻 **Solo con comando.** Prueba la conexión con el otro equipo (cambia `X`). |
 | 8 | Los dos | `Get-NetConnectionProfile` | Dice si la red es `Public` o `Private`. |
 | 9 | Los dos · Admin | `Set-NetConnectionProfile -InterfaceAlias "Ethernet" -NetworkCategory Private` | Pasa la red a privada. |
 | 10 | Los dos · Admin | `New-NetFirewallRule -DisplayName "LAB - Ping entrante (ICMPv4)" -Direction Inbound -Protocol ICMPv4 -IcmpType 8 -Action Allow -Profile Private` | Deja entrar solo el ping, y solo en redes privadas. |
-| 11 | Los dos | `arp -a` | ⌨️ **Solo con comando.** Relación IP ↔ MAC de los vecinos con los que has hablado. |
-| 12 | Cliente | `ping 192.168.100.10` | ⌨️ **Solo con comando.** Comprueba que la IP fija del servidor está libre (no debe responder). |
+| 11 | Los dos | `arp -a` | 💻 **Solo con comando.** Relación IP ↔ MAC de los vecinos con los que has hablado. |
+| 12 | Cliente | `ping 192.168.100.10` | 💻 **Solo con comando.** Comprueba que la IP fija del servidor está libre (no debe responder). |
 | 13 | Los dos · Admin | `Remove-NetFirewallRule -DisplayName "LAB - Ping entrante (ICMPv4)"` | Solo camino A: borra la regla de ping heredada de B1.14b. |
 | 14 | Servidor · Admin | `New-NetIPAddress -InterfaceAlias "Ethernet" -IPAddress 192.168.100.10 -PrefixLength 24 -DefaultGateway PUERTA` | IP fija con su puerta de enlace (cambia `PUERTA` por la tuya). |
 | 15 | Servidor · Admin | `Set-DnsClientServerAddress -InterfaceAlias "Ethernet" -ServerAddresses DNS` | Pone el servidor DNS (cambia `DNS` por el tuyo). |
@@ -47,7 +47,7 @@ Tipo: Chuletario
 
 | Nº | Dónde | Comando | Qué hace |
 | :--- | :--- | :--- | :--- |
-| 16 | Cliente | `ping -4 W11-SRV` | ⌨️ **Solo con comando.** Comprueba que el cliente encuentra al servidor por su nombre. |
+| 16 | Cliente | `ping -4 W11-SRV` | 💻 **Solo con comando.** Comprueba que el cliente encuentra al servidor por su nombre. |
 | 17 | Los dos · Admin | `$pw = Read-Host "Contraseña de laboratorio" -AsSecureString` | Pide la contraseña sin mostrarla y la guarda en `$pw`. |
 | 18 | Los dos · Admin | `foreach ($u in "juan","pedro","maria","ana") { New-LocalUser -Name $u -Password $pw -PasswordNeverExpires; Add-LocalGroupMember -SID S-1-5-32-545 -Member $u }` | Crea los cuatro usuarios y los mete en *Usuarios*. |
 | 19 | Los dos | `Get-LocalUser` | Lista los usuarios del equipo. |
@@ -94,7 +94,7 @@ Tipo: Chuletario
 
 | Nº | Dónde | Comando | Qué hace |
 | :--- | :--- | :--- | :--- |
-| 48 | Cliente | `Test-NetConnection W11-SRV -Port 3389` | ⌨️ **Solo con comando.** ¿Hay red (`PingSucceeded`)? ¿Alguien atiende en el 3389 (`TcpTestSucceeded`)? |
+| 48 | Cliente | `Test-NetConnection W11-SRV -Port 3389` | 💻 **Solo con comando.** ¿Hay red (`PingSucceeded`)? ¿Alguien atiende en el 3389 (`TcpTestSucceeded`)? |
 | 49 | Servidor · Admin | `Add-LocalGroupMember -SID S-1-5-32-555 -Member juan, pedro` | Mete a juan y pedro en *Usuarios de escritorio remoto*. |
 | 50 | Servidor | `Get-LocalGroupMember -SID S-1-5-32-555` | Quién está en *Usuarios de escritorio remoto*. |
 | 51 | Cliente | `mstsc /v:W11-SRV` | Abre el escritorio remoto contra el servidor. Usuario: `W11-SRV\<usuario>`. |
