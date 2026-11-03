@@ -28,7 +28,7 @@ Tipo: Chuletario
 | 2 | Cliente · Admin | `Rename-Computer -NewName "W11-CLI" -Restart` | Cambia el nombre del equipo y reinicia. |
 | 3 | Los dos | `hostname` | Muestra el nombre del equipo. |
 | 4 | Los dos | `ipconfig /all` | IP, máscara, puerta de enlace, DNS, servidor DHCP y MAC de cada tarjeta. |
-| 5 | Cliente | `tracert -d -h 3 1.1.1.1` | Primeros tres saltos hacia Internet. El salto 1 es la puerta de enlace. |
+| 5 | Los dos | `Get-NetRoute -DestinationPrefix 0.0.0.0/0` | Ruta por defecto: el `NextHop` es la puerta de enlace. |
 | 6 | Los dos | `nslookup www.google.es` | Pregunta al DNS la IP de un nombre y dice qué DNS contesta. |
 | 7 | Los dos | `ping 192.168.100.X` | Prueba la conexión con el otro equipo (cambia `X`). |
 | 8 | Los dos | `Get-NetConnectionProfile` | Dice si la red es `Public` o `Private`. |
