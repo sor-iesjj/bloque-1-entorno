@@ -20,9 +20,22 @@
 > | `CE.01.e` | Componentes a instalar | B1.3 · B1.10 |
 > | `CE.01.f` | **Automatización de instalaciones** | B1.11 · B1.12 · B1.13 |
 > | `CE.01.g` | Preferencias del entorno personal | B1.10 |
-> | `CE.01.i` | Conectividad servidor–cliente | B1.9b · B1.11 · B1.14a · B1.14b · B1.14c · B1.15a · B1.15b |
+> | `CE.01.i` | Conectividad servidor–cliente | B1.9b · B1.11 · B1.14a · B1.14b · B1.14c · B1.15a · B1.15b · B1.16a |
 > | `CE.05.e` | Automatización de tareas del sistema | B1.12 · B1.13 |
-> | `CE.05.f` | Interpretar la configuración del sistema | B1.9b · B1.13 |
+> | `CE.05.f` | Interpretar la configuración del sistema | B1.9b · B1.13 · B1.16a |
+>
+> **El laboratorio B1.16 (Windows y Windows) entra además en el `RA.02` y el `RA.04`:**
+>
+> | CE | Criterio | Dónde |
+> | :--- | :--- | :--- |
+> | `CE.02.a` | Configurar y gestionar cuentas de usuario | B1.16b |
+> | `CE.02.f` | Pertenencia de usuarios a grupos | B1.16f |
+> | `CE.04.a` | Diferencia entre permiso y derecho | B1.16f |
+> | `CE.04.b` | Recursos que se van a compartir y en qué condiciones | B1.16b |
+> | `CE.04.c` | Asignar permisos a los recursos compartidos | B1.16c |
+> | `CE.04.d` | Compartir impresoras en red | B1.16d · B1.16e |
+> | `CE.04.e` | Entorno gráfico para compartir recursos | B1.16b · B1.16c · B1.16d · B1.16e |
+> | `CE.04.f` | Niveles de seguridad en el acceso a recursos compartidos | B1.16c · B1.16e |
 >
 > **`CE.01.f` solo se cubre aquí.** Ningún otro bloque del módulo trabaja la automatización de instalaciones: si este bloque no se imparte, ese criterio se queda sin evaluar.
 
@@ -81,6 +94,22 @@
 | B1.15a Casa | [[B1_15.a_Red_HyperV_Windows_11_y_Windows_Server_Casa\|Red de laboratorio en Hyper-V (Windows 11 y Windows Server) · Casa]] | Intermedio |
 | B1.15b Cole | [[B1_15.b_Red_HyperV_Ubuntu_Desktop_y_Windows_Server_Cole\|Red de laboratorio en Hyper-V (Ubuntu Desktop y Windows Server) · Cole]] | Intermedio |
 | B1.15b Casa | [[B1_15.b_Red_HyperV_Ubuntu_Desktop_y_Windows_Server_Casa\|Red de laboratorio en Hyper-V (Ubuntu Desktop y Windows Server) · Casa]] | Intermedio |
+
+### G · Laboratorio de servicios de red: Windows y Windows (B1.16)
+**Dos Windows 11 Pro clonados de una máquina base, en la Red NAT `B1_LAB` (`192.168.100.0/24`, con DHCP).** Servidor `W11-SRV` con IP fija `192.168.100.10`; cliente `W11-CLI` por DHCP. Usuarios `juan`, `pedro`, `maria` y `ana`, creados en los dos equipos con la misma contraseña. Cada práctica parte de la instantánea de la anterior.
+
+> [!important] Cole y Casa en B1.16: con una apruebas, con las dos subes nota
+> Cada práctica de B1.16 tiene **una sola ficha** con dos ediciones. La **Cole** es la mínima: con ella entregada y bien hecha, la práctica está aprobada. La **Casa** repite el ejercicio entero en tu ordenador, desde cero, y **sube nota**. Si en el aula no te da tiempo, entregar solo la de Casa también vale. Cada edición lleva su vídeo (`B1.16a Cole · …` / `B1.16a Casa · …`) y su entrada (`-cole.md` / `-casa.md`), en la misma playlist `B1_Entorno`.
+
+| # | Práctica | Nivel |
+|---|----------|-------|
+| B1.16a | [[B1_16.a_Red_Basica_Dos_Windows_11\|Red básica entre dos Windows 11: máquina base, clones, IP, máscara, puerta de enlace y DNS]] | Intermedio |
+| B1.16b | [[B1_16.b_Carpeta_Compartida_Para_Todos_Windows\|Carpeta compartida para todos]] | Intermedio |
+| B1.16c | [[B1_16.c_Permisos_por_Usuario_Windows\|Permisos por usuario en la carpeta compartida]] | Intermedio |
+| B1.16d | [[B1_16.d_Impresora_PDF_Compartida_Windows\|Impresora PDF compartida]] | Intermedio |
+| B1.16e | [[B1_16.e_Impresora_Solo_para_Pedro_Windows\|Impresora solo para Pedro]] | Intermedio |
+| B1.16f | [[B1_16.f_Escritorio_Remoto_Windows\|Escritorio remoto]] | Intermedio |
+| — | [[B1_16_Chuletario_Comandos\|Chuletario de comandos de B1.16]] | — |
 
 ## Herramientas del bloque (todas actuales)
 CPU-Z · Rufus · Balena Etcher · **Ventoy** · GParted Live · **DISKPART** · VirtualBox/Hyper-V · **iVentoy** · autoinstall/cloud-init · unattend.xml.

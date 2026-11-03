@@ -41,4 +41,12 @@ Cada práctica se **graba entera con OBS** (presentándote, con timestamps) y se
 - `B1.15a Cole` · `B1.15a Casa` — Red de laboratorio en Hyper-V (Windows 11 y Windows Server)
 - `B1.15b Cole` · `B1.15b Casa` — Red de laboratorio en Hyper-V (Ubuntu Desktop y Windows Server)
 
+**G · Laboratorio de servicios de red: Windows y Windows** *(una ficha por práctica; Cole basta para aprobar, Casa sube nota)*
+- `B1.16a` — Red básica entre dos Windows 11 (máquina base, clones, IP, máscara, puerta de enlace y DNS)
+- `B1.16b` — Carpeta compartida para todos
+- `B1.16c` — Permisos por usuario en la carpeta compartida
+- `B1.16d` — Impresora PDF compartida
+- `B1.16e` — Impresora solo para Pedro
+- `B1.16f` — Escritorio remoto
+
 Consulta el índice completo con enlaces en [`B1_00_Indice.md`](B1_00_Indice.md).
