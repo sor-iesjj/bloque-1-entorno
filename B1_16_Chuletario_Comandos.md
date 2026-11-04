@@ -42,6 +42,7 @@ Tipo: Chuletario
 | 13 | Base, en modo auditoría | `C:\Windows\System32\Sysprep\sysprep.exe /generalize /oobe /shutdown` | **Sella la base:** le borra el SID (`/generalize`), deja el próximo arranque en la configuración inicial (`/oobe`) y la apaga. Cierra antes la ventana de Sysprep con **Cancelar**. |
 | 14 | Servidor · Admin | `New-NetIPAddress -InterfaceAlias "Ethernet" -IPAddress 192.168.100.10 -PrefixLength 24 -DefaultGateway PUERTA` | IP fija con su puerta de enlace (cambia `PUERTA` por la tuya: si lo copias tal cual, *Invalid parameter*). |
 | 15 | Servidor · Admin | `Set-DnsClientServerAddress -InterfaceAlias "Ethernet" -ServerAddresses DNS` | Pone el servidor DNS (cambia `DNS` por el tuyo). |
+| 56 | Base, consola de `Shift + F10` en la pantalla del país | `C:\Windows\System32\Sysprep\sysprep.exe /audit /reboot` | **Solo si `Ctrl + Shift + F3` no funciona:** reinicia en modo auditoría. La consola tiene que estar en `C:\Windows\system32`; si dice `X:\sources`, sigues en el instalador. |
 | 55 | Los dos | `whoami /user` | 💻 **Solo con comando.** Tu usuario y su SID. Los tres números largos del medio son el **SID del equipo**: tienen que ser **distintos** en `W11-SRV` y `W11-CLI`. |
 
 ### B1.16b · Carpeta compartida para todos
