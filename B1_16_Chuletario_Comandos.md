@@ -103,6 +103,18 @@ Tipo: Chuletario
 | 52 | Dentro de la sesión remota | `hostname` y `whoami` | Demuestra en qué equipo y con qué usuario estás. |
 | 53 | Dentro de la sesión remota | `quser` | Sesiones abiertas en el equipo, delante (`console`) o remotas (`rdp-tcp`). |
 
+### Solo en tu ordenador: quitar la tortuga verde de VirtualBox (B1.16a, errores)
+
+Todo en tu **Windows físico**, no en la VM, en PowerShell **como administrador** y **solo si eres el administrador del equipo**. Deja el equipo menos protegido, y el Laboratorio 3 (Hyper-V) necesita deshacerlo. Lee antes el cuadro «La tortuga verde» de B1.16a.
+
+| Nº | Dónde | Comando | Qué hace |
+| :--- | :--- | :--- | :--- |
+| 57 | Tu Windows físico · Admin | `(Get-CimInstance Win32_ComputerSystem).HypervisorPresent` | 💻 **Solo con comando.** `True` = el hipervisor de Windows está encendido (tortuga). `False` = apagado. |
+| 58 | Tu Windows físico · Admin | `bcdedit /set hypervisorlaunchtype off` | Que el hipervisor no arranque con Windows. Se deshace con `auto`. |
+| 59 | Tu Windows físico · Admin | `Disable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V-All,VirtualMachinePlatform,HypervisorPlatform -NoRestart` | Apaga Hyper-V, la Plataforma de máquina virtual (WSL2, Docker) y la Plataforma del hipervisor. |
+| 60 | Tu Windows físico · Admin | `reg add "HKLM\SYSTEM\CurrentControlSet\Control\DeviceGuard\Scenarios\HypervisorEnforcedCodeIntegrity" /v Enabled /t REG_DWORD /d 0 /f` | Apaga la integridad de memoria (lo mismo que el interruptor de Seguridad de Windows). |
+| 61 | Tu Windows físico · Admin | `reg add "HKLM\SYSTEM\CurrentControlSet\Control\DeviceGuard" /v EnableVirtualizationBasedSecurity /t REG_DWORD /d 0 /f` | Apaga la seguridad basada en virtualización (VBS). Después, **Reiniciar** (no Apagar) y repetir el 57. |
+
 ### Solo si algo falla
 
 | Nº | Dónde | Comando | Qué hace |
