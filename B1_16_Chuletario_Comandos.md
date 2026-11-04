@@ -39,9 +39,10 @@ Tipo: Chuletario
 | 10 | Los dos · Admin | `New-NetFirewallRule -DisplayName "LAB - Ping entrante (ICMPv4)" -Direction Inbound -Protocol ICMPv4 -IcmpType 8 -Action Allow -Profile Private` | Deja entrar solo el ping, y solo en redes privadas. |
 | 11 | Los dos | `arp -a` | 💻 **Solo con comando.** Relación IP ↔ MAC de los vecinos con los que has hablado. |
 | 12 | Cliente | `ping 192.168.100.10` | 💻 **Solo con comando.** Comprueba que la IP fija del servidor está libre (no debe responder). |
-| 13 | Los dos · Admin | `Remove-NetFirewallRule -DisplayName "LAB - Ping entrante (ICMPv4)"` | Solo camino A: borra la regla de ping heredada de B1.14b. |
-| 14 | Servidor · Admin | `New-NetIPAddress -InterfaceAlias "Ethernet" -IPAddress 192.168.100.10 -PrefixLength 24 -DefaultGateway PUERTA` | IP fija con su puerta de enlace (cambia `PUERTA` por la tuya). |
+| 13 | Base, en modo auditoría | `C:\Windows\System32\Sysprep\sysprep.exe /generalize /oobe /shutdown` | **Sella la base:** le borra el SID (`/generalize`), deja el próximo arranque en la configuración inicial (`/oobe`) y la apaga. Cierra antes la ventana de Sysprep con **Cancelar**. |
+| 14 | Servidor · Admin | `New-NetIPAddress -InterfaceAlias "Ethernet" -IPAddress 192.168.100.10 -PrefixLength 24 -DefaultGateway PUERTA` | IP fija con su puerta de enlace (cambia `PUERTA` por la tuya: si lo copias tal cual, *Invalid parameter*). |
 | 15 | Servidor · Admin | `Set-DnsClientServerAddress -InterfaceAlias "Ethernet" -ServerAddresses DNS` | Pone el servidor DNS (cambia `DNS` por el tuyo). |
+| 55 | Los dos | `whoami /user` | 💻 **Solo con comando.** Tu usuario y su SID. Los tres números largos del medio son el **SID del equipo**: tienen que ser **distintos** en `W11-SRV` y `W11-CLI`. |
 
 ### B1.16b · Carpeta compartida para todos
 
@@ -110,7 +111,8 @@ Tipo: Chuletario
 > [!warning] Ojo
 > - Usa el nombre real de tu tarjeta (`Ethernet` es el habitual).
 > - **Nunca apagues el firewall.** Solo se abre lo necesario, y solo en redes privadas.
-> - Los SID (`S-1-5-32-544`, `-545`, `-555`, `S-1-5-11`, `S-1-5-18`) son los mismos en cualquier Windows, en cualquier idioma. Por eso se usan en vez de los nombres de los grupos. El 21 usa `Todos`, que es el nombre en un Windows en español; en inglés sería `Everyone`.
+> - El 55 va en la tabla de B1.16a: es la comprobación del SID del Paso 4.3.
+> - Los SID de **grupo** (`S-1-5-32-544`, `-545`, `-555`, `S-1-5-11`, `S-1-5-18`) son los mismos en cualquier Windows, en cualquier idioma. El SID del **equipo**, en cambio, es único de cada instalación: por eso se comprueba con el 55. Por eso se usan en vez de los nombres de los grupos. El 21 usa `Todos`, que es el nombre en un Windows en español; en inglés sería `Everyone`.
 > - `Tab` completa nombres y rutas; la flecha ↑ repite el último comando.
 
 **Vuelve a las prácticas:** [B1.16a](B1_16.a_Red_Basica_Dos_Windows_11.md) · [B1.16b](B1_16.b_Carpeta_Compartida_Para_Todos_Windows.md) · [B1.16c](B1_16.c_Permisos_por_Usuario_Windows.md) · [B1.16d](B1_16.d_Impresora_PDF_Compartida_Windows.md) · [B1.16e](B1_16.e_Impresora_Solo_para_Pedro_Windows.md) · [B1.16f](B1_16.f_Escritorio_Remoto_Windows.md).
