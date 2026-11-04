@@ -76,7 +76,23 @@
 |---|----------|-------|
 | B1.13 | [[B1_13_Proyecto_Final\|Proyecto final de integración]] | Integrador |
 
-### F · Laboratorios de red (prólogo de los Bloques 2 y 3)
+### F · Laboratorio de servicios de red: Windows y Windows (B1.16) · Laboratorio 1
+**Dos Windows 11 Pro clonados de una máquina base sellada con Sysprep (cada uno con su propio SID), en la Red NAT `B1_LAB` (`192.168.100.0/24`, con DHCP).** Servidor `W11-SRV` con IP fija `192.168.100.10`; cliente `W11-CLI` por DHCP. Usuarios `juan`, `pedro`, `maria` y `ana`, creados en los dos equipos con la misma contraseña. Cada práctica parte de la instantánea de la anterior.
+
+> [!important] Cole y Casa en B1.16: con una apruebas, con las dos subes nota
+> Cada práctica de B1.16 tiene **una sola ficha** con dos ediciones. La **Cole** es la mínima: con ella entregada y bien hecha, la práctica está aprobada. La **Casa** repite el ejercicio entero en tu ordenador, desde cero, y **sube nota**. Si en el aula no te da tiempo, entregar solo la de Casa también vale. Cada edición lleva su vídeo (`B1.16a Cole · …` / `B1.16a Casa · …`) y su entrada (`-cole.md` / `-casa.md`), en la misma playlist `B1_Entorno`.
+
+| # | Práctica | Nivel |
+|---|----------|-------|
+| B1.16a | [[B1_16.a_Red_Basica_Dos_Windows_11\|Red básica entre dos Windows 11: máquina base sellada, clones, SID, IP, máscara, puerta de enlace y DNS]] | Intermedio |
+| B1.16b | [[B1_16.b_Carpeta_Compartida_Para_Todos_Windows\|Carpeta compartida para todos]] | Intermedio |
+| B1.16c | [[B1_16.c_Permisos_por_Usuario_Windows\|Permisos por usuario en la carpeta compartida]] | Intermedio |
+| B1.16d | [[B1_16.d_Impresora_PDF_Compartida_Windows\|Impresora PDF compartida]] | Intermedio |
+| B1.16e | [[B1_16.e_Impresora_Solo_para_Pedro_Windows\|Impresora solo para Pedro]] | Intermedio |
+| B1.16f | [[B1_16.f_Escritorio_Remoto_Windows\|Escritorio remoto]] | Intermedio |
+| — | [[B1_16_Chuletario_Comandos\|Chuletario de comandos de B1.16]] | — |
+
+### G · Laboratorios de red (prólogo de los Bloques 2 y 3) · Laboratorios 2 y 3
 **B1.14a prepara una sola VM Ubuntu Server y el acceso SSH desde Windows físico. B1.14b y B1.14c reutilizan ese servidor y añaden un cliente virtual.** En las prácticas de dos VM: crear las máquinas, conectarlas a una red privada del hipervisor, poner IP fija y comprobar el ping en los dos sentidos. **Sin dominio ni servicios de red adicionales al SSH de B1.14a**: eso llega en los Bloques 2 y 3. Plan de red común: servidor `10.10.10.10/24`, cliente `10.10.10.20/24`, red `LAB_RED`.
 
 > [!important] Todos los laboratorios se hacen dos veces: Cole y Casa
@@ -94,22 +110,6 @@
 | B1.15a Casa | [[B1_15.a_Red_HyperV_Windows_11_y_Windows_Server_Casa\|Red de laboratorio en Hyper-V (Windows 11 y Windows Server) · Casa]] | Intermedio |
 | B1.15b Cole | [[B1_15.b_Red_HyperV_Ubuntu_Desktop_y_Windows_Server_Cole\|Red de laboratorio en Hyper-V (Ubuntu Desktop y Windows Server) · Cole]] | Intermedio |
 | B1.15b Casa | [[B1_15.b_Red_HyperV_Ubuntu_Desktop_y_Windows_Server_Casa\|Red de laboratorio en Hyper-V (Ubuntu Desktop y Windows Server) · Casa]] | Intermedio |
-
-### G · Laboratorio de servicios de red: Windows y Windows (B1.16)
-**Dos Windows 11 Pro clonados de una máquina base sellada con Sysprep (cada uno con su propio SID), en la Red NAT `B1_LAB` (`192.168.100.0/24`, con DHCP).** Servidor `W11-SRV` con IP fija `192.168.100.10`; cliente `W11-CLI` por DHCP. Usuarios `juan`, `pedro`, `maria` y `ana`, creados en los dos equipos con la misma contraseña. Cada práctica parte de la instantánea de la anterior.
-
-> [!important] Cole y Casa en B1.16: con una apruebas, con las dos subes nota
-> Cada práctica de B1.16 tiene **una sola ficha** con dos ediciones. La **Cole** es la mínima: con ella entregada y bien hecha, la práctica está aprobada. La **Casa** repite el ejercicio entero en tu ordenador, desde cero, y **sube nota**. Si en el aula no te da tiempo, entregar solo la de Casa también vale. Cada edición lleva su vídeo (`B1.16a Cole · …` / `B1.16a Casa · …`) y su entrada (`-cole.md` / `-casa.md`), en la misma playlist `B1_Entorno`.
-
-| # | Práctica | Nivel |
-|---|----------|-------|
-| B1.16a | [[B1_16.a_Red_Basica_Dos_Windows_11\|Red básica entre dos Windows 11: máquina base sellada, clones, SID, IP, máscara, puerta de enlace y DNS]] | Intermedio |
-| B1.16b | [[B1_16.b_Carpeta_Compartida_Para_Todos_Windows\|Carpeta compartida para todos]] | Intermedio |
-| B1.16c | [[B1_16.c_Permisos_por_Usuario_Windows\|Permisos por usuario en la carpeta compartida]] | Intermedio |
-| B1.16d | [[B1_16.d_Impresora_PDF_Compartida_Windows\|Impresora PDF compartida]] | Intermedio |
-| B1.16e | [[B1_16.e_Impresora_Solo_para_Pedro_Windows\|Impresora solo para Pedro]] | Intermedio |
-| B1.16f | [[B1_16.f_Escritorio_Remoto_Windows\|Escritorio remoto]] | Intermedio |
-| — | [[B1_16_Chuletario_Comandos\|Chuletario de comandos de B1.16]] | — |
 
 ## Herramientas del bloque (todas actuales)
 CPU-Z · Rufus · Balena Etcher · **Ventoy** · GParted Live · **DISKPART** · VirtualBox/Hyper-V · **iVentoy** · autoinstall/cloud-init · unattend.xml.
