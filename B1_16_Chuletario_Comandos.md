@@ -107,21 +107,6 @@ Tipo: Chuletario
 | 52 | Dentro de la sesión remota | `hostname` y `whoami` | Demuestra en qué equipo y con qué usuario estás. |
 | 53 | Dentro de la sesión remota | `quser` | Sesiones abiertas en el equipo, delante (`console`) o remotas (`rdp-tcp`). |
 
-### B1.16g · Base sellada, SID y clonado seguro
-
-| Nº | Dónde | Comando | Qué hace |
-| :--- | :--- | :--- | :--- |
-| 66 | Los dos | `Get-LocalUser \| Select-Object Name, SID` | 💻 **Solo con comando.** Cada usuario local con su SID: todos llevan delante la misma parte del equipo. |
-| 67 | `W11-MAL` · Admin | `Rename-Computer -NewName "W11-MAL" -Restart` | Le cambia el nombre al clon malo y reinicia. **Antes** de conectar su cable. |
-| 68 | Cliente · Admin | `New-Item -Path C:\PruebaSID -ItemType Directory` y `New-Item -Path C:\PruebaSID\hola.txt -ItemType File` | Carpeta y archivo de prueba en `W11-CLI`. |
-| 69 | Cliente · Admin | `New-SmbShare -Name PruebaSID -Path C:\PruebaSID -ReadAccess juan` | Comparte la carpeta de prueba, solo lectura para `juan`. |
-| 70 | Cliente · Admin | `icacls C:\PruebaSID /grant "juan:(OI)(CI)RX"` | Permiso NTFS de lectura para `juan`. |
-| 71 | `W11-MAL` y servidor · Normal (`juan`) | `net use \\W11-CLI\PruebaSID` | Intenta abrir la carpeta de prueba. Desde `W11-MAL` debe fallar; desde `W11-SRV`, funcionar. |
-| 72 | Servidor · Normal (`juan`) | `net use \\W11-CLI\PruebaSID /delete` | Cierra la conexión de prueba. |
-| 73 | Cliente · Admin | `Remove-SmbShare -Name PruebaSID -Force` y `Remove-Item -Path C:\PruebaSID -Recurse` | Deja de compartir y borra la carpeta de prueba. |
-
-Además: 3 (`hostname`), 55 (`whoami /user`) y 13 (Sysprep).
-
 ### Solo en tu ordenador: quitar la tortuga verde de VirtualBox (B1.16a, errores)
 
 Todo en tu **Windows físico**, no en la VM, en PowerShell **como administrador** y **solo si eres el administrador del equipo**. Deja el equipo menos protegido, y el Laboratorio 3 (Hyper-V) necesita deshacerlo. Lee antes el cuadro «La tortuga verde» de B1.16a.
