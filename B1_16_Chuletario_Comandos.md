@@ -44,6 +44,7 @@ Tipo: Chuletario
 | 15 | Servidor · Admin | `Set-DnsClientServerAddress -InterfaceAlias "Ethernet" -ServerAddresses DNS` | Pone el servidor DNS (cambia `DNS` por el tuyo). |
 | 56 | Base, consola de `Shift + F10` en la pantalla del país | `C:\Windows\System32\Sysprep\sysprep.exe /audit /reboot` | **Solo si `Ctrl + Shift + F3` no funciona:** reinicia en modo auditoría. La consola tiene que estar en `C:\Windows\system32`; si dice `X:\sources`, sigues en el instalador. |
 | 55 | Los dos | `whoami /user` | 💻 **Solo con comando.** Tu usuario y su SID. Los tres números largos del medio son el **SID del equipo**: tienen que ser **distintos** en `W11-SRV` y `W11-CLI`. |
+| 62 | Clon, consola de `Shift + F10` en la pantalla de la cuenta | `start ms-cxh:localonly` | **Solo si no sale el camino de la cuenta local:** abre la ventana para crear un usuario local, también sin red. |
 
 ### B1.16b · Carpeta compartida para todos
 
