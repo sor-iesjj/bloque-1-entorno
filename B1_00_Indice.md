@@ -20,9 +20,9 @@
 > | `CE.01.e` | Componentes a instalar | B1.3 · B1.10 |
 > | `CE.01.f` | **Automatización de instalaciones** | B1.11 · B1.12 · B1.13 |
 > | `CE.01.g` | Preferencias del entorno personal | B1.10 |
-> | `CE.01.i` | Conectividad servidor–cliente | B1.9b · B1.11 · B1.14a · B1.14b · B1.14c · B1.15a · B1.15b · B1.16a |
+> | `CE.01.i` | Conectividad servidor–cliente | B1.9b · B1.11 · B1.14a · B1.14b · B1.14c · B1.15a · B1.15b · B1.16a · B1.16g |
 > | `CE.05.e` | Automatización de tareas del sistema | B1.12 · B1.13 |
-> | `CE.05.f` | Interpretar la configuración del sistema | B1.9b · B1.13 · B1.16a |
+> | `CE.05.f` | Interpretar la configuración del sistema | B1.9b · B1.13 · B1.16a · B1.16g |
 >
 > **El laboratorio B1.16 (Windows y Windows) entra además en el `RA.02` y el `RA.04`:**
 >

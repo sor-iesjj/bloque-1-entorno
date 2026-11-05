@@ -13,7 +13,7 @@ Tipo: Chuletario
 > | **Curso** | 2026-27 · 1.er trimestre |
 > | **Módulo** | SOR · Sistemas Operativos en Red · 2.º SMR (Ciclo Formativo de Grado Medio) |
 > | **Bloque** | Bloque 1 · Preparar el entorno |
-> | **Prácticas** | B1.16a a B1.16f · Laboratorio Windows y Windows (ediciones Cole y Casa) |
+> | **Prácticas** | B1.16a a B1.16g · Laboratorio Windows y Windows (ediciones Cole y Casa) |
 > | **Profesor** | Pedro Navarro Miralles |
 > | **Licencia** | © 2026 Pedro Navarro Miralles · [CC BY-NC-SA 4.0](LICENSE): atribución obligatoria, uso no comercial, compartir igual |
 
@@ -107,6 +107,21 @@ Tipo: Chuletario
 | 52 | Dentro de la sesión remota | `hostname` y `whoami` | Demuestra en qué equipo y con qué usuario estás. |
 | 53 | Dentro de la sesión remota | `quser` | Sesiones abiertas en el equipo, delante (`console`) o remotas (`rdp-tcp`). |
 
+### B1.16g · Base sellada, SID y clonado seguro
+
+| Nº | Dónde | Comando | Qué hace |
+| :--- | :--- | :--- | :--- |
+| 66 | Los dos | `Get-LocalUser \| Select-Object Name, SID` | 💻 **Solo con comando.** Cada usuario local con su SID: todos llevan delante la misma parte del equipo. |
+| 67 | `W11-MAL` · Admin | `Rename-Computer -NewName "W11-MAL" -Restart` | Le cambia el nombre al clon malo y reinicia. **Antes** de conectar su cable. |
+| 68 | Cliente · Admin | `New-Item -Path C:\PruebaSID -ItemType Directory` y `New-Item -Path C:\PruebaSID\hola.txt -ItemType File` | Carpeta y archivo de prueba en `W11-CLI`. |
+| 69 | Cliente · Admin | `New-SmbShare -Name PruebaSID -Path C:\PruebaSID -ReadAccess juan` | Comparte la carpeta de prueba, solo lectura para `juan`. |
+| 70 | Cliente · Admin | `icacls C:\PruebaSID /grant "juan:(OI)(CI)RX"` | Permiso NTFS de lectura para `juan`. |
+| 71 | `W11-MAL` y servidor · Normal (`juan`) | `net use \\W11-CLI\PruebaSID` | Intenta abrir la carpeta de prueba. Desde `W11-MAL` debe fallar; desde `W11-SRV`, funcionar. |
+| 72 | Servidor · Normal (`juan`) | `net use \\W11-CLI\PruebaSID /delete` | Cierra la conexión de prueba. |
+| 73 | Cliente · Admin | `Remove-SmbShare -Name PruebaSID -Force` y `Remove-Item -Path C:\PruebaSID -Recurse` | Deja de compartir y borra la carpeta de prueba. |
+
+Además: 3 (`hostname`), 55 (`whoami /user`) y 13 (Sysprep).
+
 ### Solo en tu ordenador: quitar la tortuga verde de VirtualBox (B1.16a, errores)
 
 Todo en tu **Windows físico**, no en la VM, en PowerShell **como administrador** y **solo si eres el administrador del equipo**. Deja el equipo menos protegido, y el Laboratorio 3 (Hyper-V) necesita deshacerlo. Lee antes el cuadro «La tortuga verde» de B1.16a.
@@ -132,4 +147,4 @@ Todo en tu **Windows físico**, no en la VM, en PowerShell **como administrador*
 > - Los SID de **grupo** (`S-1-5-32-544`, `-545`, `-555`, `S-1-5-11`, `S-1-5-18`) son los mismos en cualquier Windows, en cualquier idioma. El SID del **equipo**, en cambio, es único de cada instalación: por eso se comprueba con el 55. Por eso se usan en vez de los nombres de los grupos. El 21 usa `Todos`, que es el nombre en un Windows en español; en inglés sería `Everyone`.
 > - `Tab` completa nombres y rutas; la flecha ↑ repite el último comando.
 
-**Vuelve a las prácticas:** [B1.16a](B1_16.a_Red_Basica_Dos_Windows_11.md) · [B1.16b](B1_16.b_Carpeta_Compartida_Para_Todos_Windows.md) · [B1.16c](B1_16.c_Permisos_por_Usuario_Windows.md) · [B1.16d](B1_16.d_Impresora_PDF_Compartida_Windows.md) · [B1.16e](B1_16.e_Impresora_Solo_para_Pedro_Windows.md) · [B1.16f](B1_16.f_Escritorio_Remoto_Windows.md).
+**Vuelve a las prácticas:** [B1.16a](B1_16.a_Red_Basica_Dos_Windows_11.md) · [B1.16b](B1_16.b_Carpeta_Compartida_Para_Todos_Windows.md) · [B1.16c](B1_16.c_Permisos_por_Usuario_Windows.md) · [B1.16d](B1_16.d_Impresora_PDF_Compartida_Windows.md) · [B1.16e](B1_16.e_Impresora_Solo_para_Pedro_Windows.md) · [B1.16f](B1_16.f_Escritorio_Remoto_Windows.md) · [B1.16g](B1_16.g_Base_Sellada_SID_y_Clonado_Seguro_Windows.md).
