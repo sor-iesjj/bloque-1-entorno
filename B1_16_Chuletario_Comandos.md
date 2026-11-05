@@ -144,7 +144,7 @@ Todo en tu **Windows físico**, no en la VM, en PowerShell **como administrador*
 > - Usa el nombre real de tu tarjeta (`Ethernet` es el habitual).
 > - **Nunca apagues el firewall.** Solo se abre lo necesario, y solo en redes privadas.
 > - El 55 va en la tabla de B1.16a: es la comprobación del SID del Paso 4.3.
-> - Los SID de **grupo** (`S-1-5-32-544`, `-545`, `-555`, `S-1-5-11`, `S-1-5-18`) son los mismos en cualquier Windows, en cualquier idioma. El SID del **equipo**, en cambio, es único de cada instalación: por eso se comprueba con el 55. Por eso se usan en vez de los nombres de los grupos. El 21 usa `Todos`, que es el nombre en un Windows en español; en inglés sería `Everyone`.
+> - Los SID de **grupo** (`S-1-5-32-544`, `-545`, `-555`, `S-1-5-11`, `S-1-5-18`) son los mismos en cualquier Windows, en cualquier idioma: por eso se usan en vez de los nombres de los grupos. El SID del **equipo**, en cambio, es único de cada instalación: por eso se comprueba con el 55. El 21 usa `Todos`, que es el nombre en un Windows en español; en inglés sería `Everyone`.
 > - `Tab` completa nombres y rutas; la flecha ↑ repite el último comando.
 
 **Vuelve a las prácticas:** [B1.16a](B1_16.a_Red_Basica_Dos_Windows_11.md) · [B1.16b](B1_16.b_Carpeta_Compartida_Para_Todos_Windows.md) · [B1.16c](B1_16.c_Permisos_por_Usuario_Windows.md) · [B1.16d](B1_16.d_Impresora_PDF_Compartida_Windows.md) · [B1.16e](B1_16.e_Impresora_Solo_para_Pedro_Windows.md) · [B1.16f](B1_16.f_Escritorio_Remoto_Windows.md) · [B1.16g](B1_16.g_Base_Sellada_SID_y_Clonado_Seguro_Windows.md).
