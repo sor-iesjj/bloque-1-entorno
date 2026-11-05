@@ -77,7 +77,7 @@
 | B1.13 | [[B1_13_Proyecto_Final\|Proyecto final de integración]] | Integrador |
 
 ### F · Laboratorio de servicios de red: Windows y Windows (B1.16) · Laboratorio 1
-**Dos Windows 11 Pro clonados de una máquina base sellada con Sysprep (cada uno con su propio SID), en la Red NAT `B1_LAB` (`192.168.100.0/24`, con DHCP).** Servidor `W11-SRV` con IP fija `192.168.100.10`; cliente `W11-CLI` por DHCP. Usuarios `juan`, `pedro`, `maria` y `ana`, creados en los dos equipos con la misma contraseña. Cada práctica parte de la instantánea de la anterior.
+**Dos Windows 11 Pro clonados de una máquina base sellada con Sysprep (cada uno con su propio SID), en la Red NAT `B1_LAB` (`192.168.100.0/24`, con DHCP).** Servidor `W11-SRV` con IP fija `192.168.100.10`; cliente `W11-CLI` por DHCP. Cada clon con su usuario de la configuración inicial (`b1w11srv` y `b1w11cli`). Usuarios `juan`, `pedro`, `maria` y `ana`, creados en los dos equipos con la misma contraseña. Cada práctica parte de la instantánea de la anterior.
 
 > [!important] Cole y Casa en B1.16: con una apruebas, con las dos subes nota
 > Cada práctica de B1.16 tiene **una sola ficha** con dos ediciones. La **Cole** es la mínima: con ella entregada y bien hecha, la práctica está aprobada. La **Casa** repite el ejercicio entero en tu ordenador, desde cero, y **sube nota**. Si en el aula no te da tiempo, entregar solo la de Casa también vale. Cada edición lleva su vídeo (`B1.16a Cole · …` / `B1.16a Casa · …`) y su entrada (`-cole.md` / `-casa.md`), en la misma playlist `B1_Entorno`.
@@ -90,6 +90,7 @@
 | B1.16d | [[B1_16.d_Impresora_PDF_Compartida_Windows\|Impresora PDF compartida]] | Intermedio |
 | B1.16e | [[B1_16.e_Impresora_Solo_para_Pedro_Windows\|Impresora solo para Pedro]] | Intermedio |
 | B1.16f | [[B1_16.f_Escritorio_Remoto_Windows\|Escritorio remoto]] | Intermedio |
+| B1.16g | [[B1_16.g_Base_Sellada_SID_y_Clonado_Seguro_Windows\|Base sellada, SID y clonado seguro]] | Intermedio |
 | — | [[B1_16_Chuletario_Comandos\|Chuletario de comandos de B1.16]] | — |
 
 ### G · Laboratorios de red (prólogo de los Bloques 2 y 3) · Laboratorios 2 y 3

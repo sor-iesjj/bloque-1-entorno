@@ -37,14 +37,17 @@ Tipo: Chuletario
 | 8 | Los dos | `Get-NetConnectionProfile` | Dice si la red es `Public` o `Private`. |
 | 9 | Los dos · Admin | `Set-NetConnectionProfile -InterfaceAlias "Ethernet" -NetworkCategory Private` | Pasa la red a privada. |
 | 10 | Los dos · Admin | `New-NetFirewallRule -DisplayName "LAB - Ping entrante (ICMPv4)" -Direction Inbound -Protocol ICMPv4 -IcmpType 8 -Action Allow -Profile Private` | Deja entrar solo el ping, y solo en redes privadas. |
+| 63 | Los dos · Admin | `([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)` | 💻 **Solo con comando.** `True` = la ventana es de administrador. Si sale *«Acceso denegado»* en el 9 o el 10, mira esto primero. |
 | 11 | Los dos | `arp -a` | 💻 **Solo con comando.** Relación IP ↔ MAC de los vecinos con los que has hablado. |
 | 12 | Cliente | `ping 192.168.100.10` | 💻 **Solo con comando.** Comprueba que la IP fija del servidor está libre (no debe responder). |
 | 13 | Base, en modo auditoría | `C:\Windows\System32\Sysprep\sysprep.exe /generalize /oobe /shutdown` | **Sella la base:** le borra el SID (`/generalize`), deja el próximo arranque en la configuración inicial (`/oobe`) y la apaga. Cierra antes la ventana de Sysprep con **Cancelar**. |
-| 14 | Servidor · Admin | `New-NetIPAddress -InterfaceAlias "Ethernet" -IPAddress 192.168.100.10 -PrefixLength 24 -DefaultGateway PUERTA` | IP fija con su puerta de enlace (cambia `PUERTA` por la tuya: si lo copias tal cual, *Invalid parameter*). |
-| 15 | Servidor · Admin | `Set-DnsClientServerAddress -InterfaceAlias "Ethernet" -ServerAddresses DNS` | Pone el servidor DNS (cambia `DNS` por el tuyo). |
+| 64 | Servidor · Admin | `$dns = (Get-DnsClientServerAddress -InterfaceAlias "Ethernet" -AddressFamily IPv4).ServerAddresses` y luego `$dns` | Guarda el DNS que dio el DHCP, antes de quitarlo. Del 64 al 15, **en la misma ventana**. |
+| 65 | Servidor · Admin | `Set-NetIPInterface -InterfaceAlias "Ethernet" -Dhcp Disabled`, después `Get-NetIPAddress -InterfaceAlias "Ethernet" -AddressFamily IPv4 -ErrorAction SilentlyContinue \| Remove-NetIPAddress -Confirm:$false` y `Get-NetRoute -InterfaceAlias "Ethernet" -DestinationPrefix "0.0.0.0/0" -ErrorAction SilentlyContinue \| Remove-NetRoute -Confirm:$false` | Quita la configuración del DHCP. Sin esto, el 14 dice *«already exists»*. |
+| 14 | Servidor · Admin | `New-NetIPAddress -InterfaceAlias "Ethernet" -IPAddress 192.168.100.10 -PrefixLength 24 -DefaultGateway 192.168.100.1` | IP fija con su puerta de enlace, la `.1` de la Red NAT. Antes, el 64 y el 65. |
+| 15 | Servidor · Admin | `Set-DnsClientServerAddress -InterfaceAlias "Ethernet" -ServerAddresses $dns` | Pone el DNS que guardaste con el 64. En otra ventana `$dns` está vacía. |
 | 56 | Base, consola de `Shift + F10` en la pantalla del país | `C:\Windows\System32\Sysprep\sysprep.exe /audit /reboot` | **Solo si `Ctrl + Shift + F3` no funciona:** reinicia en modo auditoría. La consola tiene que estar en `C:\Windows\system32`; si dice `X:\sources`, sigues en el instalador. |
 | 55 | Los dos | `whoami /user` | 💻 **Solo con comando.** Tu usuario y su SID. Los tres números largos del medio son el **SID del equipo**: tienen que ser **distintos** en `W11-SRV` y `W11-CLI`. |
-| 62 | Clon, consola de `Shift + F10` en la pantalla de la cuenta | `start ms-cxh:localonly` | **Solo si no sale el camino de la cuenta local:** abre la ventana para crear un usuario local, también sin red. |
+| 62 | Clon, consola de `Shift + F10` en la configuración inicial | `start ms-cxh:localonly` | Abre la ventana para crear un **usuario local**, también sin red. Para cuando te quedas en *«Vamos a conectarte a una red»* (cable sin marcar) o no sale el camino de la cuenta local. |
 
 ### B1.16b · Carpeta compartida para todos
 

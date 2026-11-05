@@ -48,5 +48,6 @@ Cada práctica se **graba entera con OBS** (presentándote, con timestamps) y se
 - `B1.16d` — Impresora PDF compartida
 - `B1.16e` — Impresora solo para Pedro
 - `B1.16f` — Escritorio remoto
+- `B1.16g` — Base sellada, SID y clonado seguro
 
 Consulta el índice completo con enlaces en [`B1_00_Indice.md`](B1_00_Indice.md).
