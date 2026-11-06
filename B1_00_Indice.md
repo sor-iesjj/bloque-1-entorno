@@ -84,7 +84,8 @@
 
 | # | Práctica | Nivel |
 |---|----------|-------|
-| B1.16a | [[B1_16.a_Red_Basica_Dos_Windows_11\|Red básica entre dos Windows 11: máquina base sellada, clones, SID, IP, máscara, puerta de enlace y DNS]] | Intermedio |
+| B1.16a Básico | [[B1_16.a_Red_Basica_Dos_Windows_11_Basico\|Red básica entre dos Windows 11: importar las dos máquinas de `Limpio`, SID, IP, máscara, puerta de enlace y DNS]] · **obligatoria** | Intermedio |
+| B1.16a Avanzado | [[B1_16.a_Red_Basica_Dos_Windows_11_Avanzado\|Lo mismo, fabricando tú las máquinas: base sellada con Sysprep y clones]] · **para subir nota** | Avanzado |
 | B1.16b | [[B1_16.b_Carpeta_Compartida_Para_Todos_Windows\|Carpeta compartida para todos]] | Intermedio |
 | B1.16c | [[B1_16.c_Permisos_por_Usuario_Windows\|Permisos por usuario en la carpeta compartida]] | Intermedio |
 | B1.16d | [[B1_16.d_Impresora_PDF_Compartida_Windows\|Impresora PDF compartida]] | Intermedio |

@@ -116,4 +116,4 @@ Vídeo: B1.13 · Proyecto final de integración
 > - Que sabes **comparar y decidir** el método adecuado según el caso.
 > - Que puedes **documentar y defender** un despliegue como un profesional.
 >
-> **Siguiente:** los laboratorios de red. Empiezas por el **Laboratorio 1**, [B1.16a — Red básica entre dos Windows 11](B1_16.a_Red_Basica_Dos_Windows_11.md).
+> **Siguiente:** los laboratorios de red. Empiezas por el **Laboratorio 1**, [B1.16a Básico — Red básica entre dos Windows 11](B1_16.a_Red_Basica_Dos_Windows_11_Basico.md) (o su edición [Avanzado](B1_16.a_Red_Basica_Dos_Windows_11_Avanzado.md), para subir nota).
