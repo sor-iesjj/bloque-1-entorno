@@ -23,8 +23,10 @@ Tipo: Chuletario
 **Máquinas:** Servidor = `W11-SRV` (VM `B1-W11-SRV`) · Cliente = `W11-CLI` (VM `B1-W11-CLI`). Red del laboratorio: `B1_LAB`, `192.168.100.0/24`.
 **Cada hipervisor tiene su versión de B1.16a:**
 - **VirtualBox:** la red `B1_LAB` es una **Red NAT con DHCP** y el cliente va **por DHCP**.
-- **Hyper-V:** la red `B1_LAB` es un **conmutador interno**, el servidor va en la **`.10`** y el cliente en la **`.20`**, los dos **fijos**. Los comandos del 66 al 78 son solo de esta versión.
-**Alias de la tarjeta:** en VirtualBox se llama `Ethernet`. En Hyper-V, después del Paso 6.4 de B1.16a, se llama **`LAB`**: cámbialo en los comandos 8, 9 y 10 o te dirá que no encuentra la interfaz.
+- **Hyper-V, B1.16a.1:** la red `B1_LAB` es un **conmutador interno**, el servidor va en la **`.10`** y el cliente en la **`.20`**, los dos **fijos**. Cada máquina lleva una segunda tarjeta en el `Default Switch`.
+- **Hyper-V, B1.16a.2:** **una sola tarjeta** en el `Default Switch`, todo **por DHCP**. Donde ponga `192.168.100.10`, usa la IP de tu servidor.
+- Los comandos del 66 al 79 son solo de Hyper-V.
+**Alias de la tarjeta:** en VirtualBox y en B1.16a.2 se llama `Ethernet`. En B1.16a.1, después del Paso 6.5, se llama **`LAB`**: cámbialo en los comandos 8, 9 y 10 o te dirá que no encuentra la interfaz.
 **«Admin»** = PowerShell como administrador. **«Normal»** = PowerShell sin administrador, con la sesión del usuario que toque.
 
 ### B1.16a · Red básica
@@ -55,18 +57,19 @@ Tipo: Chuletario
 
 ### B1.16a · Hyper-V (conmutadores, máquinas y tarjetas)
 
-Solo en la versión Hyper-V de la práctica. Del 66 al 73 y el 78 van en tu **equipo físico**; del 74 al 77, **dentro de la máquina virtual**.
+Solo en la versión Hyper-V de la práctica. Del 66 al 73, el 78 y el 79 van en tu **equipo físico**; del 74 al 77, **dentro de la máquina virtual**.
 
 | Nº | Dónde | Comando | Qué hace |
 | :--- | :--- | :--- | :--- |
 | 66 | Equipo físico | `Get-VMSwitch` | Lista los conmutadores. Tiene que salir `Default Switch` y, después del 67, `B1_LAB` de tipo `Internal`. |
 | 67 | Equipo físico | `New-VMSwitch -Name "B1_LAB" -SwitchType Internal` | Crea el conmutador del laboratorio. `Internal` deja también a tu equipo dentro de esa red; `Private` no. |
-| 68 | Equipo físico | `New-VM -Name "B1-W11-SRV" -Generation 2 -MemoryStartupBytes 4GB -NewVHDSizeBytes 64GB -SwitchName "B1_LAB"` | Crea la caja vacía: generación 2, 4 GB de RAM, disco de 64 GB y **su primera tarjeta ya en `B1_LAB`**. `New-VM` siempre crea una tarjeta; si no le dices conmutador, nace sin conectar. |
-| 69 | Equipo físico | `Set-VM -Name "B1-W11-SRV" -ProcessorCount 2 -StaticMemory` | Dos procesadores virtuales y memoria fija, sin memoria dinámica. |
-| 70 | Equipo físico | `Enable-VMTPM -VMName "B1-W11-SRV"` | Añade el TPM virtual. Sin él, Windows 11 no se instala. |
+| 68 | Equipo físico | `New-VM -Name "B1-W11-SRV" -Generation 2 -MemoryStartupBytes 4GB -NewVHDPath "$((Get-VMHost).VirtualHardDiskPath)\B1-W11-SRV.vhdx" -NewVHDSizeBytes 64GB` | Crea la caja vacía: generación 2, 4 GB de RAM y disco de 64 GB en la carpeta de discos de Hyper-V. `New-VM` siempre crea una tarjeta; como no le dices conmutador, **nace sin conectar**, que es lo que quieres para instalar. Se conecta con el 79. |
+| 69 | Equipo físico | `Set-VM -Name "B1-W11-SRV" -ProcessorCount 2 -StaticMemory -AutomaticCheckpointsEnabled $false` | Dos procesadores virtuales, memoria fija y sin puntos de control automáticos. |
+| 70 | Equipo físico | `Set-VMKeyProtector -VMName "B1-W11-SRV" -NewLocalKeyProtector` y después `Enable-VMTPM -VMName "B1-W11-SRV"` | Crea el candado del TPM y añade el TPM virtual. Sin el candado, el segundo da error. Sin TPM, Windows 11 no se instala. |
 | 71 | Equipo físico | `Add-VMDvdDrive -VMName "B1-W11-SRV" -Path "D:\ISO\Win11.iso"` y `Set-VMFirmware -VMName "B1-W11-SRV" -FirstBootDevice (Get-VMDvdDrive -VMName "B1-W11-SRV")` | Monta la ISO y hace que arranque desde ella. Cambia la ruta por la tuya. |
 | 72 | Equipo físico | `Add-VMNetworkAdapter -VMName "B1-W11-SRV" -SwitchName "Default Switch"` | **Añade** la segunda tarjeta, la de salida. La primera ya existe y va en `B1_LAB`. Comprueba antes con el 73 que solo hay una. |
 | 73 | Equipo físico | `Get-VMNetworkAdapter -VMName "B1-W11-SRV"` | Qué conmutador tiene cada tarjeta de la máquina. |
+| 79 | Equipo físico | `Connect-VMNetworkAdapter -VMName "B1-W11-SRV" -SwitchName "B1_LAB"` | Enchufa la tarjeta que ya existe. En B1.16a.1, a `B1_LAB`; en B1.16a.2, a `"Default Switch"`. Con la máquina apagada. |
 | 74 | Dentro de la VM · Admin | `Get-NetAdapter` | Las tarjetas tal como las ve Windows: `Ethernet`, `Ethernet 2`… |
 | 75 | Dentro de la VM · Admin | `Rename-NetAdapter -Name "Ethernet" -NewName "LAB"` y `Rename-NetAdapter -Name "Ethernet 2" -NewName "SALIDA"` | Les pone nombre. Averigua antes cuál es cuál con el 76. |
 | 76 | Dentro de la VM | `Get-NetIPAddress -AddressFamily IPv4` | `172.x` = Default Switch, con DHCP. `169.254.x` = `B1_LAB`, donde nadie reparte IP. |
@@ -156,4 +159,4 @@ Todo en tu **Windows físico**, no en la VM, en PowerShell **como administrador*
 > - Los SID de **grupo** (`S-1-5-32-544`, `-545`, `-555`, `S-1-5-11`, `S-1-5-18`) son los mismos en cualquier Windows, en cualquier idioma: por eso se usan en vez de los nombres de los grupos. El SID del **equipo**, en cambio, es único de cada instalación: por eso se comprueba con el 55. El 21 usa `Todos`, que es el nombre en un Windows en español; en inglés sería `Everyone`.
 > - `Tab` completa nombres y rutas; la flecha ↑ repite el último comando.
 
-**Vuelve a las prácticas:** [B1.16a Básico](B1_16.a_Red_Basica_Dos_Windows_11_Basico.md) · [B1.16a Avanzado](B1_16.a_Red_Basica_Dos_Windows_11_Avanzado.md) · [B1.16b](B1_16.b_Carpeta_Compartida_Para_Todos_Windows.md) · [B1.16c](B1_16.c_Permisos_por_Usuario_Windows.md) · [B1.16d](B1_16.d_Impresora_PDF_Compartida_Windows.md) · [B1.16e](B1_16.e_Impresora_Solo_para_Pedro_Windows.md) · [B1.16f](B1_16.f_Escritorio_Remoto_Windows.md) · [B1.16g](B1_16.g_Base_Sellada_SID_y_Clonado_Seguro_Windows.md).
+**Vuelve a las prácticas:** [B1.16a Básico](B1_16.a_Red_Basica_Dos_Windows_11_Basico.md) · [B1.16a Avanzado](B1_16.a_Red_Basica_Dos_Windows_11_Avanzado.md) · [B1.16a.1 Hyper-V conmutador interno](B1_16.a.1_Red_Basica_HyperV_Conmutador_Interno.md) · [B1.16a.2 Hyper-V Default Switch](B1_16.a.2_Red_Basica_HyperV_Default_Switch.md) · [B1.16b](B1_16.b_Carpeta_Compartida_Para_Todos_Windows.md) · [B1.16c](B1_16.c_Permisos_por_Usuario_Windows.md) · [B1.16d](B1_16.d_Impresora_PDF_Compartida_Windows.md) · [B1.16e](B1_16.e_Impresora_Solo_para_Pedro_Windows.md) · [B1.16f](B1_16.f_Escritorio_Remoto_Windows.md) · [B1.16g](B1_16.g_Base_Sellada_SID_y_Clonado_Seguro_Windows.md).

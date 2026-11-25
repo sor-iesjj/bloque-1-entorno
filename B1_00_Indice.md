@@ -86,6 +86,8 @@
 |---|----------|-------|
 | B1.16a Básico | [[B1_16.a_Red_Basica_Dos_Windows_11_Basico\|Red básica entre dos Windows 11: importar las dos máquinas de `Limpio`, SID, IP, máscara, puerta de enlace y DNS]] · **obligatoria** | Intermedio |
 | B1.16a Avanzado | [[B1_16.a_Red_Basica_Dos_Windows_11_Avanzado\|Lo mismo, fabricando tú las máquinas: base sellada con Sysprep y clones]] · **para subir nota** | Avanzado |
+| B1.16a.1 Hyper-V | [[B1_16.a.1_Red_Basica_HyperV_Conmutador_Interno\|Red básica en Hyper-V con conmutador interno `B1_LAB`: dos tarjetas, IP fija `.10`/`.20`]] · **se intenta primero en el aula** | Intermedio |
+| B1.16a.2 Hyper-V | [[B1_16.a.2_Red_Basica_HyperV_Default_Switch\|Red básica en Hyper-V solo con el Default Switch: una tarjeta, todo por DHCP]] · **si no te deja crear `B1_LAB`** | Intermedio |
 | B1.16b | [[B1_16.b_Carpeta_Compartida_Para_Todos_Windows\|Carpeta compartida para todos]] | Intermedio |
 | B1.16c | [[B1_16.c_Permisos_por_Usuario_Windows\|Permisos por usuario en la carpeta compartida]] | Intermedio |
 | B1.16d | [[B1_16.d_Impresora_PDF_Compartida_Windows\|Impresora PDF compartida]] | Intermedio |
