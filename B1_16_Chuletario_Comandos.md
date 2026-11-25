@@ -20,7 +20,11 @@ Tipo: Chuletario
 > [!tip] Esto es el 💻 Plan B
 > En las prácticas, el **Plan A** es con ventanas y es el que se espera en el vídeo. Aquí están **los mismos pasos con comandos**, para quien quiera practicar el terminal o por si una ventana no aparece. Los que llevan **💻 Solo con comando** no tienen ventana equivalente: esos sí hay que hacerlos aquí.
 
-**Máquinas:** Servidor = `W11-SRV` (VM `B1-W11-SRV`, IP fija `192.168.100.10`) · Cliente = `W11-CLI` (VM `B1-W11-CLI`, IP por DHCP) · Red NAT `B1_LAB` (`192.168.100.0/24`).
+**Máquinas:** Servidor = `W11-SRV` (VM `B1-W11-SRV`) · Cliente = `W11-CLI` (VM `B1-W11-CLI`). Red del laboratorio: `B1_LAB`, `192.168.100.0/24`.
+**Cada hipervisor tiene su versión de B1.16a:**
+- **VirtualBox:** la red `B1_LAB` es una **Red NAT con DHCP** y el cliente va **por DHCP**.
+- **Hyper-V:** la red `B1_LAB` es un **conmutador interno**, el servidor va en la **`.10`** y el cliente en la **`.20`**, los dos **fijos**. Los comandos del 66 al 78 son solo de esta versión.
+**Alias de la tarjeta:** en VirtualBox se llama `Ethernet`. En Hyper-V, después del Paso 6.4 de B1.16a, se llama **`LAB`**: cámbialo en los comandos 8, 9 y 10 o te dirá que no encuentra la interfaz.
 **«Admin»** = PowerShell como administrador. **«Normal»** = PowerShell sin administrador, con la sesión del usuario que toque.
 
 ### B1.16a · Red básica
