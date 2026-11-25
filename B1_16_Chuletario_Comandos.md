@@ -51,7 +51,7 @@ Tipo: Chuletario
 | 15 | Servidor · Admin | `Set-DnsClientServerAddress -InterfaceAlias "Ethernet" -ServerAddresses $dns` | Pone el DNS que guardaste con el 64. En otra ventana `$dns` está vacía. |
 | 56 | Base, consola de `Shift + F10` en la pantalla del país | `C:\Windows\System32\Sysprep\sysprep.exe /audit /reboot` | **Solo si `Ctrl + Shift + F3` no funciona:** reinicia en modo auditoría. La consola tiene que estar en `C:\Windows\system32`; si dice `X:\sources`, sigues en el instalador. |
 | 55 | Los dos | `whoami /user` | 💻 **Solo con comando.** Tu usuario y su SID. Los tres números largos del medio son el **SID del equipo**: tienen que ser **distintos** en `W11-SRV` y `W11-CLI`. |
-| 62 | Clon, consola de `Shift + F10` en la configuración inicial | `start ms-cxh:localonly` | Abre la ventana para crear un **usuario local**, también sin red. Para cuando te quedas en *«Vamos a conectarte a una red»* (cable sin marcar) o no sale el camino de la cuenta local. |
+| 62 | Configuración inicial, consola de `Shift + F10` | `start ms-cxh:localonly` | Abre la ventana para crear un **usuario local**, también sin red. Para cuando te quedas en *«Vamos a conectarte a una red»* (cable sin marcar) o no sale el camino de la cuenta local. |
 
 ### B1.16a · Hyper-V (conmutadores, máquinas y tarjetas)
 
