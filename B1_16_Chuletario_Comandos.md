@@ -49,6 +49,26 @@ Tipo: Chuletario
 | 55 | Los dos | `whoami /user` | 💻 **Solo con comando.** Tu usuario y su SID. Los tres números largos del medio son el **SID del equipo**: tienen que ser **distintos** en `W11-SRV` y `W11-CLI`. |
 | 62 | Clon, consola de `Shift + F10` en la configuración inicial | `start ms-cxh:localonly` | Abre la ventana para crear un **usuario local**, también sin red. Para cuando te quedas en *«Vamos a conectarte a una red»* (cable sin marcar) o no sale el camino de la cuenta local. |
 
+### B1.16a · Hyper-V (conmutadores, máquinas y tarjetas)
+
+Solo en la versión Hyper-V de la práctica. Del 66 al 73 y el 78 van en tu **equipo físico**; del 74 al 77, **dentro de la máquina virtual**.
+
+| Nº | Dónde | Comando | Qué hace |
+| :--- | :--- | :--- | :--- |
+| 66 | Equipo físico | `Get-VMSwitch` | Lista los conmutadores. Tiene que salir `Default Switch` y, después del 67, `B1_LAB` de tipo `Internal`. |
+| 67 | Equipo físico | `New-VMSwitch -Name "B1_LAB" -SwitchType Internal` | Crea el conmutador del laboratorio. `Internal` deja también a tu equipo dentro de esa red; `Private` no. |
+| 68 | Equipo físico | `New-VM -Name "B1-W11-SRV" -Generation 2 -MemoryStartupBytes 4GB -NewVHDSizeBytes 64GB` | Crea la caja vacía: generación 2, 4 GB de RAM, disco de 64 GB. Sin red y sin ISO. |
+| 69 | Equipo físico | `Set-VM -Name "B1-W11-SRV" -ProcessorCount 2 -StaticMemory` | Dos procesadores virtuales y memoria fija, sin memoria dinámica. |
+| 70 | Equipo físico | `Enable-VMTPM -VMName "B1-W11-SRV"` | Añade el TPM virtual. Sin él, Windows 11 no se instala. |
+| 71 | Equipo físico | `Add-VMDvdDrive -VMName "B1-W11-SRV" -Path "D:\ISO\Win11.iso"` y `Set-VMFirmware -VMName "B1-W11-SRV" -FirstBootDevice (Get-VMDvdDrive -VMName "B1-W11-SRV")` | Monta la ISO y hace que arranque desde ella. Cambia la ruta por la tuya. |
+| 72 | Equipo físico | `Add-VMNetworkAdapter -VMName "B1-W11-SRV" -SwitchName "B1_LAB"` y después `Add-VMNetworkAdapter -VMName "B1-W11-SRV" -SwitchName "Default Switch"` | Las dos tarjetas, **en ese orden**: la primera es la que Windows llamará `Ethernet`. |
+| 73 | Equipo físico | `Get-VMNetworkAdapter -VMName "B1-W11-SRV"` | Qué conmutador tiene cada tarjeta de la máquina. |
+| 74 | Dentro de la VM · Admin | `Get-NetAdapter` | Las tarjetas tal como las ve Windows: `Ethernet`, `Ethernet 2`… |
+| 75 | Dentro de la VM · Admin | `Rename-NetAdapter -Name "Ethernet" -NewName "LAB"` y `Rename-NetAdapter -Name "Ethernet 2" -NewName "SALIDA"` | Les pone nombre. Averigua antes cuál es cuál con el 76. |
+| 76 | Dentro de la VM | `Get-NetIPAddress -AddressFamily IPv4` | `172.x` = Default Switch, con DHCP. `169.254.x` = `B1_LAB`, donde nadie reparte IP. |
+| 77 | Dentro de la VM · Admin | `Set-NetIPInterface -InterfaceAlias "LAB" -Dhcp Disabled`, después `Get-NetIPAddress -InterfaceAlias "LAB" -AddressFamily IPv4 -ErrorAction SilentlyContinue \| Remove-NetIPAddress -Confirm:$false` y `New-NetIPAddress -InterfaceAlias "LAB" -IPAddress 192.168.100.10 -PrefixLength 24` | IP fija en la tarjeta del laboratorio, **sin `-DefaultGateway`**: esa red no sale a ningún sitio. |
+| 78 | Equipo físico | `Checkpoint-VM -Name "B1-W11-SRV" -SnapshotName "B1.16a Cole · Red OK"` | Punto de control con nombre. Vale con la máquina encendida o apagada. |
+
 ### B1.16b · Carpeta compartida para todos
 
 | Nº | Dónde | Comando | Qué hace |
