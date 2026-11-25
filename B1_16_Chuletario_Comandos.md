@@ -57,11 +57,11 @@ Solo en la versión Hyper-V de la práctica. Del 66 al 73 y el 78 van en tu **eq
 | :--- | :--- | :--- | :--- |
 | 66 | Equipo físico | `Get-VMSwitch` | Lista los conmutadores. Tiene que salir `Default Switch` y, después del 67, `B1_LAB` de tipo `Internal`. |
 | 67 | Equipo físico | `New-VMSwitch -Name "B1_LAB" -SwitchType Internal` | Crea el conmutador del laboratorio. `Internal` deja también a tu equipo dentro de esa red; `Private` no. |
-| 68 | Equipo físico | `New-VM -Name "B1-W11-SRV" -Generation 2 -MemoryStartupBytes 4GB -NewVHDSizeBytes 64GB` | Crea la caja vacía: generación 2, 4 GB de RAM, disco de 64 GB. Sin red y sin ISO. |
+| 68 | Equipo físico | `New-VM -Name "B1-W11-SRV" -Generation 2 -MemoryStartupBytes 4GB -NewVHDSizeBytes 64GB -SwitchName "B1_LAB"` | Crea la caja vacía: generación 2, 4 GB de RAM, disco de 64 GB y **su primera tarjeta ya en `B1_LAB`**. `New-VM` siempre crea una tarjeta; si no le dices conmutador, nace sin conectar. |
 | 69 | Equipo físico | `Set-VM -Name "B1-W11-SRV" -ProcessorCount 2 -StaticMemory` | Dos procesadores virtuales y memoria fija, sin memoria dinámica. |
 | 70 | Equipo físico | `Enable-VMTPM -VMName "B1-W11-SRV"` | Añade el TPM virtual. Sin él, Windows 11 no se instala. |
 | 71 | Equipo físico | `Add-VMDvdDrive -VMName "B1-W11-SRV" -Path "D:\ISO\Win11.iso"` y `Set-VMFirmware -VMName "B1-W11-SRV" -FirstBootDevice (Get-VMDvdDrive -VMName "B1-W11-SRV")` | Monta la ISO y hace que arranque desde ella. Cambia la ruta por la tuya. |
-| 72 | Equipo físico | `Add-VMNetworkAdapter -VMName "B1-W11-SRV" -SwitchName "B1_LAB"` y después `Add-VMNetworkAdapter -VMName "B1-W11-SRV" -SwitchName "Default Switch"` | Las dos tarjetas, **en ese orden**: la primera es la que Windows llamará `Ethernet`. |
+| 72 | Equipo físico | `Add-VMNetworkAdapter -VMName "B1-W11-SRV" -SwitchName "Default Switch"` | **Añade** la segunda tarjeta, la de salida. La primera ya existe y va en `B1_LAB`. Comprueba antes con el 73 que solo hay una. |
 | 73 | Equipo físico | `Get-VMNetworkAdapter -VMName "B1-W11-SRV"` | Qué conmutador tiene cada tarjeta de la máquina. |
 | 74 | Dentro de la VM · Admin | `Get-NetAdapter` | Las tarjetas tal como las ve Windows: `Ethernet`, `Ethernet 2`… |
 | 75 | Dentro de la VM · Admin | `Rename-NetAdapter -Name "Ethernet" -NewName "LAB"` y `Rename-NetAdapter -Name "Ethernet 2" -NewName "SALIDA"` | Les pone nombre. Averigua antes cuál es cuál con el 76. |
