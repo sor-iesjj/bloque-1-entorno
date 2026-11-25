@@ -76,8 +76,17 @@
 |---|----------|-------|
 | B1.13 | [[B1_13_Proyecto_Final\|Proyecto final de integración]] | Integrador |
 
+> [!info] 📁 Dónde está cada laboratorio
+> Las fichas de laboratorio van en tres carpetas, según el hipervisor:
+>
+> | Carpeta | Qué tiene |
+> | :--- | :--- |
+> | `B1_Lab_VirtualBox/` | B1.14a-c y las versiones de B1.16a con VirtualBox (Básico, Avanzado y VirtualBox), con sus chuletas |
+> | `B1_Lab_HyperV/` | B1.15a-b y las versiones de B1.16a con Hyper-V (B1.16a.1 y B1.16a.2), con sus chuletas |
+> | `B1_Lab_Comun/` | B1.16b-g y la chuleta de B1.16: valen con los dos hipervisores |
+
 ### F · Laboratorio de servicios de red: Windows y Windows (B1.16) · Laboratorio 1
-**Dos Windows 11 Pro clonados de una máquina base sellada con Sysprep (cada uno con su propio SID), en la Red NAT `B1_LAB` (`192.168.100.0/24`, con DHCP).** Servidor `W11-SRV` con IP fija `192.168.100.10`; cliente `W11-CLI` por DHCP. Cada clon con su usuario de la configuración inicial (`b1w11srv` y `b1w11cli`). Usuarios `juan`, `pedro`, `maria` y `ana`, creados en los dos equipos con la misma contraseña. Cada práctica parte de la instantánea de la anterior.
+**Dos Windows 11 Pro, cada uno con su propio SID, servidor `W11-SRV` y cliente `W11-CLI`.** La práctica B1.16a tiene **cuatro versiones**, según el hipervisor y la red; elige **una**. Con VirtualBox: **Básico** (importa dos OVA), **Avanzado** (base sellada con Sysprep y clones) o **VirtualBox** (dos instalaciones a mano), todas en la Red NAT `B1_LAB` (`192.168.100.0/24`, con DHCP) y el servidor en la `192.168.100.10`. Con Hyper-V: **B1.16a.1** (conmutador interno `B1_LAB`, IP fija) o **B1.16a.2** (solo el Default Switch, todo por DHCP). B1.16b-g son comunes a las cuatro. Cada clon con su usuario de la configuración inicial (`b1w11srv` y `b1w11cli`). Usuarios `juan`, `pedro`, `maria` y `ana`, creados en los dos equipos con la misma contraseña. Cada práctica parte de la instantánea de la anterior.
 
 > [!important] Cole y Casa en B1.16: con una apruebas, con las dos subes nota
 > Cada práctica de B1.16 tiene **una sola ficha** con dos ediciones. La **Cole** es la mínima: con ella entregada y bien hecha, la práctica está aprobada. La **Casa** repite el ejercicio entero en tu ordenador, desde cero, y **sube nota**. Si en el aula no te da tiempo, entregar solo la de Casa también vale. Cada edición lleva su vídeo (`B1.16a Cole · …` / `B1.16a Casa · …`) y su entrada (`-cole.md` / `-casa.md`), en la misma playlist `B1_Entorno`.
@@ -86,6 +95,7 @@
 |---|----------|-------|
 | B1.16a Básico | [[B1_16.a_Red_Basica_Dos_Windows_11_Basico\|Red básica entre dos Windows 11: importar las dos máquinas de `Limpio`, SID, IP, máscara, puerta de enlace y DNS]] · **obligatoria** | Intermedio |
 | B1.16a Avanzado | [[B1_16.a_Red_Basica_Dos_Windows_11_Avanzado\|Lo mismo, fabricando tú las máquinas: base sellada con Sysprep y clones]] · **para subir nota** | Avanzado |
+| B1.16a VirtualBox | [[B1_16.a_Red_Basica_Dos_Windows_11_VirtualBox\|Lo mismo sin OVA: dos instalaciones a mano desde la ISO, Red NAT `B1_LAB`]] | Intermedio |
 | B1.16a.1 Hyper-V | [[B1_16.a.1_Red_Basica_HyperV_Conmutador_Interno\|Red básica en Hyper-V con conmutador interno `B1_LAB`: dos tarjetas, IP fija `.10`/`.20`]] · **se intenta primero en el aula** | Intermedio |
 | B1.16a.2 Hyper-V | [[B1_16.a.2_Red_Basica_HyperV_Default_Switch\|Red básica en Hyper-V solo con el Default Switch: una tarjeta, todo por DHCP]] · **si no te deja crear `B1_LAB`** | Intermedio |
 | B1.16b | [[B1_16.b_Carpeta_Compartida_Para_Todos_Windows\|Carpeta compartida para todos]] | Intermedio |

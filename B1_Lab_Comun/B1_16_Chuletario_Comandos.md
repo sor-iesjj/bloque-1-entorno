@@ -15,7 +15,7 @@ Tipo: Chuletario
 > | **Bloque** | Bloque 1 · Preparar el entorno |
 > | **Prácticas** | B1.16a a B1.16g · Laboratorio Windows y Windows (ediciones Cole y Casa) |
 > | **Profesor** | Pedro Navarro Miralles |
-> | **Licencia** | © 2026 Pedro Navarro Miralles · [CC BY-NC-SA 4.0](LICENSE): atribución obligatoria, uso no comercial, compartir igual |
+> | **Licencia** | © 2026 Pedro Navarro Miralles · [CC BY-NC-SA 4.0](../LICENSE): atribución obligatoria, uso no comercial, compartir igual |
 
 > [!tip] Esto es el 💻 Plan B
 > En las prácticas, el **Plan A** es con ventanas y es el que se espera en el vídeo. Aquí están **los mismos pasos con comandos**, para quien quiera practicar el terminal o por si una ventana no aparece. Los que llevan **💻 Solo con comando** no tienen ventana equivalente: esos sí hay que hacerlos aquí.
@@ -155,8 +155,8 @@ Todo en tu **Windows físico**, no en la VM, en PowerShell **como administrador*
 > [!warning] Ojo
 > - Usa el nombre real de tu tarjeta (`Ethernet` es el habitual).
 > - **Nunca apagues el firewall.** Solo se abre lo necesario, y solo en redes privadas.
-> - El 55 va en la tabla de B1.16a: es la comprobación del SID del Paso 4.3.
+> - El 55 va en la tabla de B1.16a: es la comprobación del SID. Está en el Paso 4.3 de Básico y Avanzado, y en el Paso 5.3 de las versiones VirtualBox, B1.16a.1 y B1.16a.2.
 > - Los SID de **grupo** (`S-1-5-32-544`, `-545`, `-555`, `S-1-5-11`, `S-1-5-18`) son los mismos en cualquier Windows, en cualquier idioma: por eso se usan en vez de los nombres de los grupos. El SID del **equipo**, en cambio, es único de cada instalación: por eso se comprueba con el 55. El 21 usa `Todos`, que es el nombre en un Windows en español; en inglés sería `Everyone`.
 > - `Tab` completa nombres y rutas; la flecha ↑ repite el último comando.
 
-**Vuelve a las prácticas:** [B1.16a Básico](B1_16.a_Red_Basica_Dos_Windows_11_Basico.md) · [B1.16a Avanzado](B1_16.a_Red_Basica_Dos_Windows_11_Avanzado.md) · [B1.16a.1 Hyper-V conmutador interno](B1_16.a.1_Red_Basica_HyperV_Conmutador_Interno.md) · [B1.16a.2 Hyper-V Default Switch](B1_16.a.2_Red_Basica_HyperV_Default_Switch.md) · [B1.16b](B1_16.b_Carpeta_Compartida_Para_Todos_Windows.md) · [B1.16c](B1_16.c_Permisos_por_Usuario_Windows.md) · [B1.16d](B1_16.d_Impresora_PDF_Compartida_Windows.md) · [B1.16e](B1_16.e_Impresora_Solo_para_Pedro_Windows.md) · [B1.16f](B1_16.f_Escritorio_Remoto_Windows.md) · [B1.16g](B1_16.g_Base_Sellada_SID_y_Clonado_Seguro_Windows.md).
+**Vuelve a las prácticas:** [B1.16a Básico](../B1_Lab_VirtualBox/B1_16.a_Red_Basica_Dos_Windows_11_Basico.md) · [B1.16a Avanzado](../B1_Lab_VirtualBox/B1_16.a_Red_Basica_Dos_Windows_11_Avanzado.md) · [B1.16a VirtualBox](../B1_Lab_VirtualBox/B1_16.a_Red_Basica_Dos_Windows_11_VirtualBox.md) · [B1.16a.1 Hyper-V conmutador interno](../B1_Lab_HyperV/B1_16.a.1_Red_Basica_HyperV_Conmutador_Interno.md) · [B1.16a.2 Hyper-V Default Switch](../B1_Lab_HyperV/B1_16.a.2_Red_Basica_HyperV_Default_Switch.md) · [B1.16b](B1_16.b_Carpeta_Compartida_Para_Todos_Windows.md) · [B1.16c](B1_16.c_Permisos_por_Usuario_Windows.md) · [B1.16d](B1_16.d_Impresora_PDF_Compartida_Windows.md) · [B1.16e](B1_16.e_Impresora_Solo_para_Pedro_Windows.md) · [B1.16f](B1_16.f_Escritorio_Remoto_Windows.md) · [B1.16g](B1_16.g_Base_Sellada_SID_y_Clonado_Seguro_Windows.md).

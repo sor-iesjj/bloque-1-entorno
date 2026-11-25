@@ -44,11 +44,16 @@ Cada práctica se **graba entera con OBS** (presentándote, con timestamps) y se
 **G · Laboratorio de servicios de red: Windows y Windows** *(una ficha por práctica; Cole basta para aprobar, Casa sube nota)*
 - `B1.16a Básico` — Red básica entre dos Windows 11 importando las dos máquinas preparadas (obligatoria)
 - `B1.16a Avanzado` — Lo mismo, fabricando las máquinas: base sellada con Sysprep y clones (para subir nota)
+- `B1.16a VirtualBox` — Lo mismo sin OVA: dos instalaciones a mano desde la ISO
+- `B1.16a.1` — Red básica en Hyper-V con conmutador interno `B1_LAB` e IP fija
+- `B1.16a.2` — Red básica en Hyper-V solo con el Default Switch, todo por DHCP
 - `B1.16b` — Carpeta compartida para todos
 - `B1.16c` — Permisos por usuario en la carpeta compartida
 - `B1.16d` — Impresora PDF compartida
 - `B1.16e` — Impresora solo para Pedro
 - `B1.16f` — Escritorio remoto
 - `B1.16g` — Base sellada, SID y clonado seguro
+
+**Dónde está cada ficha:** los laboratorios van en tres carpetas. [`B1_Lab_VirtualBox/`](B1_Lab_VirtualBox) tiene B1.14a-c y las versiones VirtualBox de B1.16a. [`B1_Lab_HyperV/`](B1_Lab_HyperV) tiene B1.15a-b, B1.16a.1 y B1.16a.2. [`B1_Lab_Comun/`](B1_Lab_Comun) tiene B1.16b-g y su chuleta, que valen con los dos hipervisores.
 
 Consulta el índice completo con enlaces en [`B1_00_Indice.md`](B1_00_Indice.md).
